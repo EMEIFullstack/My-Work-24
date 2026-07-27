@@ -1,11 +1,12 @@
 import React from 'react'
 import Home from './pages/Home/Home'
+import { Box } from '@mui/material'
 
 function App() {
   return (
-    <div>
+    <Box>
       <Home/>
-    </div>
+    </Box>
   )
 }
 
