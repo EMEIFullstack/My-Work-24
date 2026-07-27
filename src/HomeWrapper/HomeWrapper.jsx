@@ -66,7 +66,7 @@ img{
 .card{
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid #D6E8E8;
-    /* box-shadow: 0px 60px 78.7px rgba(17, 129, 71, 0.06); */
+    box-shadow: none;
     backdrop-filter: blur(8px);
     border-radius: 30px;
     margin-right: 30px;
