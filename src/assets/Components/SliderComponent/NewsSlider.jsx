@@ -101,7 +101,7 @@ export default function NewsSlider() {
                 alt={item.title}
               />
 
-              <CardContent>
+              <CardContent className="card-content">
                 <Typography
                   variant="body"
                   color="text.secondary"
@@ -118,7 +118,7 @@ export default function NewsSlider() {
                   {item.title}
                 </Typography>
 
-                <Typography variant="body2" color="text.secondary" className="card-content">
+                <Typography variant="body2" color="text.secondary" className="description">
                   {item.description}
                 </Typography>
               </CardContent>

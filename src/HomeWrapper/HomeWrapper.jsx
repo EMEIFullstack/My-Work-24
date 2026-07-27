@@ -74,11 +74,15 @@ img{
     /* height: 481px; */
 }
 
+.card-content{
+    padding: 27px 34px;
+}
+
 .flex{
     display: flex;
 }
 
-.card-content {
+.description {
     max-width: 93%;
     margin: 0;
     text-align: left !important;
@@ -99,6 +103,7 @@ h5{
 }
 
 .date{
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
