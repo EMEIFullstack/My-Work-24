@@ -27,7 +27,6 @@ function Home() {
     // const image = "./Ellipse 11.png";
 
   return (
-    <>
     <HomeWrapper>
         <Box fontFamily="Montserrat">
             <Container>
@@ -55,7 +54,6 @@ function Home() {
         </section>
     </Box>
     </HomeWrapper>
-    </>
   )
 }
 
