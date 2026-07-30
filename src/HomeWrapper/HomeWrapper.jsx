@@ -52,7 +52,7 @@ p.para{
     max-width: 100%;
 }
 
-img{
+/* img{
     position: relative;
 }
 
@@ -61,7 +61,7 @@ img{
     left: 0;
     top: 0;
     transform: translate(-6%, -14%);
-}
+} */
 
 .card{
     background: rgba(255, 255, 255, 0.7);
