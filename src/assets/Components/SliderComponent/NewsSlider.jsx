@@ -12,7 +12,6 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-// import "swiper/css/pagination";
 import { HomeWrapper } from "../../../HomeWrapper/HomeWrapper";
 
 const data = [
@@ -77,9 +76,9 @@ export default function NewsSlider() {
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
+          // pauseOnMouseEnter: true,
         }}
         navigation
-        pagination={{ clickable: true }}
         breakpoints={{
           0: {
             slidesPerView: 1,
