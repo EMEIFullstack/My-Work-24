@@ -1,6 +1,25 @@
 
-export default function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+
+import Footer from "./Shared/footer";
+
+function App() {
   return (
-    <div>App</div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
+export default App;
