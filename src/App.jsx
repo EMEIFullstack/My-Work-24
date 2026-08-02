@@ -1,7 +1,12 @@
 import { BrowserRouter as Router, Routes, Route  } from "react-router-dom";
 import Home from "./pages/Home/Home";
 
-export default function App() {
+
+
+
+import Footer from "./Shared/footer";
+
+function App() {
   return (
     <div>
 
@@ -9,7 +14,10 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
         </Routes>
+        <Footer/>
       </Router>
     </div>
   )
 }
+
+export default App;
