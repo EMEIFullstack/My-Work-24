@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route  } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Header from "./Shared/Header/Header";
 
 
 
@@ -11,6 +12,7 @@ function App() {
     <div>
 
       <Router>
+        <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
         </Routes>

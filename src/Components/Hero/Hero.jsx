@@ -70,13 +70,6 @@ const HeroWrapper = styled(Box)`
       pointer-events: none;
     }
 
-    .heroContainer {
-      max-width: 1180px !important;
-      margin: 0 auto;
-      padding: 0 24px !important;
-      position: relative;
-      z-index: 3;
-    }
 
     .heroMainLayout {
       position: relative;
@@ -251,7 +244,7 @@ const Hero = () => {
         {/* Bottom Looping Green Line */}
         <img src={GreenWave} alt="" className="greenWaveBg" />
 
-        <Container maxWidth={false} className="heroContainer">
+        <Container  fixed>
           <Box className="heroMainLayout">
             {/* Top Row: Left Content & Right Image */}
             <Box className="heroWrapper">
