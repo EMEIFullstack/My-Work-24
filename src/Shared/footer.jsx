@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <Box className="footer">
 
-      <Container maxWidth="xl">
+      <Container fixed>
 
         <Box className="footer__top">
 
