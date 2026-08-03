@@ -168,6 +168,40 @@ const HeaderWrapper = styled(Box)`
     font-size: 16px;
   }
 }
+@media (max-width: 768px) {
+  .header {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+
+    .headerContainer {
+      padding: 0 16px !important;
+    }
+
+    .toolbar {
+      min-height: 60px !important;
+    }
+
+    .language {
+      display: none !important;
+    }
+
+    .logoImg {
+      width: 120px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    .headerContainer {
+      padding: 0 12px !important;
+    }
+
+    .logoImg {
+      width: 105px !important;
+    }
+  }
+}
 `
 
 const Header = () => {

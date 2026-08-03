@@ -21,7 +21,7 @@ const heroData = {
 const HeroWrapper = styled(Box)`
   .heroSection {
     position: relative;
-    padding: 120px 0 80px;
+    padding: 120px 0 150px;
     background: #ffffff;
     font-family:
       "Plus Jakarta Sans", sans-serif !important; // Forces modern sans-serif font
@@ -62,13 +62,17 @@ const HeroWrapper = styled(Box)`
     /* 3. BOTTOM GREEN WAVE */
     .greenWaveBg {
       position: absolute;
-      bottom: -25px;
-      left: -50px;
+      bottom: 40px;
+      left: -15px;
       width: 58%;
       max-width: 880px;
       z-index: 2;
       pointer-events: none;
     }
+    /* Our Services */
+
+
+
 
 
     .heroMainLayout {
@@ -139,15 +143,6 @@ const HeroWrapper = styled(Box)`
       z-index: 20;
       margin-top: -165px; // Increases negative top margin to pull search bar way higher
       width: 76%; // Matches exact length across text and image in Figma
-
-      > div {
-        background: rgba(255, 255, 255, 0.78) !important;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
-        border-radius: 50px;
-      }
     }
 
     @media (max-width: 1100px) {
@@ -229,6 +224,137 @@ const HeroWrapper = styled(Box)`
       width: 300px;
     }
   }
+  @media (max-width: 992px) {
+  .heroSection {
+    padding: 110px 0 120px;
+  }
+
+  .heroWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .heroLeft,
+  .heroRight {
+    width: 100%;
+    text-align: center;
+  }
+
+  .description {
+    margin: 20px auto 0 !important;
+  }
+
+  .imageFrame {
+    max-width: 420px;
+    margin: auto;
+  }
+
+  .searchBarRow {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .greenWaveBg {
+    width: 80%;
+    left: -30px;
+    bottom: 30px;
+  }
+}
+@media (max-width:768px){
+
+  .heroSection{
+    padding:100px 0 100px;
+  }
+
+  .heroWrapper{
+    gap:40px;
+  }
+
+  .heroLeft{
+    text-align:center;
+  }
+
+  .description{
+    max-width:100%;
+    margin:auto;
+    margin-top:20px !important;
+  }
+
+  .imageFrame{
+    max-width:330px;
+  }
+
+  .imageBox{
+    margin-top:0;
+  }
+
+  .greenWaveBg{
+    width:90%;
+    left:-40px;
+    bottom:20px;
+  }
+
+}
+@media (max-width:768px){
+
+  .heroSection{
+    padding:100px 0 100px;
+  }
+
+  .heroWrapper{
+    gap:40px;
+  }
+
+  .heroLeft{
+    text-align:center;
+  }
+
+  .description{
+    max-width:100%;
+    margin:auto;
+    margin-top:20px !important;
+  }
+
+  .imageFrame{
+    max-width:330px;
+  }
+
+  .imageBox{
+    margin-top:0;
+  }
+
+  .greenWaveBg{
+    width:90%;
+    left:-40px;
+    bottom:20px;
+  }
+
+}
+@media (max-width:576px){
+
+  .heroSection{
+    padding:90px 0 90px;
+  }
+
+  .heroLeft{
+    padding-top:0;
+  }
+
+  .yellowGraphic{
+    width:40px !important;
+  }
+
+  .description{
+    font-size:13px !important;
+    line-height:1.8 !important;
+  }
+
+  .imageFrame{
+    max-width:280px;
+  }
+
+}
 `;
 
 const Hero = () => {
