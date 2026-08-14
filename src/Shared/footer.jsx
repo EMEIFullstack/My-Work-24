@@ -1,157 +1,157 @@
-import React from "react";
-import "./footer.scss";
+// import React from "react";
+// import "./footer.scss";
 
-import {
-  Box,
-  Container,
-  Typography,
-  Link,
-  Stack,
-} from "@mui/material";
+// import {
+//   Box,
+//   Container,
+//   Typography,
+//   Link,
+//   Stack,
+// } from "@mui/material";
 
-import {
-  Facebook,
-  Instagram,
-  X,
-} from "@mui/icons-material";
+// import {
+//   Facebook,
+//   Instagram,
+//   X,
+// } from "@mui/icons-material";
 
-const Footer = () => {
-  return (
-    <Box className="footer">
+// const Footer = () => {
+//   return (
+//     <Box className="footer">
 
-      <Container fixed>
+//       <Container fixed>
 
-        <Box className="footer__top">
+//         <Box className="footer__top">
 
-          {/* Logo */}
+//           {/* Logo */}
 
-          <Box className="footer__logo">
+//           <Box className="footer__logo">
 
-            <Typography variant="h4">
-              MyWork<span className="green">24</span>
-            </Typography>
+//             <Typography variant="h4">
+//               MyWork<span className="green">24</span>
+//             </Typography>
 
-          </Box>
+//           </Box>
 
-          {/* For Bidders */}
+//           {/* For Bidders */}
 
-          <Box className="footer__column">
+//           <Box className="footer__column">
 
-            <Typography className="footer__heading">
-              For Bidders
-            </Typography>
+//             <Typography className="footer__heading">
+//               For Bidders
+//             </Typography>
 
-            <Link href="#">
-              Services
-            </Link>
+//             <Link href="#">
+//               Services
+//             </Link>
 
-            <Link href="#">
-              Frequently Asked Questions
-            </Link>
+//             <Link href="#">
+//               Frequently Asked Questions
+//             </Link>
 
-            <Link href="#">
-              News
-            </Link>
+//             <Link href="#">
+//               News
+//             </Link>
 
-          </Box>
+//           </Box>
 
-          {/* For Craftsmen */}
+//           {/* For Craftsmen */}
 
-          <Box className="footer__column">
+//           <Box className="footer__column">
 
-            <Typography className="footer__heading">
-              For Craftsmen
-            </Typography>
+//             <Typography className="footer__heading">
+//               For Craftsmen
+//             </Typography>
 
-            <Link href="#">
-              Frequently Asked Questions
-            </Link>
+//             <Link href="#">
+//               Frequently Asked Questions
+//             </Link>
 
-            <Link href="#">
-              Artisan Subscription
-            </Link>
+//             <Link href="#">
+//               Artisan Subscription
+//             </Link>
 
-          </Box>
+//           </Box>
 
-          {/* Questions */}
+//           {/* Questions */}
 
-          <Box className="footer__column">
+//           <Box className="footer__column">
 
-            <Typography className="footer__heading">
-              Questions
-            </Typography>
+//             <Typography className="footer__heading">
+//               Questions
+//             </Typography>
 
-            <Link href="#">
-              About Us
-            </Link>
+//             <Link href="#">
+//               About Us
+//             </Link>
 
-            <Link href="#">
-              Contact Us
-            </Link>
+//             <Link href="#">
+//               Contact Us
+//             </Link>
 
-            <Stack
-              direction="row"
-              spacing={2}
-              className="footer__social"
-            >
-              <Facebook />
+//             <Stack
+//               direction="row"
+//               spacing={2}
+//               className="footer__social"
+//             >
+//               <Facebook />
 
-              <Instagram />
+//               <Instagram />
 
-              <X />
-            </Stack>
+//               <X />
+//             </Stack>
 
-          </Box>
+//           </Box>
 
-        </Box>
+//         </Box>
 
-      </Container>
+//       </Container>
 
-      <Box className="footer__bottom">
+//       <Box className="footer__bottom">
 
-        <Container maxWidth="xl">
+//         <Container maxWidth="xl">
 
-          <Box className="footer__bottom-wrapper">
+//           <Box className="footer__bottom-wrapper">
 
-            <Typography className="footer__copyright">
-              © Copyright 2024 by SUISSEPAK LOGISTIC Sagl.
-              All rights reserved.
-            </Typography>
+//             <Typography className="footer__copyright">
+//               © Copyright 2024 by SUISSEPAK LOGISTIC Sagl.
+//               All rights reserved.
+//             </Typography>
 
-            <Box className="footer__right">
+//             <Box className="footer__right">
 
-              <Link href="#">
-                Terms and Conditions
-              </Link>
+//               <Link href="#">
+//                 Terms and Conditions
+//               </Link>
 
-              <Link href="#">
-                Privacy Policy
-              </Link>
+//               <Link href="#">
+//                 Privacy Policy
+//               </Link>
 
-              <Box className="footer__language">
+//               <Box className="footer__language">
 
-                <Typography>English</Typography>
+//                 <Typography>English</Typography>
 
-                <Typography>•</Typography>
+//                 <Typography>•</Typography>
 
-                <Typography>French</Typography>
+//                 <Typography>French</Typography>
 
-                <Typography>•</Typography>
+//                 <Typography>•</Typography>
 
-                <Typography>Italian</Typography>
+//                 <Typography>Italian</Typography>
 
-              </Box>
+//               </Box>
 
-            </Box>
+//             </Box>
 
-          </Box>
+//           </Box>
 
-        </Container>
+//         </Container>
 
-      </Box>
+//       </Box>
 
-    </Box>
-  );
-};
+//     </Box>
+//   );
+// };
 
-export default Footer;
+// export default Footer;
