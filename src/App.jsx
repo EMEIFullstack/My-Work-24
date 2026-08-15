@@ -6,6 +6,7 @@ import Header from "./Shared/Header/Header";
 
 
 import Footer from "./Shared/footer";
+import WindowCleaning from "./pages/WindowCleaning/WindowCleaning";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
+            <Route path='/windowcleaning' element={<WindowCleaning />} />
+       
         </Routes>
         <Footer/>
       </Router>
