@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   Box,
-  Container,
   Typography,
   Link,
 } from "@mui/material";
@@ -13,12 +12,16 @@ import {
   X,
 } from "@mui/icons-material";
 
-/* =========================
-   Footer Styles
-========================= */
+
+/* =========================================================
+   FOOTER WRAPPER
+========================================================= */
 
 const footerWrapper = {
   position: "relative",
+
+  width: "100%",
+
   overflow: "hidden",
 
   background: `
@@ -38,10 +41,15 @@ const footerWrapper = {
   `,
 
   color: "#ffffff",
+
   paddingTop: "60px",
 
-  /* Tablet */
+  boxSizing: "border-box",
+
+  /* ================= TABLET ================= */
+
   "@media (max-width: 992px)": {
+
     "& .footerTop": {
       gridTemplateColumns: "repeat(2, 1fr)",
       gap: "40px",
@@ -53,17 +61,21 @@ const footerWrapper = {
 
     "& .footerBottomWrapper": {
       gridTemplateColumns: "1fr",
-      justifyItems: "start",
+      rowGap: "25px",
     },
 
     "& .footerRight": {
-      gridTemplateColumns: "auto auto",
+      justifyContent: "flex-start",
+      flexWrap: "wrap",
       gap: "20px",
     },
   },
 
-  /* Mobile */
+
+  /* ================= MOBILE ================= */
+
   "@media (max-width: 768px)": {
+
     paddingTop: "40px",
 
     "& .footerTop": {
@@ -79,29 +91,37 @@ const footerWrapper = {
       fontSize: "28px",
     },
 
-    "& .footerRight": {
+    "& .footerBottomWrapper": {
       gridTemplateColumns: "1fr",
-      justifyItems: "start",
-      textAlign: "left",
+      rowGap: "20px",
+    },
+
+    "& .footerCopyright": {
+      whiteSpace: "normal",
+    },
+
+    "& .footerRight": {
+      justifyContent: "flex-start",
+      flexWrap: "wrap",
+      gap: "15px",
     },
 
     "& .footerLanguage": {
-      gridTemplateColumns: "repeat(5, max-content)",
+      display: "flex",
+      flexWrap: "wrap",
     },
   },
 };
 
 
-/* =========================
-   TOP FOOTER - GRID
-========================= */
+/* =========================================================
+   TOP FOOTER
+========================================================= */
 
 const footerTop = {
+
   display: "grid",
 
-  /*
-    Logo + 3 columns
-  */
   gridTemplateColumns: "1.2fr 1fr 1fr 1fr",
 
   justifyContent: "space-between",
@@ -114,63 +134,78 @@ const footerTop = {
 };
 
 
-/* =========================
+/* =========================================================
    LOGO
-========================= */
+========================================================= */
 
 const footerLogo = {
   minWidth: 0,
 };
 
+
 const footerLogoText = {
+
   fontFamily: "Montserrat, sans-serif",
+
   fontStyle: "normal",
+
   fontWeight: 700,
+
   fontSize: "23px",
+
   lineHeight: 1.2,
+
   letterSpacing: "0.09em",
 
   color: "#ffffff",
 
   "& span": {
+
     color: "#17c964",
+
     fontFamily: "Montserrat, sans-serif",
   },
 };
 
 
-/* =========================
-   COLUMN - GRID
-========================= */
+/* =========================================================
+   FOOTER COLUMN
+========================================================= */
 
 const footerColumn = {
+
   display: "grid",
 
-  /*
-    Each item gets its own row
-  */
   gridAutoRows: "max-content",
 
   minWidth: 0,
 
-  
   fontFamily: "Inter, sans-serif",
+
   fontStyle: "normal",
+
   fontWeight: 500,
+
   fontSize: "16px",
+
   lineHeight: "19px",
 };
 
 
-/* =========================
-   HEADING
-========================= */
+/* =========================================================
+   FOOTER HEADING
+========================================================= */
 
 const footerHeading = {
+
   fontFamily: "Inter, sans-serif",
+
   fontStyle: "normal",
+
   fontWeight: 700,
+
   fontSize: "18px",
+
   lineHeight: 1.3,
 
   color: "#ffffff",
@@ -179,11 +214,12 @@ const footerHeading = {
 };
 
 
-/* =========================
-   LINKS
-========================= */
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
 
 const footerLink = {
+
   textDecoration: "none",
 
   color: "#bdbdbd",
@@ -200,11 +236,12 @@ const footerLink = {
 };
 
 
-/* =========================
-   SOCIAL ICONS - GRID
-========================= */
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
 
 const footerSocial = {
+
   display: "grid",
 
   gridTemplateColumns: "repeat(3, max-content)",
@@ -214,6 +251,7 @@ const footerSocial = {
   marginTop: "18px",
 
   "& svg": {
+
     fontSize: "22px",
 
     color: "#ffffff",
@@ -223,6 +261,7 @@ const footerSocial = {
     transition: "0.3s",
 
     "&:hover": {
+
       color: "#17c964",
 
       transform: "scale(1.1)",
@@ -231,43 +270,61 @@ const footerSocial = {
 };
 
 
-/* =========================
+/* =========================================================
    BOTTOM FOOTER
-========================= */
+========================================================= */
 
 const footerBottom = {
+
   borderTop: "1px solid rgba(255, 255, 255, 0.08)",
 
   padding: "28px 0",
+
+  boxSizing: "border-box",
 };
 
 
-/* =========================
-   BOTTOM WRAPPER - GRID
-========================= */
+/* =========================================================
+   BOTTOM WRAPPER
+
+   GLOBAL CONTAINER = 1280px
+
+   Copyright → 143px → Right Section
+========================================================= */
 
 const footerBottomWrapper = {
+
+  width: "100%",
+
   display: "grid",
 
   /*
-    Left = Copyright
-    Right = Links + Language
+    Left side = copyright
+    Right side = remaining area
   */
-  gridTemplateColumns: "1fr auto",
+
+  gridTemplateColumns: "auto 1fr",
+
+  columnGap: "143px",
 
   alignItems: "center",
 
-  gap: "20px",
+  boxSizing: "border-box",
+
+  minWidth: 0,
 };
 
 
-/* =========================
+/* =========================================================
    COPYRIGHT
-========================= */
+========================================================= */
 
 const footerCopyright = {
+
   fontFamily: "Inter, sans-serif",
+
   fontStyle: "normal",
+
   fontWeight: 500,
 
   fontSize: "15px",
@@ -275,24 +332,39 @@ const footerCopyright = {
   lineHeight: "18px",
 
   color: "#64757D",
+
+  margin: 0,
+
+  whiteSpace: "nowrap",
+
+  flexShrink: 0,
 };
 
 
-/* =========================
-   RIGHT SECTION - GRID
-========================= */
+/* =========================================================
+   RIGHT SECTION
+========================================================= */
 
 const footerRight = {
-  display: "grid",
 
-  /*
-    Terms | Privacy | Language
-  */
-  gridTemplateColumns: "auto auto auto",
+  display: "flex",
 
   alignItems: "center",
 
-  gap: "35px",
+  /*
+    IMPORTANT:
+    Do NOT use flex-end here.
+    We need the section to START
+    exactly after the 143px gap.
+  */
+
+  justifyContent: "flex-start",
+
+  gap: "28px",
+
+  minWidth: 0,
+
+  whiteSpace: "nowrap",
 
   fontFamily: "Inter, sans-serif",
 
@@ -304,14 +376,21 @@ const footerRight = {
 
   lineHeight: "18px",
 
-  textAlign: "center",
-
   "& a": {
+
     textDecoration: "none",
 
     color: "#8c8c8c",
 
     fontSize: "14px",
+
+    lineHeight: "18px",
+
+    whiteSpace: "nowrap",
+
+    display: "inline-block",
+
+    flexShrink: 0,
 
     transition: "0.3s",
 
@@ -322,21 +401,27 @@ const footerRight = {
 };
 
 
-/* =========================
-   LANGUAGE - GRID
-========================= */
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 const footerLanguage = {
-  display: "grid",
 
-  gridTemplateColumns: "repeat(5, max-content)",
+  display: "flex",
 
   alignItems: "center",
 
-  gap: "10px",
+  gap: "8px",
+
+  whiteSpace: "nowrap",
+
+  flexShrink: 0,
 
   "& p": {
+
     fontSize: "14px",
+
+    lineHeight: "18px",
 
     color: "#8c8c8c",
 
@@ -346,6 +431,8 @@ const footerLanguage = {
 
     margin: 0,
 
+    whiteSpace: "nowrap",
+
     "&:hover": {
       color: "#ffffff",
     },
@@ -353,23 +440,30 @@ const footerLanguage = {
 };
 
 
-/* =========================
+/* =========================================================
    FOOTER COMPONENT
-========================= */
+========================================================= */
 
 const Footer = () => {
+
   return (
+
     <Box sx={footerWrapper}>
 
-      {/* =========================
+
+      {/* =====================================================
           TOP FOOTER
-      ========================= */}
+      ===================================================== */}
 
-      <Container maxWidth="xl">
+      <Box className="container">
 
-        <Box sx={footerTop} className="footerTop">
+        <Box
+          sx={footerTop}
+          className="footerTop"
+        >
 
-          {/* Logo */}
+
+          {/* ================= LOGO ================= */}
 
           <Box sx={footerLogo}>
 
@@ -384,7 +478,7 @@ const Footer = () => {
           </Box>
 
 
-          {/* For Bidders */}
+          {/* ================= FOR BIDDERS ================= */}
 
           <Box
             sx={footerColumn}
@@ -395,22 +489,31 @@ const Footer = () => {
               For Bidders
             </Typography>
 
-            <Link href="#" sx={footerLink}>
+            <Link
+              href="#"
+              sx={footerLink}
+            >
               Services
             </Link>
 
-            <Link href="#" sx={footerLink}>
+            <Link
+              href="#"
+              sx={footerLink}
+            >
               Frequently Asked Questions
             </Link>
 
-            <Link href="#" sx={footerLink}>
+            <Link
+              href="#"
+              sx={footerLink}
+            >
               News
             </Link>
 
           </Box>
 
 
-          {/* For Craftsmen */}
+          {/* ================= FOR CRAFTSMEN ================= */}
 
           <Box
             sx={footerColumn}
@@ -421,18 +524,24 @@ const Footer = () => {
               For Craftsmen
             </Typography>
 
-            <Link href="#" sx={footerLink}>
+            <Link
+              href="#"
+              sx={footerLink}
+            >
               Frequently Asked Questions
             </Link>
 
-            <Link href="#" sx={footerLink}>
+            <Link
+              href="#"
+              sx={footerLink}
+            >
               Artisan Subscription
             </Link>
 
           </Box>
 
 
-          {/* Questions */}
+          {/* ================= QUESTIONS ================= */}
 
           <Box
             sx={footerColumn}
@@ -443,16 +552,22 @@ const Footer = () => {
               Questions
             </Typography>
 
-            <Link href="#" sx={footerLink}>
+            <Link
+              href="#"
+              sx={footerLink}
+            >
               About Us
             </Link>
 
-            <Link href="#" sx={footerLink}>
+            <Link
+              href="#"
+              sx={footerLink}
+            >
               Contact Us
             </Link>
 
 
-            {/* Social Icons */}
+            {/* SOCIAL ICONS */}
 
             <Box sx={footerSocial}>
 
@@ -468,31 +583,34 @@ const Footer = () => {
 
         </Box>
 
-      </Container>
+      </Box>
 
 
-      {/* =========================
+      {/* =====================================================
           BOTTOM FOOTER
-      ========================= */}
+      ===================================================== */}
 
       <Box sx={footerBottom}>
 
-        <Container maxWidth="xl">
+        <Box className="container">
 
           <Box
             sx={footerBottomWrapper}
             className="footerBottomWrapper"
           >
 
-            {/* Copyright */}
 
-            <Typography sx={footerCopyright}>
-              © Copyright 2024 by SUISSEPAK LOGISTIC Sagl.
-              All rights reserved.
+            {/* ================= COPYRIGHT ================= */}
+
+            <Typography
+              sx={footerCopyright}
+              className="footerCopyright"
+            >
+              © Copyright 2024 by SUISSEPAK LOGISTIC Sagl. All rights reserved.
             </Typography>
 
 
-            {/* Right Side */}
+            {/* ================= RIGHT SIDE ================= */}
 
             <Box
               sx={footerRight}
@@ -508,7 +626,7 @@ const Footer = () => {
               </Link>
 
 
-              {/* Language */}
+              {/* ================= LANGUAGE ================= */}
 
               <Box
                 sx={footerLanguage}
@@ -541,12 +659,13 @@ const Footer = () => {
 
           </Box>
 
-        </Container>
+        </Box>
 
       </Box>
 
     </Box>
   );
 };
+
 
 export default Footer;
