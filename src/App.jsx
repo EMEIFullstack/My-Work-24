@@ -1,38 +1,29 @@
-// import React from 'react';
-// import Home from './pages/Home/Home';
-// import { Box } from '@mui/material';
-
-// function App() {
-//   return (
-//     <Box>
-//       <Home/>
-//     </Box>
-//   );
-// }
-
-// export default App;
-
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Import your pages
-import Home from './pages/Home/Home'; 
-import SearchPage from './pages/SearchPage/SearchPage'; 
+import Home from './pages/Home/Home';
+import SearchPage from './pages/SearchPage/SearchPage';
 
-function App() {
+// Import Sayan's Footer
+import Footer from './Shared/footer';
+
+export default function App() {
   return (
     <BrowserRouter>
+      
+      {/* 1. Your Pages */}
       <Routes>
-        
-        {/* This is your default Home page (localhost:5174/) */}
+        {/* Default Home page */}
         <Route path="/" element={<Home />} />
-
-        {/* This is your new Search page (localhost:5174/search) */}
+        
+        {/* Search Results page */}
         <Route path="/search" element={<SearchPage />} />
-
       </Routes>
+      
+      {/* 2. Sayan's Footer (Placed OUTSIDE Routes so it shows on every page!) */}
+      <Footer /> 
+
     </BrowserRouter>
   );
 }
-
-export default App;
