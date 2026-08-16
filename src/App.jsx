@@ -4,6 +4,7 @@ import Header from "./Shared/Header/Header";
 import ServicesSection from "./pages/ServicesSection";
 import Footer from "./Shared/footer";
 import WindowCleaning from "./pages/WindowCleaning/WindowCleaning";
+import Signup from "./pages/Signup/Signup";
 
 function App() {
   return (
@@ -18,11 +19,15 @@ function App() {
             </>
           } />
           <Route path='/windowcleaning' element={<WindowCleaning />} />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
         </Routes>
         <Footer />
       </Router>
     </div>
-  );
-}
 
-export default App;
+  )
+}
+  export default App;

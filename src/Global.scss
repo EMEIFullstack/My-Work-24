@@ -42,6 +42,51 @@ h6 {
 
 
 
-.MuiContainer-root{
-  max-width: 1200px;
+.justify-center {
+  justify-content: center;
+}
+/* =========================================================
+   FIGMA LOCATION MARKER
+========================================================= */
+
+.custom-location-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.location-marker {
+  width: 32px;
+  height: 42px;
+  position: relative;
+}
+
+.location-marker-pin {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  left: 3px;
+  top: 0;
+
+  background: #4a9fd8;
+  border: 2px solid #ffffff;
+  border-radius: 50% 50% 50% 0;
+
+  transform: rotate(-45deg);
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.location-marker-dot {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  left: 12px;
+  top: 9px;
+
+  background: #ffffff;
+  border-radius: 50%;
+
+  z-index: 2;
 }
