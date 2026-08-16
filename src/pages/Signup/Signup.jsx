@@ -479,7 +479,7 @@ export default Signup;
 const pageWrapper = {
 
   width: "100%",
-paddingTop: "129px",
+paddingTop: "130px",
   display: "flex",
 
   justifyContent: "center",
