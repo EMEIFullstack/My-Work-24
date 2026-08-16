@@ -1,104 +1,155 @@
-import React, { useEffect, useRef } from 'react';
-import { Box, Typography } from '@mui/material';
+import { useEffect, useRef } from "react";
+import { Box, Typography } from "@mui/material";
 
-// --- Sub-Component: WaveTitle ---
-// Renders a main title with a dynamically underlined green wave effect on the highlighted title
-const WaveTitle = ({ mainTitle = "", highlightTitle = "" }) => {
-  // References to measure the target text width and draw on HTML5 Canvas
+const WaveTitle = ({
+  mainTitle = "",
+  highlightTitle = "",
+}) => {
   const textRef = useRef(null);
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const textElement = textRef.current;
     const canvas = canvasRef.current;
+
     if (!textElement || !canvas) return;
 
-    // Function to calculate dimensions and draw the SVG-like sine wave
     const updateCanvas = () => {
-      const width = textElement.offsetWidth;
-      const height = 20; // Canvas height reserved for wave rendering
-      const dpr = window.devicePixelRatio || 1; // Handles high-DPI (Retina) screen crispness
+      const textWidth = textElement.offsetWidth;
 
-      // Scale canvas resolution to prevent blurry lines on high-res displays
+      // =========================
+      // WAVE DESIGN SETTINGS
+      // =========================
+      const extraWidth = 4;
+      const width = textWidth + extraWidth;
+
+      const amplitude = 3.9;
+      const wavelength = 38;
+      const height = 18;
+
+      const dpr = window.devicePixelRatio || 1;
+
+      // Canvas resolution
       canvas.width = width * dpr;
       canvas.height = height * dpr;
+
+      // Canvas display size
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
-      const ctx = canvas.getContext('2d');
-      ctx.scale(dpr, dpr);
-      ctx.clearRect(0, 0, width, height); // Clear previous frame before redraw
+      const ctx = canvas.getContext("2d");
 
-      // ---  Wave Customization Controls ---
-      const wavelength = 65; // Controls wave density (lower = more waves, higher = flatter)
-      const amplitude = 2.5; // Controls wave height/depth peak
-      const startY = 10;     // Center vertical axis inside canvas
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
 
+      // =========================
+      // WAVE STYLE
+      // =========================
       ctx.beginPath();
-      ctx.strokeStyle = '#00CD64'; // Brand green stroke color
-      ctx.lineWidth = 3.5;         // Thickness of wave stroke
-      ctx.lineCap = 'round';       // Smooth rounded edges at start and end points
 
-      // Mathematical sine wave calculation across text width
+      ctx.strokeStyle = "#00CD64";
+      ctx.lineWidth = 3;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+
+      // =========================
+      // DRAW WAVE
+      // =========================
       for (let x = 0; x <= width; x++) {
-        const y = startY + Math.sin((x / wavelength) * Math.PI * 2) * amplitude;
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+        const progress = x / width;
+
+        const wave =
+          Math.sin((x / wavelength) * Math.PI * 2) * amplitude;
+
+        const edgeFade = Math.sin(progress * Math.PI);
+
+        const y = 7 + wave * edgeFade;
+
+        if (x === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
       }
+
       ctx.stroke();
     };
 
-    // Initial canvas render call
     updateCanvas();
-    
-    // Automatically recalculates canvas width when screen resizes or font changes
-    const resizeObserver = new ResizeObserver(() => updateCanvas());
-    resizeObserver.observe(textElement);
 
-    // Cleanup observer on component unmount
-    return () => resizeObserver.disconnect();
+    const resizeObserver =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(updateCanvas)
+        : null;
+
+    resizeObserver?.observe(textElement);
+
+    window.addEventListener("resize", updateCanvas);
+
+    return () => {
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", updateCanvas);
+    };
   }, [highlightTitle]);
 
   return (
-    <Box sx={{ textAlign: 'center', mb: 4 }}>
+    <Box
+      sx={{
+        textAlign: "center",
+        mb: 2,
+      }}
+    >
       <Typography
-        variant="h3"
         component="h2"
         sx={{
+          fontSize: "42px",
+          lineHeight: 1.1,
           fontWeight: 800,
-          color: '#111',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 1,
+          color: "#111",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "8px",
         }}
       >
-        {/* Regular Title Text */}
-        {mainTitle}{' '}
-        
-        {/* Highlighted Text Wrapper with Absolute Canvas Container */}
+        {mainTitle}
+
         <Box
           component="span"
           sx={{
-            position: 'relative',
-            display: 'inline-flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            position: "relative",
+            display: "inline-flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            lineHeight: 1,
+            overflow: "visible",
           }}
         >
-          {/* Highlighted Green Text Element */}
-          <Box component="span" ref={textRef} sx={{ color: '#00CD64', fontWeight: 800 }}>
+          <Box
+            component="span"
+            ref={textRef}
+            sx={{
+              color: "#00CD64",
+              fontWeight: 800,
+              display: "inline-block",
+              whiteSpace: "nowrap",
+            }}
+          >
             {highlightTitle}
           </Box>
 
-          {/* Dynamic Wave Canvas Element Overlay */}
           <canvas
             ref={canvasRef}
             style={{
-              position: 'absolute',
-              bottom: -10,
-              left: 0,
-              pointerEvents: 'none',
+              position: "absolute",
+
+              // Gap between text and wave
+              bottom: "-10px",
+
+              left: "-1px",
+
+              pointerEvents: "none",
+              overflow: "visible",
             }}
           />
         </Box>

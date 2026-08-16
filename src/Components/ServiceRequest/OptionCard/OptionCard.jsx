@@ -8,9 +8,6 @@ import {
 } from "@mui/material";
 
 const CardWrapper = styled(Box)`
-  width: 140px;
-  min-width: 140px;
-  height: 120px;
   flex: 0 0 140px;
 
   .optionCard {
