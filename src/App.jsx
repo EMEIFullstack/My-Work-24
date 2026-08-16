@@ -5,10 +5,7 @@ import Home from "./pages/Home/Home";
 // import NewsDetails from "./pages/NewsDetails/NewsDetails";
 // import News from "./pages/News/News";
 import { Box } from "@mui/material";
-
-
-
-// import Footer from "./Shared/footer";
+// import Footer from "./Shared/Footer/footer";
 
 function App() {
   return (
