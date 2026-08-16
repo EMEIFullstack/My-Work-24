@@ -1,5 +1,5 @@
 import  { useState } from "react";
-
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import {
   AppBar,
@@ -217,17 +217,19 @@ const Header = () => {
       <Container maxWidth={false} className="headerContainer">
         <Toolbar className="toolbar">
           {/* Logo */}
-          <Box
-            component="img"
-            src={logo}
-            alt="Company Logo"
-            className="logoImg"
-            sx={{
-              width: { xs: 120, sm: 150 },
-              height: "auto",
-              cursor: "pointer",
-            }}
-          />
+        <Link to="/" style={{ display: "flex" }}>
+              <Box
+                component="img"
+                src={logo}
+                alt="Company Logo"
+                className="logoImg"
+                sx={{
+                  width: { xs: 120, sm: 150 },
+                  height: "auto",
+                  cursor: "pointer",
+                }}
+              />
+            </Link>
 
           {/* Desktop Navigation */}
           <Box className="navMenu">
