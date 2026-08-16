@@ -30,9 +30,7 @@ const StepperWrapper = styled(Box)`
     box-shadow: none !important;
   }
 
-  /* =========================================
-     COMPLETE GREY LINE
-  ========================================= */
+  /* COMPLETE GREY LINE */
 
   .stepperLine {
     position: absolute;
@@ -51,9 +49,7 @@ const StepperWrapper = styled(Box)`
     z-index: 1;
   }
 
-  /* =========================================
-     GREEN PROGRESS
-  ========================================= */
+  /*GREEN PROGRESS */
 
   .stepperProgress {
     position: absolute;
@@ -72,9 +68,7 @@ const StepperWrapper = styled(Box)`
     z-index: 2;
   }
 
-  /* =========================================
-     STEP ITEMS
-  ========================================= */
+  /* STEP ITEMS */
 
   .stepperItems {
     position: relative;
@@ -101,10 +95,8 @@ const StepperWrapper = styled(Box)`
     justify-content: flex-start;
   }
 
-  /* =========================================
-     ICON
-  ========================================= */
-
+     /* ICON */
+ 
   .stepIcon {
     width: 48px;
     height: 48px;
@@ -135,9 +127,7 @@ const StepperWrapper = styled(Box)`
     color: #ffffff;
   }
 
-  /* =========================================
-     LABEL
-  ========================================= */
+     /* LABEL */
 
   .stepLabel {
     font-family: "Inter";
@@ -168,11 +158,8 @@ const StepperWrapper = styled(Box)`
 `;
 
 const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
-  /*
-  ==================================================
-  STEP PROGRESS
-  ==================================================
-  */
+  
+  /* STEP PROGRESS  */
 
   let progress = 0;
 
@@ -195,11 +182,8 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
   } else if (currentStage === "summary" || currentStage === "completed") {
     progress = 100;
   }
-  /*
-  ==================================================
-  ACTIVE STAGE
-  ==================================================
-  */
+
+  /* ACTIVE STAGE*/
 
   let activeStage = 0;
 
@@ -213,11 +197,7 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
     activeStage = 3;
   }
 
-  /*
-  ==================================================
-  STAGES
-  ==================================================
-  */
+  /*STAGES */
 
   const stages = [
     {
@@ -244,9 +224,8 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
   return (
     <StepperWrapper>
       <Paper elevation={0} className="requestStepper">
-        {/* =====================================
-            GREY LINE
-        ===================================== */}
+  
+        {/* GREY LINE */}
 
         <Box className="stepperLine">
           {/* GREEN LINE */}
@@ -259,10 +238,8 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
           />
         </Box>
 
-        {/* =====================================
-            FOUR STAGES
-        ===================================== */}
-
+            {/* FOUR STAGES */}
+      
         <Box className="stepperItems">
           {stages.map((stage, index) => {
             const isActive = index === activeStage;
