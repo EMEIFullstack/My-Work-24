@@ -1,8 +1,10 @@
 import React from "react";
+
 import companyIcon from "../../assets/icons/companyInfo.png";
 import emailIcon from "../../assets/icons/emailIcon.png";
 import contactIcon from "../../assets/icons/contactIcon.png";
 import employeesIcon from "../../assets/icons/employeeIcon.png";
+
 import {
   Box,
   Typography,
@@ -21,15 +23,12 @@ import {
   KeyboardArrowDown,
 } from "@mui/icons-material";
 
-
 const CompanyInfo = ({ formData, handleChange }) => {
-
   /* =========================================================
      FILE UPLOAD
   ========================================================= */
 
   const handleFileChange = (event, fieldName) => {
-
     const file = event.target.files?.[0];
 
     if (!file) return;
@@ -42,8 +41,10 @@ const CompanyInfo = ({ formData, handleChange }) => {
       },
     });
   };
-const [showPassword, setShowPassword] = React.useState(false);
-const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
+
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    React.useState(false);
 
   return (
     <Box sx={formWrapper}>
@@ -54,43 +55,41 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
       {/* COMPANY NAME */}
 
-  <Box sx={formField}>
+      <Box sx={formField}>
 
-  <Typography sx={fieldLabel}>
-    Company Name
-  </Typography>
+        <Typography sx={fieldLabel}>
+          Company Name
+        </Typography>
 
-  <TextField
-  fullWidth
-  name="companyName"
-  value={formData.companyName || ""}
-  onChange={handleChange}
-  placeholder="Enter company name"
-  sx={inputStyle}
+        <TextField
+          fullWidth
+          name="companyName"
+          value={formData.companyName || ""}
+          onChange={handleChange}
+          placeholder="Enter company name"
+          sx={inputStyle}
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Box
+                    component="img"
+                    src={companyIcon}
+                    alt="Company"
+                    sx={{
+                      width: "23px",
+                      height: "23px",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
+                </InputAdornment>
+              ),
+            },
+          }}
+        />
 
-  slotProps={{
-    input: {
-      endAdornment: (
-        <InputAdornment position="end">
-           <Box
-    component="img"
-    src={companyIcon}
-    alt="Company"
-    sx={{
-      width: "23px",
-      height: "23px",
-      objectFit: "contain",
-      display: "block",
-    }}
-  />
-        </InputAdornment>
-      ),
-    },
-  }}
-/>
-
-</Box>
-
+      </Box>
 
       {/* EMAIL */}
 
@@ -100,37 +99,36 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
           Email Address
         </Typography>
 
-      <TextField
-  fullWidth
-  name="email"
-  type="email"
-  value={formData.email || ""}
-  onChange={handleChange}
-  placeholder="Enter email address"
-  sx={inputStyle}
-  slotProps={{
-    input: {
-      endAdornment: (
-        <InputAdornment position="end">
-          <Box
-            component="img"
-            src={emailIcon}
-            alt="Email"
-            sx={{
-              width: "23px",
-              height: "23px",
-              objectFit: "contain",
-              display: "block",
-            }}
-          />
-        </InputAdornment>
-      ),
-    },
-  }}
-/>
+        <TextField
+          fullWidth
+          name="email"
+          type="email"
+          value={formData.email || ""}
+          onChange={handleChange}
+          placeholder="Enter email address"
+          sx={inputStyle}
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Box
+                    component="img"
+                    src={emailIcon}
+                    alt="Email"
+                    sx={{
+                      width: "23px",
+                      height: "23px",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
+                </InputAdornment>
+              ),
+            },
+          }}
+        />
 
       </Box>
-
 
       {/* =====================================================
           ROW 2
@@ -144,76 +142,74 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
           Contact Number
         </Typography>
 
-      <TextField
-  fullWidth
-  name="contactNumber"
-  value={formData.contactNumber || ""}
-  onChange={handleChange}
-  placeholder="Enter contact number"
-  sx={inputStyle}
-  slotProps={{
-    input: {
-      endAdornment: (
-        <InputAdornment position="end">
-          <Box
-            component="img"
-            src={contactIcon}
-            alt="Contact"
-            sx={{
-              width: "23px",
-              height: "23px",
-              objectFit: "contain",
-              display: "block",
-            }}
-          />
-        </InputAdornment>
-      ),
-    },
-  }}
-/>
+        <TextField
+          fullWidth
+          name="contactNumber"
+          value={formData.contactNumber || ""}
+          onChange={handleChange}
+          placeholder="Enter contact number"
+          sx={inputStyle}
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Box
+                    component="img"
+                    src={contactIcon}
+                    alt="Contact"
+                    sx={{
+                      width: "23px",
+                      height: "23px",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
+                </InputAdornment>
+              ),
+            },
+          }}
+        />
 
       </Box>
 
-
       {/* EMPLOYEES */}
 
-      
-<Box sx={formField}>
+      <Box sx={formField}>
 
         <Typography sx={fieldLabel}>
           Number Of Employees
         </Typography>
 
-     <TextField
-  fullWidth
-  name="employees"
-  type="number"
-  value={formData.employees || ""}
-  onChange={handleChange}
-  placeholder="Enter total number of employee"
-  sx={inputStyle}
-  slotProps={{
-    input: {
-      endAdornment: (
-        <InputAdornment position="end">
-          <Box
-            component="img"
-            src={employeesIcon}
-            alt="Employees"
-            sx={{
-              width: "23px",
-              height: "23px",
-              objectFit: "contain",
-              display: "block",
-            }}
-          />
-        </InputAdornment>
-      ),
-    },
-  }}
-/>
-      </Box>
+        <TextField
+          fullWidth
+          name="employees"
+          type="number"
+          value={formData.employees || ""}
+          onChange={handleChange}
+          placeholder="Enter total number of employee"
+          sx={inputStyle}
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Box
+                    component="img"
+                    src={employeesIcon}
+                    alt="Employees"
+                    sx={{
+                      width: "23px",
+                      height: "23px",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
+                </InputAdornment>
+              ),
+            },
+          }}
+        />
 
+      </Box>
 
       {/* =====================================================
           ROW 3
@@ -263,7 +259,6 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
       </Box>
 
-
       {/* VAT NUMBER */}
 
       <Box sx={formField}>
@@ -282,7 +277,6 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
         />
 
       </Box>
-
 
       {/* =====================================================
           COMPANY DESCRIPTION
@@ -311,7 +305,6 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
         />
 
       </Box>
-
 
       {/* =====================================================
           PROFILE PICTURE
@@ -354,7 +347,6 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
       </Box>
 
-
       {/* =====================================================
           REGISTRATION DOCUMENT
       ===================================================== */}
@@ -396,136 +388,147 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
       </Box>
 
-
       {/* =====================================================
           PASSWORD
       ===================================================== */}
 
       <Box sx={formField}>
 
-  <Typography sx={fieldLabel}>
-    Password
-  </Typography>
+        <Typography sx={fieldLabel}>
+          Password
+        </Typography>
 
-  <TextField
-    fullWidth
-    name="password"
-    type={showPassword ? "text" : "password"}
-    value={formData.password || ""}
-    onChange={handleChange}
-    placeholder="Enter password"
-    sx={inputStyle}
-    slotProps={{
-      input: {
-        endAdornment: (
-          <InputAdornment position="end">
-            <Box
-              component="button"
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              sx={{
-                border: "none",
-                background: "transparent",
-                padding: 0,
-                margin: 0,
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
-              {showPassword ? (
-                <VisibilityOutlined
-                  sx={{
-                    width: "20px",
-                    height: "20px",
-                    color: "#A7B2AF",
-                  }}
-                />
-              ) : (
-                <VisibilityOffOutlined
-                  sx={{
-                    width: "20px",
-                    height: "20px",
-                    color: "#A7B2AF",
-                  }}
-                />
-              )}
-            </Box>
-          </InputAdornment>
-        ),
-      },
-    }}
-  />
+        <TextField
+          fullWidth
+          name="password"
+          type={showPassword ? "text" : "password"}
+          value={formData.password || ""}
+          onChange={handleChange}
+          placeholder="Enter password"
+          sx={inputStyle}
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
 
-</Box>
+                  <Box
+                    component="button"
+                    type="button"
+                    onClick={() =>
+                      setShowPassword(!showPassword)
+                    }
+                    sx={{
+                      border: "none",
+                      background: "transparent",
+                      padding: 0,
+                      margin: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      cursor: "pointer",
+                    }}
+                  >
 
+                    {showPassword ? (
+                      <VisibilityOutlined
+                        sx={{
+                          width: "20px",
+                          height: "20px",
+                          color: "#A7B2AF",
+                        }}
+                      />
+                    ) : (
+                      <VisibilityOffOutlined
+                        sx={{
+                          width: "20px",
+                          height: "20px",
+                          color: "#A7B2AF",
+                        }}
+                      />
+                    )}
+
+                  </Box>
+
+                </InputAdornment>
+              ),
+            },
+          }}
+        />
+
+      </Box>
 
       {/* =====================================================
           CONFIRM PASSWORD
       ===================================================== */}
 
-    <Box sx={formField}>
+      <Box sx={formField}>
 
-  <Typography sx={fieldLabel}>
-    Confirm Password
-  </Typography>
+        <Typography sx={fieldLabel}>
+          Confirm Password
+        </Typography>
 
-  <TextField
-    fullWidth
-    name="confirmPassword"
-    type={showConfirmPassword ? "text" : "password"}
-    value={formData.confirmPassword || ""}
-    onChange={handleChange}
-    placeholder="Enter confirm password"
-    sx={inputStyle}
-    slotProps={{
-      input: {
-        endAdornment: (
-          <InputAdornment position="end">
+        <TextField
+          fullWidth
+          name="confirmPassword"
+          type={
+            showConfirmPassword
+              ? "text"
+              : "password"
+          }
+          value={formData.confirmPassword || ""}
+          onChange={handleChange}
+          placeholder="Enter confirm password"
+          sx={inputStyle}
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
 
-            <Box
-              component="button"
-              type="button"
-              onClick={() =>
-                setShowConfirmPassword(!showConfirmPassword)
-              }
-              sx={{
-                border: "none",
-                background: "transparent",
-                padding: 0,
-                margin: 0,
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
-              {showConfirmPassword ? (
-                <VisibilityOutlined
-                  sx={{
-                    width: "20px",
-                    height: "20px",
-                    color: "#A7B2AF",
-                  }}
-                />
-              ) : (
-                <VisibilityOffOutlined
-                  sx={{
-                    width: "20px",
-                    height: "20px",
-                    color: "#A7B2AF",
-                  }}
-                />
-              )}
-            </Box>
+                  <Box
+                    component="button"
+                    type="button"
+                    onClick={() =>
+                      setShowConfirmPassword(
+                        !showConfirmPassword
+                      )
+                    }
+                    sx={{
+                      border: "none",
+                      background: "transparent",
+                      padding: 0,
+                      margin: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      cursor: "pointer",
+                    }}
+                  >
 
-          </InputAdornment>
-        ),
-      },
-    }}
-  />
+                    {showConfirmPassword ? (
+                      <VisibilityOutlined
+                        sx={{
+                          width: "20px",
+                          height: "20px",
+                          color: "#A7B2AF",
+                        }}
+                      />
+                    ) : (
+                      <VisibilityOffOutlined
+                        sx={{
+                          width: "20px",
+                          height: "20px",
+                          color: "#A7B2AF",
+                        }}
+                      />
+                    )}
 
-</Box>
+                  </Box>
 
+                </InputAdornment>
+              ),
+            },
+          }}
+        />
+
+      </Box>
 
       {/* =====================================================
           TERMS AND CONDITIONS
@@ -546,7 +549,7 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
           label={
             <>
-              I hereby agree to the{" "}
+              I hereby agree to{" "}
 
               <Box
                 component="span"
@@ -570,8 +573,9 @@ const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 ========================================================= */
 
 const formWrapper = {
-
   width: "100%",
+
+
 
   display: "grid",
 
@@ -585,11 +589,8 @@ const formWrapper = {
   boxSizing: "border-box",
 
   "@media (max-width: 600px)": {
-
     gridTemplateColumns: "1fr",
-
     rowGap: "12px",
-
   },
 };
 
@@ -609,6 +610,7 @@ const formField = {
 
 /* =========================================================
    FIELD LABEL
+
    Figma:
    Inter / 500 / 16px / 24px
    #001919
@@ -645,6 +647,7 @@ const fieldLabel = {
     fontSize: "14px",
 
   },
+
 };
 
 
@@ -717,8 +720,11 @@ const inputStyle = {
     color: "#9DA8A8",
 
     "& svg": {
+
       fontSize: "23px",
+
       color: "#9DA8A8",
+
     },
 
   },

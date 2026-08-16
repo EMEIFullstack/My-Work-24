@@ -479,14 +479,14 @@ export default Signup;
 const pageWrapper = {
 
   width: "100%",
-
+paddingTop: "129px",
   display: "flex",
 
   justifyContent: "center",
 
   alignItems: "flex-start",
 
-  paddingTop: "31px",
+ 
 
   paddingBottom: "141px",
 
