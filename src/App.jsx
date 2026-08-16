@@ -1,27 +1,31 @@
+
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Import your pages
+// 1. Import all your pages (Yours and Sagarika's)
 import Home from './pages/Home/Home';
 import SearchPage from './pages/SearchPage/SearchPage';
+import WindowCleaning from './pages/WindowCleaning/WindowCleaning';
 
-// Import Sayan's Footer
+// 2. Import Shared Components
+import Header from './Shared/Header/Header';
 import Footer from './Shared/footer';
 
 export default function App() {
   return (
     <BrowserRouter>
       
-      {/* 1. Your Pages */}
+      {/* Header goes at the top of every page */}
+      <Header />
+
+      {/* All Routes combined */}
       <Routes>
-        {/* Default Home page */}
         <Route path="/" element={<Home />} />
-        
-        {/* Search Results page */}
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/windowcleaning" element={<WindowCleaning />} />
       </Routes>
       
-      {/* 2. Sayan's Footer (Placed OUTSIDE Routes so it shows on every page!) */}
+      {/* Footer goes at the bottom of every page */}
       <Footer /> 
 
     </BrowserRouter>

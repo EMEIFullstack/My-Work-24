@@ -1,4 +1,9 @@
+
 import React from "react";
+
+
+import "./footer.scss";
+
 
 import {
   Box,
@@ -365,7 +370,7 @@ const Footer = () => {
           TOP FOOTER
       ========================= */}
 
-      <Container maxWidth="xl">
+      <Container fixed>
 
         <Box sx={footerTop} className="footerTop">
 
