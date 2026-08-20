@@ -1,7 +1,7 @@
 
 
 import Hero from '../../Components/Hero/Hero';
-import HowItWorks from '../../Components/HowItWork/HowItWork';
+
 
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
 
             
             <Hero/>
-            <HowItWorks/>
+          
             </>
 
         </div>

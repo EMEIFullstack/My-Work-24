@@ -5,6 +5,7 @@ import ServicesSection from "./pages/ServicesSection";
 import Footer from "./Shared/footer";
 import WindowCleaning from "./pages/WindowCleaning/WindowCleaning";
 import Signup from "./pages/Signup/Signup";
+import HowItWork from "./pages/HowItWork/HowItWork"
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
             <>
               <Home />
               <ServicesSection />
+              <HowItWork/>
+              
             </>
           } />
           <Route path='/windowcleaning' element={<WindowCleaning />} />

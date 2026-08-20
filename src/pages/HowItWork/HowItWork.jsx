@@ -14,7 +14,7 @@ import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 
 import womanImg from "../../assets/woman.png";
-import SectionHeading from "../SectionHeading/SectionHeading";
+import SectionHeading from "../../Components/SectionHeading/SectionHeading";
 
 const primaryGreen = "#00c853";
 const textDark = "#121212";
