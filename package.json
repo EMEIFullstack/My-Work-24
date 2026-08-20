@@ -12,15 +12,24 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+
+    "@fontsource/roboto": "^5.3.0",
     "@mui/icons-material": "^9.2.0",
     "@mui/material": "^9.2.0",
-    "dayjs": "^1.11.21",
-    "leaflet": "^1.9.4",
+    "@mui/styled-engine-sc": "^9.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-is": "^18.3.1",
+
+    
+    
+    "dayjs": "^1.11.21",
+    "leaflet": "^1.9.4",
     "react-leaflet": "^5.0.0",
+
     "react-router-dom": "^7.18.2",
     "sass": "^1.102.0",
+    "styled-components": "^6.4.4",
     "swiper": "^14.0.6"
   },
   "devDependencies": {

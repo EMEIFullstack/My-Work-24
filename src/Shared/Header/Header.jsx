@@ -213,7 +213,7 @@ const Header = () => {
 
   return (
     <HeaderWrapper> 
-      <AppBar position="absolute" elevation={0} className="header">
+      <AppBar position="static" elevation={0} className="header">
       <Container maxWidth={false} className="headerContainer">
         <Toolbar className="toolbar">
           {/* Logo */}
