@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import { Link } from "react-router-dom";
+
 import logo from "../../assets/logo.png";
 import {
   AppBar,
@@ -13,7 +13,8 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  styled
+  styled,
+  Link
 } from "@mui/material";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -213,23 +214,22 @@ const Header = () => {
 
   return (
     <HeaderWrapper> 
-      <AppBar position="static" elevation={0} className="header">
+      <AppBar position="absolute" elevation={0} className="header">
       <Container maxWidth={false} className="headerContainer">
         <Toolbar className="toolbar">
           {/* Logo */}
-        <Link to="/" style={{ display: "flex" }}>
-              <Box
-                component="img"
-                src={logo}
-                alt="Company Logo"
-                className="logoImg"
-                sx={{
-                  width: { xs: 120, sm: 150 },
-                  height: "auto",
-                  cursor: "pointer",
-                }}
-              />
-            </Link>
+         <Link to ="/">
+          <Box
+            component="img"
+            src={logo}
+            alt="Company Logo"
+            className="logoImg"
+            sx={{
+              width: { xs: 120, sm: 150 },
+              height: "auto",
+              cursor: "pointer",
+            }}
+          /></Link>
 
           {/* Desktop Navigation */}
           <Box className="navMenu">
