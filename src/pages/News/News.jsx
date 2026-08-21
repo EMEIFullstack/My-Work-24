@@ -80,10 +80,10 @@ function News() {
   return (
     <HomeWrapper>
     <Box>
-        <img src={image} alt="elipse" className='elipse'/>
+        {/* <img src={image} alt="elipse" className='elipse'/>
         <img src={image1} alt="" className='yellow'/>
         <img src={image2} alt="" className='green'/>
-        <img src={image3} alt="" className='green'/>
+        <img src={image3} alt="" className='green'/> */}
         <Container fixed>
             <Typography variant='h3' align='center' className='news'>
                 News

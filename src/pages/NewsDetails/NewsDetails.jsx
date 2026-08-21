@@ -21,14 +21,14 @@ function NewsDetails() {
   return (
     <HomeWrapper>
         <Box>
-            <Container fixed>
-                <img src={image} alt="Yellow Ellipse" className='elipse' />
+            {/* <img src={image} alt="Yellow Ellipse" className='elipse' />
                 <img src={image1} alt="" className='yellow'/>
         <img src={image2} alt="" className='green'/>
-        <img src={image3} alt="" className='green'/>
+        <img src={image3} alt="" className='green'/> */}
+            <Container fixed>
         {/* <img src={yellow} alt="" className='left'/>
                 <img src={green} alt="" className='right'/> */}
-        <Typography variant='h1' className='news-details' align='left'>Lorem ipsum dolor sit amet consectetur. Massa eu sed sit feugiat bibendum nibh in. A ut amet ut nunc cras morbi. Aliquam ac velit sed.</Typography>
+        <Typography variant='h3' className='news-details' align='left'>Lorem ipsum dolor sit amet consectetur. Massa eu sed sit feugiat bibendum nibh in. A ut amet ut nunc cras morbi. Aliquam ac velit sed.</Typography>
         <Box className='parent-box'>
             <Box className='child-box'>
                 <Typography variant='body' className='p'><span><img src={small} alt="Small Image" /></span>Abram George</Typography>
