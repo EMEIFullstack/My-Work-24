@@ -1059,7 +1059,7 @@ const Footer = () => {
 
       <Box sx={footerBottom}>
 
-        <Container maxWidth="xl">
+        <Container fixed>
 
           <Box
             sx={footerBottomWrapper}

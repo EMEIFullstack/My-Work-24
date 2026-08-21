@@ -1,24 +1,27 @@
 import { BrowserRouter as Router, Routes, Route  } from "react-router-dom";
 import Home from "./pages/Home/Home";
-// import Header from "./Shared/Header/Header";
-// import './Global.scss'
-// import NewsDetails from "./pages/NewsDetails/NewsDetails";
-// import News from "./pages/News/News";
-import { Box } from "@mui/material";
-// import Footer from "./Shared/Footer/footer";
 
-function App() {
+import { Box } from "@mui/material";
+import Footer from "./Shared/Footer/footer";
+import Header from "./Shared/Header/Header";
+import News from "./pages/News/News";
+import NewsDetails from "./pages/NewsDetails/NewsDetails";
+// import SearchResults from "./Components/SearchResults/SearchResults";
+// import SearchPage from "./pages/SearchPage/SearchPage";
+
+
+export default function App() {
   return (
     <Box>
-
       <Router>
-        {/* <Header/> */}
+        <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          {/* <Route path='/news' element={<News/>}/>
-          <Route path='/details' element={<NewsDetails/>}/> */}
+          <Route path="/news" element={<News/>}/>
+          <Route path="/details" element={<NewsDetails/>}/>
+          {/* <Route path="/search" element={<SearchResults/>}/> */}
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </Router>
     </Box>
   )

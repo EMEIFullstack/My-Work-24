@@ -96,6 +96,28 @@ img{
     text-decoration-style: wavy;
 }
 
+.news-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.news-card{
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #D6E8E8;
+    box-shadow: 0px 60px 78.7px rgba(17, 129, 71, 0.06);
+    backdrop-filter: blur(8px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 30px;
+    width: calc(91% / 3);
+    margin-right: 33px;
+    margin-bottom: 33px;
+}
+
+img.elipse {
+    position: absolute;
+    top: 0;
+}
+
 h5{
     font-style: normal;
     font-weight: 700;

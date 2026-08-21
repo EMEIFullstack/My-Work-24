@@ -3,7 +3,9 @@ import React from 'react'
 import { HomeWrapper } from '../../HomeWrapper/HomeWrapper';
 import QuestionsSec from '../../Components/FAQs/QuestionsSec';
 import NewsSlider from '../../Components/News/NewsSlider';
-import PostJobBanner from '../../assets/Components/PostJobBanner/PostJobBanner';
+import PostJobBanner from '../../Components/PostJobBanner/PostJobBanner';
+import Hero from '../../Components/Hero/Hero';
+import HowItWorks from '../../Components/HowItWork/HowItWork';
 
 
 
@@ -32,15 +34,13 @@ function Home() {
   return (
     <HomeWrapper>
         <Box fontFamily="Montserrat">
-          {/* <Hero /> */}
-        {/* <HowItWorks /> */}
+          <Hero />
+        <HowItWorks />
         
         {/* Your Post Job Banner Section */}
-        <Container>
-            <Box mt={5} mb={5}>
+        <Container fixed>
                <PostJobBanner />
-            </Box>
-        </Container>
+               </Container>
             <Container fixed>
             <Typography variant="h3" align='center'>
                 Frequently Asked{" "} <span className='span'>Questions

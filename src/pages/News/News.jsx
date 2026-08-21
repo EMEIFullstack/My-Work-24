@@ -85,15 +85,15 @@ function News() {
         <img src={image2} alt="" className='green'/>
         <img src={image3} alt="" className='green'/>
         <Container fixed>
-            <Typography variant='h1' align='center' className='news'>
+            <Typography variant='h3' align='center' className='news'>
                 News
             </Typography>
             <Typography variant='body1' align='center'>
                 It is a long established fact that a reader will be distracted by the readable content of a page when looking.
             </Typography>
             <Box className="news-flex">
-                {data.map((item) => (
-                    <NewsPage key={item.id} image={item.image} title={item.title} para={item.para} date={item.date} />
+                    {data.map((item) => (
+                        <NewsPage key={item.id} image={item.image} title={item.title} para={item.para} date={item.date} />
                 ))}
             </Box>
         </Container>
