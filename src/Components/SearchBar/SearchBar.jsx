@@ -17,13 +17,16 @@ const SearchBarWrapper = styled(Box)`
   max-width: calc(100% - 24px);
   margin: 0;  
   box-sizing: border-box;
-   background: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  border-radius: 100px !important;
+     background: rgba(255,255,255,0.55) !important;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255,255,255,.65) !important;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08),
+    inset 0 1px 0 rgba(255,255,255,.6);
+  border-radius: 999px;
   padding: 10px 12px 10px 24px !important;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08) !important;
+ 
 
   .field {
     display: flex;
@@ -173,6 +176,24 @@ const SearchBarWrapper = styled(Box)`
       margin-left: 0;
     }
   }
+}
+@media (max-width:576px){
+
+.searchBar{
+
+    padding:16px !important;
+    border-radius:24px !important;
+
+    .searchBtn{
+        height:46px;
+    }
+
+    .field{
+        padding-bottom:12px;
+    }
+
+}
+
 }
 `
 

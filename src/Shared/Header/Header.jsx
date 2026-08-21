@@ -1,5 +1,5 @@
 import  { useState } from "react";
-
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import {
   AppBar,
@@ -168,6 +168,40 @@ const HeaderWrapper = styled(Box)`
     font-size: 16px;
   }
 }
+@media (max-width: 768px) {
+  .header {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+
+    .headerContainer {
+      padding: 0 16px !important;
+    }
+
+    .toolbar {
+      min-height: 60px !important;
+    }
+
+    .language {
+      display: none !important;
+    }
+
+    .logoImg {
+      width: 120px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    .headerContainer {
+      padding: 0 12px !important;
+    }
+
+    .logoImg {
+      width: 105px !important;
+    }
+  }
+}
 `
 
 const Header = () => {
@@ -179,21 +213,23 @@ const Header = () => {
 
   return (
     <HeaderWrapper> 
-      <AppBar position="absolute" elevation={0} className="header">
+      <AppBar position="static" elevation={0} className="header">
       <Container maxWidth={false} className="headerContainer">
         <Toolbar className="toolbar">
           {/* Logo */}
-          <Box
-            component="img"
-            src={logo}
-            alt="Company Logo"
-            className="logoImg"
-            sx={{
-              width: { xs: 120, sm: 150 },
-              height: "auto",
-              cursor: "pointer",
-            }}
-          />
+        <Link to="/" style={{ display: "flex" }}>
+              <Box
+                component="img"
+                src={logo}
+                alt="Company Logo"
+                className="logoImg"
+                sx={{
+                  width: { xs: 120, sm: 150 },
+                  height: "auto",
+                  cursor: "pointer",
+                }}
+              />
+            </Link>
 
           {/* Desktop Navigation */}
           <Box className="navMenu">
