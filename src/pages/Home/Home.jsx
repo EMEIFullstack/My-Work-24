@@ -3,10 +3,6 @@ import React from 'react'
 import { HomeWrapper } from '../../HomeWrapper/HomeWrapper';
 import QuestionsSec from '../../Components/FAQs/QuestionsSec';
 import NewsSlider from '../../Components/News/NewsSlider';
-import PostJobBanner from '../../Components/PostJobBanner/PostJobBanner';
-import Hero from '../../Components/Hero/Hero';
-import HowItWorks from '../../Components/HowItWork/HowItWork';
-
 
 
 function Home() {
@@ -34,12 +30,9 @@ function Home() {
   return (
     <HomeWrapper>
         <Box fontFamily="Montserrat">
-          <Hero />
-        <HowItWorks />
         
         {/* Your Post Job Banner Section */}
         <Container fixed>
-               <PostJobBanner />
                </Container>
             <Container fixed>
             <Typography variant="h3" align='center'>
