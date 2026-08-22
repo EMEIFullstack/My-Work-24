@@ -6,7 +6,7 @@ import Footer from "./Shared/footer";
 import WindowCleaning from "./pages/WindowCleaning/WindowCleaning";
 import Signup from "./pages/Signup/Signup";
 import HowItWork from "./pages/HowItWork/HowItWork"
-
+import About from "./pages/About/About";
 function App() {
   return (
     <div>
@@ -26,6 +26,7 @@ function App() {
             path="/signup"
             element={<Signup />}
           />
+                <Route path='/aboutus' element={<About />} />
         </Routes>
         <Footer />
       </Router>

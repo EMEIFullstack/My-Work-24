@@ -1,6 +1,7 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+
 import {
   AppBar,
   Toolbar,
@@ -14,16 +15,46 @@ import {
   ListItemButton,
   ListItemText,
   styled,
-  Link,
-  Menu,
-  MenuItem,
 } from "@mui/material";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-const menu = ["Home", "Our Services", "About Us", "News", "Contact Us", "FAQ"];
+/* =====================================================
+   NAVIGATION MENU
+===================================================== */
+
+const menu = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "Our Services",
+    path: "/services",
+  },
+  {
+    name: "About Us",
+    path: "/aboutus",
+  },
+  {
+    name: "News",
+    path: "/news",
+  },
+  {
+    name: "Contact Us",
+    path: "/contact",
+  },
+  {
+    name: "FAQ",
+    path: "/faq",
+  },
+];
+
+/* =====================================================
+   HEADER STYLES
+===================================================== */
 
 const HeaderWrapper = styled(Box)`
   .header {
@@ -35,286 +66,217 @@ const HeaderWrapper = styled(Box)`
 
     @media (min-width: 768px) {
       padding-bottom: 40px !important;
-      padding-top: 30px !important;
-    }
-  }
-
-  .headerContainer {
-    max-width: 1180px !important;
-    margin: 0 auto;
-    padding: 0 20px !important;
-  }
-
-  .toolbar {
-    min-height: 70px !important;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 !important;
-  }
-
-  /* ================= LOGO ================= */
-
-  .logo {
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 23px;
-    line-height: 28px;
-    letter-spacing: 0.09em;
-    color: #061418;
-  }
-
-  /* ================= NAVIGATION ================= */
-
-  .navMenu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0;
-    gap: 8px;
-
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: #061418;
-  }
-
-  .navBtn {
-    color: #061418 !important;
-    font-size: 15px !important;
-    font-weight: 500 !important;
-    text-transform: none !important;
-    white-space: nowrap;
-    min-width: auto !important;
-    padding: 6px 8px !important;
-    border-radius: 8px !important;
-
-    &:hover {
-      color: #20c65a !important;
-      background: transparent !important;
-    }
-  }
-
-  /* ================= RIGHT SIDE ================= */
-
-  .rightSide {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .language,
-  .login {
-    height: 44px;
-    padding: 0 18px !important;
-
-    border: 1px solid #d9d9d9 !important;
-    border-radius: 30px !important;
-
-    color: #111 !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    text-transform: none !important;
-    white-space: nowrap;
-
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      color 0.2s ease;
-
-    &:hover {
-      background: #20c65a !important;
-      border-color: #20c65a !important;
-      color: #fff !important;
-    }
-  }
-
-  /* ================= LOGIN BUTTON ================= */
-
-  .login {
-    min-width: 180px !important;
-    justify-content: center;
-  }
-
-  /* ================= MOBILE HAMBURGER ================= */
-
-  .menuButton {
-    display: none !important;
-    color: #061418 !important;
-  }
-
-  /* ================= LOGIN DROPDOWN ================= */
-
-  .loginMenu {
-    .MuiPaper-root {
-      margin-top: 8px;
-
-      min-width: 180px;
-
-      border-radius: 12px;
-      border: 1px solid #eeeeee;
-
-      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
-
-      transform-origin: top center;
+      padding-top: 40px !important;
     }
 
-    .MuiMenuItem-root {
+    /* ================= CONTAINER ================= */
+
+    .headerContainer {
+      max-width: 1180px !important;
+      margin: 0 auto;
+      padding: 0 20px !important;
+    }
+
+    /* ================= TOOLBAR ================= */
+
+    .toolbar {
+      min-height: 70px !important;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 0 !important;
+    }
+
+    /* ================= LOGO ================= */
+
+    .logoImg {
+      display: block;
+      object-fit: contain;
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    .navMenu {
+      display: flex;
+
+      flex-direction: row;
+
+      align-items: center;
+
+      padding: 0;
+
+      gap: 8px;
+
       font-family: "Inter";
-      font-size: 15px;
+
+      font-style: normal;
+
       font-weight: 500;
 
+      font-size: 16px;
+
+      line-height: 19px;
+
       color: #061418;
+    }
 
-      padding: 12px 18px;
+    /* ================= NAV BUTTON ================= */
 
-      transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+    .navBtn {
+      color: #061418 !important;
+
+      font-size: 15px !important;
+
+      font-weight: 500 !important;
+
+      text-transform: none !important;
+
+      white-space: nowrap;
+
+      min-width: auto !important;
+
+      padding: 6px 8px !important;
+
+      border-radius: 8px !important;
+
+      text-decoration: none !important;
 
       &:hover {
-        background: #f1fff5;
-        color: #20c65a;
+        color: #20c65a !important;
+
+        background: transparent !important;
+      }
+    }
+
+    /* ================= RIGHT SIDE ================= */
+
+    .rightSide {
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+    }
+
+    /* ================= LANGUAGE + LOGIN ================= */
+
+    .language,
+    .login {
+      height: 44px;
+
+      padding: 0 18px !important;
+
+      border: 1px solid #d9d9d9 !important;
+
+      border-radius: 30px !important;
+
+      color: #111 !important;
+
+      font-size: 14px !important;
+
+      font-weight: 500 !important;
+
+      text-transform: none !important;
+
+      white-space: nowrap;
+    }
+
+    .language:hover,
+    .login:hover {
+      background: #20c65a !important;
+
+      border-color: #20c65a !important;
+
+      color: #fff !important;
+    }
+
+    /* ================= MOBILE MENU BUTTON ================= */
+
+    .menuButton {
+      display: none !important;
+
+      color: #061418 !important;
+    }
+  }
+
+  /* =====================================================
+     TABLET + MOBILE
+  ===================================================== */
+
+  @media (max-width: 1100px) {
+    .header {
+      .navMenu {
+        display: none;
+      }
+
+      .toolbar {
+        justify-content: space-between;
+      }
+
+      .menuButton {
+        display: inline-flex !important;
+      }
+
+      .login {
+        display: none !important;
       }
     }
   }
 
-  /* ================= TABLET + MOBILE ================= */
-
-  @media (max-width: 1100px) {
-    .navMenu {
-      display: none;
-    }
-
-    .toolbar {
-      justify-content: space-between;
-    }
-
-    .menuButton {
-      display: inline-flex !important;
-    }
-
-    .login {
-      display: none !important;
-    }
-  }
-
-  /* ================= MOBILE DRAWER ================= */
+  /* =====================================================
+     MOBILE DRAWER
+  ===================================================== */
 
   .mobileDrawer {
     width: 280px;
+
     padding: 20px;
 
     .drawerHeader {
       display: flex;
+
       justify-content: flex-end;
+
       margin-bottom: 20px;
     }
 
     .MuiListItemText-primary {
       font-family: "Inter";
+
       font-weight: 500;
+
       color: #061418;
+
       font-size: 16px;
     }
 
     .MuiListItemButton-root {
       border-radius: 8px;
 
-      transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+      margin-bottom: 4px;
 
       &:hover {
-        background: #f1fff5;
-      }
-    }
-  }
-
-  /* ================= 768px ================= */
-
-  @media (max-width: 768px) {
-    .header {
-      padding-top: 15px !important;
-      padding-bottom: 15px !important;
-
-      .headerContainer {
-        padding: 0 16px !important;
-      }
-
-      .toolbar {
-        min-height: 60px !important;
-      }
-
-      .language {
-        display: none !important;
-      }
-
-      .logoImg {
-        width: 120px !important;
-      }
-    }
-  }
-
-  /* ================= 480px ================= */
-
-  @media (max-width: 480px) {
-    .header {
-      .headerContainer {
-        padding: 0 12px !important;
-      }
-
-      .logoImg {
-        width: 105px !important;
+        background: rgba(32, 198, 90, 0.08);
       }
     }
   }
 `;
 
-const Header = () => {
-  /* ================= MOBILE DRAWER STATE ================= */
+/* =====================================================
+   HEADER COMPONENT
+===================================================== */
 
+const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  /* ================= LOGIN DROPDOWN STATE ================= */
-
-  const [loginAnchor, setLoginAnchor] = useState(null);
-
-  /* ================= MOBILE DRAWER ================= */
+  /* ================= DRAWER TOGGLE ================= */
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
-  };
-
-  /* ================= LOGIN DROPDOWN ================= */
-
-  const handleLoginClick = (event) => {
-    setLoginAnchor(event.currentTarget);
-  };
-
-  const handleLoginClose = () => {
-    setLoginAnchor(null);
-  };
-
-  /* ================= LOGIN ================= */
-
-  const handleLogin = () => {
-    handleLoginClose();
-
-    // Later you can navigate to:
-    // /login
-  };
-
-  /* ================= SIGN UP ================= */
-
-  const handleSignUp = () => {
-    handleLoginClose();
-
-    // Later you can navigate to:
-    // /signup
   };
 
   return (
@@ -330,11 +292,17 @@ const Header = () => {
         >
           <Toolbar className="toolbar">
 
-            {/* ================= LOGO ================= */}
+            {/* =================================================
+                LOGO
+            ================================================= */}
 
             <Link
-              href="/"
-              underline="none"
+              to="/"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                textDecoration: "none",
+              }}
             >
               <Box
                 component="img"
@@ -346,23 +314,29 @@ const Header = () => {
                     xs: 120,
                     sm: 150,
                   },
+
                   height: "auto",
+
                   cursor: "pointer",
                 }}
               />
             </Link>
 
-            {/* ================= DESKTOP NAVIGATION ================= */}
+            {/* =================================================
+                DESKTOP NAVIGATION
+            ================================================= */}
 
             <Box className="navMenu">
               {menu.map((item, index) => (
                 <Button
                   key={index}
+                  component={Link}
+                  to={item.path}
                   className="navBtn"
                 >
-                  {item}
+                  {item.name}
 
-                  {item === "Our Services" && (
+                  {item.name === "Our Services" && (
                     <KeyboardArrowDownIcon
                       sx={{
                         fontSize: 18,
@@ -374,7 +348,9 @@ const Header = () => {
               ))}
             </Box>
 
-            {/* ================= RIGHT SIDE ================= */}
+            {/* =================================================
+                RIGHT SIDE
+            ================================================= */}
 
             <Box className="rightSide">
 
@@ -395,66 +371,27 @@ const Header = () => {
                   }}
                 />
 
-                <KeyboardArrowDownIcon />
+                <KeyboardArrowDownIcon
+                  sx={{
+                    fontSize: 20,
+                    marginLeft: "2px",
+                  }}
+                />
               </Button>
 
-              {/* ================= LOGIN / SIGN UP ================= */}
+              {/* ================= LOGIN ================= */}
 
               <Button
+                component={Link}
+                to="/login"
                 className="login"
-                onClick={handleLoginClick}
-                endIcon={<KeyboardArrowDownIcon />}
               >
                 Login / Sign Up
               </Button>
 
-              {/* ================= LOGIN DROPDOWN ================= */}
-
-              <Menu
-                className="loginMenu"
-                anchorEl={loginAnchor}
-                open={Boolean(loginAnchor)}
-                onClose={handleLoginClose}
-
-                /*
-                 * IMPORTANT:
-                 * Prevents the page from shrinking/jumping
-                 * when the dropdown opens.
-                 */
-                disableScrollLock
-
-                /*
-                 * Smooth opening/closing animation
-                 */
-                transitionDuration={200}
-
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "center",
-                }}
-
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "center",
-                }}
-              >
-                {/* LOGIN */}
-
-                <MenuItem onClick={handleLogin}>
-                  Login
-                </MenuItem>
-
-                {/* SIGN UP */}
-
-                <MenuItem onClick={handleSignUp}>
-                  Sign Up
-                </MenuItem>
-              </Menu>
-
-              {/* ================= MOBILE MENU BUTTON ================= */}
+              {/* ================= MOBILE MENU ================= */}
 
               <IconButton
-                color="inherit"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
@@ -467,7 +404,9 @@ const Header = () => {
           </Toolbar>
         </Container>
 
-        {/* ================= MOBILE DRAWER ================= */}
+        {/* =================================================
+            MOBILE DRAWER
+        ================================================= */}
 
         <Drawer
           anchor="right"
@@ -480,15 +419,19 @@ const Header = () => {
             className: "mobileDrawer",
           }}
         >
+
           {/* ================= CLOSE BUTTON ================= */}
 
           <Box className="drawerHeader">
-            <IconButton onClick={handleDrawerToggle}>
+            <IconButton
+              onClick={handleDrawerToggle}
+              aria-label="close drawer"
+            >
               <CloseIcon />
             </IconButton>
           </Box>
 
-          {/* ================= MOBILE NAVIGATION ================= */}
+          {/* ================= MOBILE MENU ================= */}
 
           <List>
             {menu.map((item, index) => (
@@ -497,13 +440,26 @@ const Header = () => {
                 disablePadding
               >
                 <ListItemButton
+                  component={Link}
+                  to={item.path}
                   onClick={handleDrawerToggle}
                 >
-                  <ListItemText primary={item} />
+                  <ListItemText
+                    primary={item.name}
+                  />
+
+                  {item.name === "Our Services" && (
+                    <KeyboardArrowDownIcon
+                      sx={{
+                        fontSize: 20,
+                      }}
+                    />
+                  )}
                 </ListItemButton>
               </ListItem>
             ))}
           </List>
+
         </Drawer>
       </AppBar>
     </HeaderWrapper>
