@@ -11,6 +11,8 @@ import {
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
+import SearchBar from "../SearchBar/SearchBar";
+
 import img1 from "../../assets/work1.png";
 import img2 from "../../assets/work2.png";
 import img3 from "../../assets/work3.png";
@@ -23,17 +25,15 @@ const textDark = "#121212";
 const textGray = "#6c757d";
 const borderColor = "#eef2f5";
 
-/* =========================
-   Section Data
-========================= */
+
 
 const sectionData = {
   header: {
     title: "Search Result",
-    subtitle: "18 Results Found",
+    subtitle: "30 Results Found",
   },
   
-  items: Array.from({ length: 18 }).map((_, index) => {
+  items: Array.from({ length: 30 }).map((_, index) => {
     const images = [img1, img2, img3, img4, img5, img6];
     return {
       id: index + 1,
@@ -44,9 +44,6 @@ const sectionData = {
   }),
 };
 
-/* =========================
-   Styled Component
-========================= */
 
 const SearchWrapper = styled(Box)`
   padding: 60px 0;
@@ -143,15 +140,13 @@ const SearchWrapper = styled(Box)`
   }
 `;
 
-/* =========================
-   Component
-========================= */
+
 
 const SearchResults = () => {
   const { header, items } = sectionData;
   const [page, setPage] = useState(1);
 
-  const itemsPerPage = 3;
+  const itemsPerPage = 10;
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = items.slice(startIndex, endIndex);
@@ -162,10 +157,58 @@ const SearchResults = () => {
   };
 
   return (
-    // 2. Added mt={5} directly to the wrapper!
+
     <SearchWrapper mt={5}> 
       <Container>
         <Box>
+          
+
+
+          <Box 
+            sx={{
+              width: "100vw", 
+              position: "relative", 
+              left: "50%", 
+              transform: "translateX(-50%)", 
+              height: { xs: "300px", sm: "400px", md: "500px" }, 
+              mb: 5,
+              mt: "-80px"
+         
+            }}
+          >
+            <iframe
+              title="Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117925.33439927764!2d88.2649507963353!3d22.535406374567295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </Box>
+       
+
+
+
+
+
+
+
+
+<Box 
+            sx={{
+              display: "flex",           
+              justifyContent: "center",  
+              mt: "-70px",               
+              position: "relative",      
+              zIndex: 10,              
+              mb: 6                    
+            }}
+          >
+            <SearchBar />
+          </Box>
+          
           
           <Box className="search-header">
             <Typography variant="h5" className="search-title">

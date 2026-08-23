@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { Box, Container, Typography, Button, styled } from "@mui/material";
 
@@ -5,8 +7,6 @@ import watermarkImg from "../../assets/watermark.png";
 
 const bannerGreen = "#4cd88b";
 const textDark = "#121212";
-
-
 
 const bannerData = {
   titlePart1: "Post Your",
@@ -16,8 +16,6 @@ const bannerData = {
   buttonText: "Post Now",
 };
 
-
-
 const BannerWrapper = styled(Box)`
   padding: 60px 0;
   width: 100%;
@@ -25,7 +23,7 @@ const BannerWrapper = styled(Box)`
   margin-right: 20px;
 
   .banner-container {
-    position: relative;
+    position: relative; /* <-- Keeps the image trapped inside! */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -33,26 +31,25 @@ const BannerWrapper = styled(Box)`
 
     padding: 40px 60px;
     border-radius: 24px;
-
-
     background-color: ${bannerGreen};
-    background-image: url(${watermarkImg}); 
-    background-repeat: no-repeat; 
-    background-position: right; 
+    
+
   }
 
   .watermark-img {
     position: absolute;
     right: 0;
-    top: 0;
-    height: 100%;
+    top: 10;
+   
     pointer-events: none;
+    z-index: 1;
   }
 
   .banner-content {
     max-width: 500px;
+    position: relative;
+    z-index: 2;
   }
-
   
   .banner-title {
     font-weight: 800;
@@ -74,6 +71,11 @@ const BannerWrapper = styled(Box)`
     margin-top: 15px;
   }
 
+  .banner-btn-box {
+    position: relative;
+    z-index: 2;
+  }
+
   .banner-btn {
     background-color: #ffffff;
     color: ${textDark};
@@ -82,6 +84,10 @@ const BannerWrapper = styled(Box)`
     text-transform: none;
     padding: 12px 32px;
     border-radius: 50px;
+    
+    &:hover {
+      background-color: #f1f1f1;
+    }
   }
 
   @media (max-width: 768px) {
@@ -93,14 +99,16 @@ const BannerWrapper = styled(Box)`
     }
   }
 `;
+
 const PostJobBanner = () => {
   const { titlePart1, titleHighlight, description, buttonText } = bannerData;
 
-return (
+  return (
     <BannerWrapper>
       <Container>
         <Box className="banner-container">
           
+          {/* Brought your original image tag back! */}
           <img src={watermarkImg} alt="background pattern" className="watermark-img" />
           
           <Box className="banner-content">
