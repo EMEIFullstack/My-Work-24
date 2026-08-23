@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Container,
@@ -10,7 +9,6 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
-  Grid,
   styled,
 } from "@mui/material";
 
@@ -25,27 +23,44 @@ import locationIcon from "../../assets/icons/contact-location.png";
 // ================= STYLED COMPONENTS =================
 
 const ContactSectionWrapper = styled(Box)`
-  width: 100%;
-  padding: 80px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ 
 
-  .contactSection {
+   .contactSection {
+    position: relative;
+
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top:60px;
-  }
 
-  .contactContainer {
-    width: 100%;
-    max-width: 1200px !important;
-    margin: 0 auto;
-    padding: 0 20px !important;
-  }
+    min-height: 100vh;
 
+    padding-top: 130px;
+
+    padding-bottom: 90px;
+
+    background-color: #fcfefb;
+
+    background-image:
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(32, 198, 90, 0.35) 0%,
+        rgba(32, 198, 90, 0.1) 18%,
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 100% 100%,
+        rgba(245, 166, 106, 0.12) 0%,
+        transparent 30%
+      ),
+      linear-gradient(to right, rgba(220, 226, 222, 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(220, 226, 222, 0.35) 1px, transparent 1px);
+
+    background-size:
+      100% 100%,
+      100% 100%,
+      60px 60px,
+      60px 60px;
+
+    overflow: hidden;
+  }
   /* ================= HEADING ================= */
 
   .contactHeading {
@@ -69,7 +84,7 @@ const ContactSectionWrapper = styled(Box)`
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
-    padding: 40px; /* Equalized padding around all sides */
+    padding: 40px;
     box-sizing: border-box;
     border-radius: 28px;
     border: 1px solid rgba(200, 215, 205, 0.6);
@@ -81,22 +96,34 @@ const ContactSectionWrapper = styled(Box)`
     );
 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-
     position: relative;
     overflow: hidden;
   }
 
+  /* ================= FLEX LAYOUT ================= */
+
+  .cardContentFlex {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Aligns both children strictly at the top */
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+  }
+
   /* ================= FORM PANEL ================= */
+
+  .formPanelWrapper {
+    flex: 1 1 480px;
+    width: 100%;
+  }
 
   .formPanel {
     width: 100%;
     background: #ffffff;
     border-radius: 20px;
-
     padding: 40px 35px;
-
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-
     box-sizing: border-box;
   }
 
@@ -105,6 +132,7 @@ const ContactSectionWrapper = styled(Box)`
     font-weight: 700;
     font-size: 22px;
     color: #111;
+    margin-top: 0;
     margin-bottom: 25px;
   }
 
@@ -117,10 +145,8 @@ const ContactSectionWrapper = styled(Box)`
       font-size: 13px;
       color: #8c9ba0;
       font-weight: 500;
-
       transform: none;
       position: relative;
-
       margin-bottom: 6px;
     }
 
@@ -163,25 +189,17 @@ const ContactSectionWrapper = styled(Box)`
   .submitBtn {
     background-color: #00cd64;
     color: #fff;
-
     text-transform: none;
-
     font-weight: 600;
     font-size: 14px;
-
     padding: 10px 36px;
-
     border-radius: 50px;
-
     margin-top: 15px;
-
     transition: all 0.3s ease;
 
     &:hover {
       background-color: #00b356;
-
       box-shadow: 0 6px 18px rgba(0, 205, 100, 0.3);
-
       transform: translateY(-1px);
     }
   }
@@ -189,80 +207,44 @@ const ContactSectionWrapper = styled(Box)`
   /* ================= RIGHT INFO PANEL ================= */
 
   .infoPanel {
+    flex: 1 1 380px;
     width: 100%;
-
-    padding: 30px 20px 20px 50px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 40px; /* Matches the 40px inner padding of .formPanel */
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     box-sizing: border-box;
-  }
-
-  .companyHeading {
-    font-family: "Poppins", sans-serif;
-
-    font-weight: 800;
-
-    font-size: 38px;
-
-    color: #111;
-
-    line-height: 1.1;
-
-    span {
-      color: #00cd64;
-
-      position: relative;
-
-      display: inline-block;
-
-      /* ================= WAVE UNDERLINE ================= */
-
-      &:after {
-        content: "";
-
-        position: absolute;
-
-        bottom: -6px;
-        left: 0;
-
-        width: 100%;
-        height: 6px;
-
-        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 4"><path d="M0 2 Q 5 0, 10 2 T 20 2" fill="none" stroke="%2300cd64" stroke-width="2"/></svg>')
-          repeat-x;
-
-        background-size: 12px 6px;
-      }
-    }
   }
 
   /* ================= DESCRIPTION ================= */
 
   .companyDesc {
     font-family: "Inter", sans-serif;
-
     color: #718084;
-
     font-size: 14px;
-
     line-height: 22px;
-
     margin-top: 12px;
-
     margin-bottom: 35px;
-
-    max-width: 320px;
+    max-width: 340px;
+    text-align: left;
   }
 
   /* ================= INFO ITEM ================= */
 
   .infoItem {
     display: flex;
-
     align-items: center;
-
     gap: 18px;
-
     margin-bottom: 24px;
+    
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   /* ================= ICON ================= */
@@ -270,25 +252,17 @@ const ContactSectionWrapper = styled(Box)`
   .iconCircle {
     width: 42px;
     height: 42px;
-
     min-width: 42px;
-
     border-radius: 50%;
-
     background-color: #00cd64;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
 
     img {
       width: 30px;
       height: 30px;
-
       object-fit: contain;
     }
   }
@@ -296,42 +270,51 @@ const ContactSectionWrapper = styled(Box)`
   /* ================= LABEL ================= */
 
   .infoLabel {
-    font-family: "Inter", sans-serif;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 29px;
+color: #64757A;
 
-    font-size: 13px;
-
-    color: #8c9ba0;
-
-    margin-bottom: 2px;
   }
 
   /* ================= VALUE ================= */
 
   .infoValue {
-    font-family: "Inter", sans-serif;
+    /* demomail@gmail.com */
 
-    font-weight: 700;
 
-    font-size: 14px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 23px;
+color: #061418; 0;
 
-    color: #111;
-
-    line-height: 21px;
   }
 
-  /* ================= TABLET ================= */
+  /* ================= RESPONSIVE ================= */
 
   @media (max-width: 900px) {
+    .cardContentFlex {
+      flex-direction: column;
+      gap: 32px;
+    }
+
     .contactOuterCard {
       padding: 30px 25px;
     }
 
     .infoPanel {
-      padding: 25px 10px 10px;
+      padding-top: 0;
+    }
+
+    .formPanelWrapper,
+    .infoPanel {
+      flex: 1 1 100%;
     }
   }
-
-  /* ================= MOBILE ================= */
 
   @media (max-width: 600px) {
     padding: 50px 15px;
@@ -351,26 +334,16 @@ const ContactSectionWrapper = styled(Box)`
 
     .contactOuterCard {
       padding: 20px 15px;
-
       border-radius: 20px;
     }
 
     .formPanel {
       padding: 30px 20px;
-
       border-radius: 16px;
     }
 
     .formTitle {
       font-size: 20px;
-    }
-
-    .infoPanel {
-      padding: 20px 5px 10px;
-    }
-
-    .companyHeading {
-      font-size: 32px;
     }
 
     .companyDesc {
@@ -429,15 +402,10 @@ const ContactQuerySection = () => {
           {/* ================= MAIN CARD ================= */}
 
           <Box className="contactOuterCard">
-            <Grid
-              container
-              spacing={4}
-              alignItems="center"
-              justifyContent="space-between"
-            >
+            <Box className="cardContentFlex">
               {/* ================= LEFT FORM ================= */}
 
-              <Grid item xs={12} md={6}>
+              <Box className="formPanelWrapper">
                 <Paper elevation={0} className="formPanel">
                   <Typography variant="h5" className="formTitle">
                     Issue Your Query
@@ -529,69 +497,71 @@ const ContactQuerySection = () => {
                     </Button>
                   </Box>
                 </Paper>
-              </Grid>
+              </Box>
 
               {/* ================= RIGHT INFO ================= */}
 
-              <Grid item xs={12} md={6}>
-                <Box className="infoPanel">
-                  <Typography variant="h2" className="companyHeading">
-                    Company <span>Info</span>
-                  </Typography>
+              <Box className="infoPanel">
+                <WaveTitle
+                  mainTitle="Company"
+                  highlightTitle="Info"
+                  fontSize="38px"
+                  headingLevel="h2"
+                  marginBottom={0}
+                />
 
-                  <Typography className="companyDesc">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </Typography>
+                <Typography className="companyDesc">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </Typography>
 
-                  {/* MAIL */}
+                {/* MAIL */}
 
-                  <Box className="infoItem">
-                    <Box className="iconCircle">
-                      <img src={mailIcon} alt="Mail Us" />
-                    </Box>
-
-                    <Box>
-                      <Typography className="infoLabel">Mail Us</Typography>
-
-                      <Typography className="infoValue">
-                        demomail@gmail.com
-                      </Typography>
-                    </Box>
+                <Box className="infoItem">
+                  <Box className="iconCircle">
+                    <img src={mailIcon} alt="Mail Us" />
                   </Box>
 
-                  {/* CALL */}
+                  <Box>
+                    <Typography className="infoLabel">Mail Us</Typography>
 
-                  <Box className="infoItem">
-                    <Box className="iconCircle">
-                      <img src={phoneIcon} alt="Call Us" />
-                    </Box>
-
-                    <Box>
-                      <Typography className="infoLabel">Call Us</Typography>
-
-                      <Typography className="infoValue">1234567890</Typography>
-                    </Box>
-                  </Box>
-
-                  {/* ADDRESS */}
-
-                  <Box className="infoItem">
-                    <Box className="iconCircle">
-                      <img src={locationIcon} alt="Address" />
-                    </Box>
-
-                    <Box>
-                      <Typography className="infoLabel">Address</Typography>
-
-                      <Typography className="infoValue">
-                        2715 Ash Dr. San Jose, South Dakota 83475
-                      </Typography>
-                    </Box>
+                    <Typography className="infoValue">
+                      demomail@gmail.com
+                    </Typography>
                   </Box>
                 </Box>
-              </Grid>
-            </Grid>
+
+                {/* CALL */}
+
+                <Box className="infoItem">
+                  <Box className="iconCircle">
+                    <img src={phoneIcon} alt="Call Us" />
+                  </Box>
+
+                  <Box>
+                    <Typography className="infoLabel">Call Us</Typography>
+
+                    <Typography className="infoValue">1234567890</Typography>
+                  </Box>
+                </Box>
+
+                {/* ADDRESS */}
+
+                <Box className="infoItem">
+                  <Box className="iconCircle">
+                    <img src={locationIcon} alt="Address" />
+                  </Box>
+
+                  <Box>
+                    <Typography className="infoLabel">Address</Typography>
+
+                    <Typography className="infoValue">
+                      2715 Ash Dr. San Jose, South Dakota 83475
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           </Box>
         </Container>
       </Box>
