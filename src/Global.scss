@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -15,33 +16,28 @@ body {
   color: #000;
   line-height: 1.5;
 
-  /* ১. গ্রিন গ্লো দৃশ্যমান করতে সাইজ ও ট্রান্সপারেন্সি বাড়িয়ে দেওয়া হয়েছে */
-  background: 
-    radial-gradient(circle at 0% 0%, rgba(32, 198, 90, 0.45) 0%, rgba(32, 198, 90, 0.15) 35%, transparent 65%),
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 100% 100%, 32px 32px, 32px 32px;
-  background-attachment: fixed;
-  background-color: #fcfdfc; /* হালকা ব্যাকগ্রাউন্ড বেস */
 }
+  #root {
+    background: transparent !important;
+  }
 
-/* ২. যেকোনো চাইল্ড ডিফেক্ট ওভাররাইড করতে স্বচ্ছ করা হয়েছে */
-#root {
-  background: transparent !important;
-}
+  img {
+    max-width: 100%;
+  }
 
-img {
-  max-width: 100%;
-}
+  a {
+    text-decoration: none;
+  }
 
-a {
-  text-decoration: none;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-}
-
-.MuiContainer-root {
-  max-width: 1200px;
-}
+  .MuiContainer-root {
+    max-width: 1200px;
+  }

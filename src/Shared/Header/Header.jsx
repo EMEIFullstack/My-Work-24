@@ -46,7 +46,7 @@ const menu = [
   },
   {
     name: "Contact Us",
-    path: "/",
+    path: "/contactus",
   },
   {
     name: "FAQ",
