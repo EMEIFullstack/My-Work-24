@@ -7,6 +7,9 @@ import WindowCleaning from "./pages/WindowCleaning/WindowCleaning";
 import Signup from "./pages/Signup/Signup";
 import Subscription from "./pages/Subscription/Subscription";
 
+import HowItWork from "./pages/HowItWork/HowItWork"
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact"
 function App() {
   return (
     <div>
@@ -18,6 +21,8 @@ function App() {
               <Home />
               <ServicesSection />
              
+              <HowItWork/>
+              
             </>
           } />
           <Route path='/windowcleaning' element={<WindowCleaning />} />
@@ -26,6 +31,9 @@ function App() {
             path="/signup"
             element={<Signup />}
           />
+                <Route path='/aboutus' element={<About />} />
+
+                 <Route path='/contactus' element={<Contact />} />
         </Routes>
         <Footer />
       </Router>
@@ -34,3 +42,5 @@ function App() {
   )
 }
   export default App;
+
+  

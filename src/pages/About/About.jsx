@@ -1,6 +1,4 @@
-
-
-import Hero from '../../Components/Hero/Hero';
+import AboutUs from "../../Components/AboutUs/AboutUs";
 
 
 
@@ -9,9 +7,7 @@ export default function Home() {
         <div>
             <>
 
-            
-            <Hero/>
-          
+            <AboutUs/>
             </>
 
         </div>

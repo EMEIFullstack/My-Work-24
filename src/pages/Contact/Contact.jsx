@@ -1,6 +1,4 @@
-
-
-import Hero from '../../Components/Hero/Hero';
+import ContactQuerySection from "../../Components/ContactUs/ContactUs";
 
 
 
@@ -9,9 +7,7 @@ export default function Home() {
         <div>
             <>
 
-            
-            <Hero/>
-          
+            <ContactQuerySection/>
             </>
 
         </div>

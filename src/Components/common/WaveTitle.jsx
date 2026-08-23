@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 const WaveTitle = ({
   mainTitle = "",
   highlightTitle = "",
+  headingLevel = "h2",
 }) => {
   const textRef = useRef(null);
   const canvasRef = useRef(null);
@@ -20,6 +21,7 @@ const WaveTitle = ({
       // =========================
       // WAVE DESIGN SETTINGS
       // =========================
+
       const extraWidth = 4;
       const width = textWidth + extraWidth;
 
@@ -29,22 +31,26 @@ const WaveTitle = ({
 
       const dpr = window.devicePixelRatio || 1;
 
-      // Canvas resolution
+      // =========================
+      // CANVAS RESOLUTION
+      // =========================
+
       canvas.width = width * dpr;
       canvas.height = height * dpr;
 
-      // Canvas display size
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
       const ctx = canvas.getContext("2d");
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
       ctx.clearRect(0, 0, width, height);
 
       // =========================
       // WAVE STYLE
       // =========================
+
       ctx.beginPath();
 
       ctx.strokeStyle = "#00CD64";
@@ -55,6 +61,7 @@ const WaveTitle = ({
       // =========================
       // DRAW WAVE
       // =========================
+
       for (let x = 0; x <= width; x++) {
         const progress = x / width;
 
@@ -100,15 +107,17 @@ const WaveTitle = ({
       }}
     >
       <Typography
-        component="h2"
+        component={headingLevel}
         sx={{
           fontSize: "42px",
           lineHeight: 1.1,
           fontWeight: 800,
           color: "#111",
+
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+
           gap: "8px",
         }}
       >
@@ -118,10 +127,15 @@ const WaveTitle = ({
           component="span"
           sx={{
             position: "relative",
+
             display: "inline-flex",
+
             flexDirection: "column",
+
             alignItems: "flex-start",
+
             lineHeight: 1,
+
             overflow: "visible",
           }}
         >
@@ -130,8 +144,11 @@ const WaveTitle = ({
             ref={textRef}
             sx={{
               color: "#00CD64",
+
               fontWeight: 800,
+
               display: "inline-block",
+
               whiteSpace: "nowrap",
             }}
           >
@@ -143,12 +160,12 @@ const WaveTitle = ({
             style={{
               position: "absolute",
 
-              // Gap between text and wave
               bottom: "-10px",
 
               left: "-1px",
 
               pointerEvents: "none",
+
               overflow: "visible",
             }}
           />
