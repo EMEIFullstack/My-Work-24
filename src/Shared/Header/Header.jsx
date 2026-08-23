@@ -14,6 +14,8 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Menu,
+  MenuItem,
   styled,
 } from "@mui/material";
 
@@ -32,7 +34,7 @@ const menu = [
   },
   {
     name: "Our Services",
-    path: "/services",
+    path: "/",
   },
   {
     name: "About Us",
@@ -40,15 +42,15 @@ const menu = [
   },
   {
     name: "News",
-    path: "/news",
+    path: "",
   },
   {
     name: "Contact Us",
-    path: "/contact",
+    path: "/",
   },
   {
     name: "FAQ",
-    path: "/faq",
+    path: "/",
   },
 ];
 
@@ -66,7 +68,7 @@ const HeaderWrapper = styled(Box)`
 
     @media (min-width: 768px) {
       padding-bottom: 40px !important;
-      padding-top: 40px !important;
+      padding-top: 30px !important;
     }
 
     /* ================= CONTAINER ================= */
@@ -204,7 +206,7 @@ const HeaderWrapper = styled(Box)`
   }
 
   /* =====================================================
-     TABLET + MOBILE
+      TABLET + MOBILE
   ===================================================== */
 
   @media (max-width: 1100px) {
@@ -228,7 +230,7 @@ const HeaderWrapper = styled(Box)`
   }
 
   /* =====================================================
-     MOBILE DRAWER
+      MOBILE DRAWER
   ===================================================== */
 
   .mobileDrawer {
@@ -272,6 +274,18 @@ const HeaderWrapper = styled(Box)`
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  /* LOGIN DROPDOWN STATE */
+  const [anchorEl, setAnchorEl] = useState(null);
+  const openLoginMenu = Boolean(anchorEl);
+
+  const handleLoginClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleLoginClose = () => {
+    setAnchorEl(null);
+  };
 
   /* ================= DRAWER TOGGLE ================= */
 
@@ -379,15 +393,45 @@ const Header = () => {
                 />
               </Button>
 
-              {/* ================= LOGIN ================= */}
+              {/* ================= LOGIN WITH DROPDOWN ================= */}
 
               <Button
-                component={Link}
-                to="/login"
+                onClick={handleLoginClick}
                 className="login"
               >
                 Login / Sign Up
+                <KeyboardArrowDownIcon
+                  sx={{
+                    fontSize: 20,
+                    marginLeft: "4px",
+                  }}
+                />
               </Button>
+
+              {/* DROPDOWN MENU */}
+              <Menu
+                anchorEl={anchorEl}
+                open={openLoginMenu}
+                onClose={handleLoginClose}
+                AnchorProps={{
+                  style: { marginTop: "8px" },
+                }}
+              >
+                <MenuItem
+                  component={Link}
+                  to="/login"
+                  onClick={handleLoginClose}
+                >
+                  Login
+                </MenuItem>
+                <MenuItem
+                  component={Link}
+                  to="/signup"
+                  onClick={handleLoginClose}
+                >
+                  Sign Up
+                </MenuItem>
+              </Menu>
 
               {/* ================= MOBILE MENU ================= */}
 
@@ -458,6 +502,26 @@ const Header = () => {
                 </ListItemButton>
               </ListItem>
             ))}
+            
+            {/* MOBILE DRAWER LOGIN/SIGNUP OPTIONS */}
+            <ListItem disablePadding>
+              <ListItemButton
+                component={Link}
+                to="/login"
+                onClick={handleDrawerToggle}
+              >
+                <ListItemText primary="Login" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton
+                component={Link}
+                to="/signup"
+                onClick={handleDrawerToggle}
+              >
+                <ListItemText primary="Sign Up" />
+              </ListItemButton>
+            </ListItem>
           </List>
 
         </Drawer>

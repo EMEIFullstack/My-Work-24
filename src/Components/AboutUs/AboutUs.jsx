@@ -1,6 +1,5 @@
 import { Box, Container, Typography, Paper, styled } from "@mui/material";
 
-import Header from "../../Shared/Header/Header";
 import WaveTitle from "../../Components/common/WaveTitle";
 
 const AboutusWrapper = styled(Box)`
@@ -22,16 +21,17 @@ const AboutusWrapper = styled(Box)`
     background-image:
       radial-gradient(
         circle at 0% 0%,
-        rgba(32, 198, 90, 0.08),
-        transparent 40%
+        rgba(32, 198, 90, 0.35) 0%,
+        rgba(32, 198, 90, 0.1) 18%,
+        transparent 35%
       ),
       radial-gradient(
         circle at 100% 100%,
-        rgba(245, 166, 106, 0.08),
-        transparent 40%
+        rgba(245, 166, 106, 0.12) 0%,
+        transparent 30%
       ),
-      linear-gradient(to right, rgba(220, 226, 222, 0.3) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(220, 226, 222, 0.3) 1px, transparent 1px);
+      linear-gradient(to right, rgba(220, 226, 222, 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(220, 226, 222, 0.35) 1px, transparent 1px);
 
     background-size:
       100% 100%,
@@ -86,7 +86,6 @@ const AboutusWrapper = styled(Box)`
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
-    /* or 160% */
     text-align: center;
 
     color: #64757a;
@@ -142,7 +141,6 @@ const AboutusWrapper = styled(Box)`
     font-weight: 400 !important;
     font-size: 18px !important;
     line-height: 29px !important;
-    /* or 160% */
 
     color: #64757a !important;
   }
@@ -171,7 +169,6 @@ const AboutusWrapper = styled(Box)`
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
-    /* or 160% */
     text-align: center;
 
     color: #64757a;
@@ -267,7 +264,7 @@ const AboutusWrapper = styled(Box)`
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
-    /* identical to box height, or 160% */
+
     text-align: center;
 
     color: #64757a;
@@ -509,152 +506,146 @@ const AboutusWrapper = styled(Box)`
 
 const AboutUs = () => {
   return (
-    <>
-      <Header />
+    <AboutusWrapper>
+      <Box className="aboutSection">
+        {/* ================= CONTENT ================= */}
 
-      <AboutusWrapper>
-        <Box className="aboutSection">
-          {/* ================= CONTENT ================= */}
+        <Container maxWidth={false} className="aboutContainer">
+          {/* ================= ABOUT ================= */}
 
-          <Container maxWidth={false} className="aboutContainer">
-            {/* ================= ABOUT ================= */}
+          <Box className="aboutHeading">
+            <WaveTitle
+              mainTitle="About"
+              highlightTitle="Us"
+              fontSize="32px"
+              headingLevel="h1"
+              marginBottom={0}
+            />
 
-            <Box className="aboutHeading">
-              <WaveTitle
-                mainTitle="About"
-                highlightTitle="Us"
-                fontSize="32px"
-                headingLevel="h1"
-                marginBottom={0}
-              />
+            <Typography className="sectionSubtitle">
+              It is a long established fact that a reader will be distracted
+              by the readable content of a page when looking.
+            </Typography>
+          </Box>
 
-              <Typography className="sectionSubtitle">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking.
-              </Typography>
-            </Box>
+          {/* ================= MISSION ================= */}
 
-            {/* ================= MISSION ================= */}
+          <Paper className="missionCard">
+            <WaveTitle
+              mainTitle="Our"
+              highlightTitle="Mission"
+              fontSize="23px"
+              headingLevel="h2"
+              marginBottom={0}
+            />
 
-            <Paper className="missionCard">
-              <WaveTitle
-                mainTitle="Our"
-                highlightTitle="Mission"
-                fontSize="23px"
-                headingLevel="h2"
-                marginBottom={0}
-              />
+            <Typography className="description missionText">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy
+              text ever since the 1500s, when an unknown printer took a galley
+              of type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </Typography>
 
-              <Typography className="description missionText"></Typography>
+            <Typography className="description missionText">
+              Lorem Ipsum has been the industry's standard dummy text ever
+              since the 1500s, when an unknown printer took a galley of type
+              and
+            </Typography>
+          </Paper>
 
-              <Typography className="description  missionText">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged.
-              </Typography>
+          {/* ================= VALUES ================= */}
 
-              <Typography className="description  missionText">
-                Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type
-                and
-              </Typography>
+          <Box className="valuesSection">
+            <WaveTitle
+              mainTitle="Our"
+              highlightTitle="Values"
+              fontSize="23px"
+              headingLevel="h2"
+              marginBottom={0}
+            />
+
+            <Typography className="description valuesText">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy
+              text ever since the 1500s, when an unknown printer took a galley
+              of type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </Typography>
+          </Box>
+
+          {/* ================= STATISTICS ================= */}
+
+          <Box className="statsGrid">
+            <Paper className="statCard">
+              <Typography className="statNumber">12+</Typography>
+
+              <Typography className="statLabel">Services</Typography>
             </Paper>
 
-            {/* ================= VALUES ================= */}
+            <Paper className="statCard">
+              <Typography className="statNumber">99%</Typography>
 
-            <Box className="valuesSection">
-              <WaveTitle
-                mainTitle="Our"
-                highlightTitle="Values"
-                fontSize="23px"
-                headingLevel="h2"
-                marginBottom={0}
-              />
+              <Typography className="statLabel">Platform Success</Typography>
+            </Paper>
 
-              <Typography className="description valuesText">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged.
-              </Typography>
-            </Box>
+            <Paper className="statCard">
+              <Typography className="statNumber">2024</Typography>
 
-            {/* ================= STATISTICS ================= */}
-
-            <Box className="statsGrid">
-              <Paper className="statCard">
-                <Typography className="statNumber">12+</Typography>
-
-                <Typography className="statLabel">Services</Typography>
-              </Paper>
-
-              <Paper className="statCard">
-                <Typography className="statNumber">99%</Typography>
-
-                <Typography className="statLabel">Platform Success</Typography>
-              </Paper>
-
-              <Paper className="statCard">
-                <Typography className="statNumber">2024</Typography>
-
-                <Typography className="statLabel">Founded</Typography>
-              </Paper>
-            </Box>
-          </Container>
-
-          {/* ================= LEFT DECORATION ================= */}
-
-          <Box className="leftDecoration">
-            <svg viewBox="0 0 50 100" fill="none">
-              <path
-                d="M 0 10 C 35 10 35 90 0 90"
-                stroke="#20C65A"
-                strokeWidth="2.5"
-              />
-
-              <path
-                d="M 0 25 C 25 25 25 75 0 75"
-                stroke="#20C65A"
-                strokeWidth="2.5"
-              />
-
-              <path
-                d="M 0 40 C 15 40 15 60 0 60"
-                stroke="#20C65A"
-                strokeWidth="2.5"
-              />
-            </svg>
+              <Typography className="statLabel">Founded</Typography>
+            </Paper>
           </Box>
+        </Container>
 
-          {/* ================= RIGHT DECORATION ================= */}
+        {/* ================= LEFT DECORATION ================= */}
 
-          <Box className="rightDecoration">
-            <svg viewBox="0 0 100 100" fill="none">
-              <path
-                d="
-                  M 15 75
-                  Q 10 20 50 10
-                  Q 30 50 35 85
-                  Q 30 25 70 20
-                  Q 50 60 55 90
-                  Q 60 35 85 25
-                  Q 70 70 75 95
-                "
-                stroke="#F5A66A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Box>
+        <Box className="leftDecoration">
+          <svg viewBox="0 0 50 100" fill="none">
+            <path
+              d="M 0 10 C 35 10 35 90 0 90"
+              stroke="#20C65A"
+              strokeWidth="2.5"
+            />
+
+            <path
+              d="M 0 25 C 25 25 25 75 0 75"
+              stroke="#20C65A"
+              strokeWidth="2.5"
+            />
+
+            <path
+              d="M 0 40 C 15 40 15 60 0 60"
+              stroke="#20C65A"
+              strokeWidth="2.5"
+            />
+          </svg>
         </Box>
-      </AboutusWrapper>
-    </>
+
+        {/* ================= RIGHT DECORATION ================= */}
+
+        <Box className="rightDecoration">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path
+              d="
+                M 15 75
+                Q 10 20 50 10
+                Q 30 50 35 85
+                Q 30 25 70 20
+                Q 50 60 55 90
+                Q 60 35 85 25
+                Q 70 70 75 95
+              "
+              stroke="#F5A66A"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Box>
+      </Box>
+    </AboutusWrapper>
   );
 };
 
