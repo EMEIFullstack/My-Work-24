@@ -14,10 +14,11 @@ export default function Home() {
         
   
         <Hero />
+           <PostJobBanner />
         <HowItWorks />
         
 
-        <PostJobBanner />
+     
 
     </Box>
   );
