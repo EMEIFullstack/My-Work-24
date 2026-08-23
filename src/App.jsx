@@ -5,6 +5,7 @@ import ServicesSection from "./pages/ServicesSection";
 import Footer from "./Shared/footer";
 import WindowCleaning from "./pages/WindowCleaning/WindowCleaning";
 import Signup from "./pages/Signup/Signup";
+import Subscription from "./pages/Subscription/Subscription";
 
 function App() {
   return (
@@ -16,9 +17,11 @@ function App() {
             <>
               <Home />
               <ServicesSection />
+             
             </>
           } />
           <Route path='/windowcleaning' element={<WindowCleaning />} />
+          <Route path="/subscription" element={<Subscription />} />
           <Route
             path="/signup"
             element={<Signup />}
