@@ -37,7 +37,7 @@ const Subscription = () => {
         width: "100%",
         position: "relative",
         overflow: "hidden",
-        pt: { xs: "120px", md: "235px" },
+        pt: { xs: "120px", md: "200px" },
         pb: "50px",
         backgroundColor: "#FAFAFA",
       }}
