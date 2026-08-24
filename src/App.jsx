@@ -8,6 +8,8 @@ import Signup from "./pages/Signup/Signup";
 import HowItWork from "./pages/HowItWork/HowItWork"
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact"
+import Subscription from "./pages/Subscription/Subscription";
+
 function App() {
   return (
     <div>
@@ -20,9 +22,11 @@ function App() {
               <ServicesSection />
               <HowItWork/>
               
+             
             </>
           } />
           <Route path='/windowcleaning' element={<WindowCleaning />} />
+          <Route path="/subscription" element={<Subscription />} />
           <Route
             path="/signup"
             element={<Signup />}
