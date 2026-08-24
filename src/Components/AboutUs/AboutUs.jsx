@@ -1,23 +1,51 @@
+import  { useEffect, useState } from "react";
 import { Box, Container, Typography, Paper, styled } from "@mui/material";
 
 import WaveTitle from "../../Components/common/WaveTitle";
+
+/* ==================================================
+   CUSTOM COUNT-UP HOOK
+   Animates numeric values smoothly from 0 to target
+================================================== */
+const useCountUp = (end, duration = 2000) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp = null;
+
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+      // Easing function for smooth deceleration at the end
+      const easeOutQuad = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeOutQuad * end));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }, [end, duration]);
+
+  return count;
+};
+
+/* ==================================================
+   STYLED COMPONENT
+================================================== */
 
 const AboutusWrapper = styled(Box)`
   /* ================= MAIN SECTION ================= */
 
   .aboutSection {
     position: relative;
-
     width: 100%;
-
     min-height: 100vh;
-
     padding-top: 130px;
-
     padding-bottom: 90px;
-
     background-color: #fcfefb;
-
     background-image:
       radial-gradient(
         circle at 0% 0%,
@@ -46,15 +74,10 @@ const AboutusWrapper = styled(Box)`
 
   .aboutContainer {
     width: 100%;
-
     max-width: 1200px !important;
-
     margin: 0 auto;
-
     padding: 0 30px !important;
-
     position: relative;
-
     z-index: 2;
   }
 
@@ -62,11 +85,8 @@ const AboutusWrapper = styled(Box)`
 
   .aboutHeading {
     position: relative;
-
     z-index: 2;
-
     text-align: center;
-
     margin-bottom: 45px;
   }
 
@@ -78,16 +98,13 @@ const AboutusWrapper = styled(Box)`
 
   .sectionSubtitle {
     max-width: 520px;
-
     margin: 10px auto 0 !important;
-
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
     text-align: center;
-
     color: #64757a;
   }
 
@@ -97,37 +114,35 @@ const AboutusWrapper = styled(Box)`
 
   .missionCard {
     width: 100%;
-
     max-width: 1140px;
-
     min-height: 260px;
-
     margin: 0 auto !important;
-
-    padding: 75px 70px !important;
-
+    padding: 60px 70px !important;
     border-radius: 20px !important;
-
     background: #ffffff !important;
-
     border: 1px solid rgba(201, 209, 204, 0.65) !important;
-
     box-shadow:
       0 5px 15px rgba(0, 0, 0, 0.025),
       0 15px 40px rgba(28, 67, 45, 0.05) !important;
-
     box-sizing: border-box;
-
+    text-align: left !important;
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
 
     &:hover {
       transform: translateY(-3px);
-
       box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.035),
         0 18px 45px rgba(28, 67, 45, 0.07) !important;
+    }
+
+    & > div,
+    & > h2,
+    & > h1 {
+      display: flex;
+      justify-content: flex-start;
+      text-align: left;
     }
   }
 
@@ -135,14 +150,13 @@ const AboutusWrapper = styled(Box)`
 
   .missionText {
     margin-top: 22px !important;
-
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400 !important;
     font-size: 18px !important;
     line-height: 29px !important;
-
     color: #64757a !important;
+    text-align: left !important;
   }
 
   /* ==================================================
@@ -151,26 +165,20 @@ const AboutusWrapper = styled(Box)`
 
   .valuesSection {
     max-width: 750px;
-
     margin: 48px auto 0 !important;
-
     padding: 10px 20px;
-
     text-align: center;
   }
 
   .valuesText {
     max-width: 680px;
-
     margin: 20px auto 0 !important;
-
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
     text-align: center;
-
     color: #64757a;
   }
 
@@ -180,19 +188,12 @@ const AboutusWrapper = styled(Box)`
 
   .statsGrid {
     width: 100%;
-
     max-width: 1140px;
-
     margin: 40px auto 0;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: stretch;
-
     gap: 15px;
-
     box-sizing: border-box;
   }
 
@@ -200,42 +201,27 @@ const AboutusWrapper = styled(Box)`
 
   .statCard {
     width: 370px;
-
     min-width: 370px;
-
     height: 110px;
-
     padding: 18px 20px !important;
-
     border-radius: 16px !important;
-
     border: 1px solid rgba(201, 209, 204, 0.7) !important;
-
     background: #ffffff !important;
-
     box-shadow:
       0 5px 15px rgba(0, 0, 0, 0.025),
       0 10px 30px rgba(28, 67, 45, 0.04) !important;
-
     display: flex !important;
-
     flex-direction: column !important;
-
     align-items: center !important;
-
     justify-content: center !important;
-
     text-align: center;
-
     box-sizing: border-box;
-
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
 
     &:hover {
       transform: translateY(-4px);
-
       box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.04),
         0 15px 35px rgba(32, 198, 90, 0.06) !important;
@@ -243,52 +229,37 @@ const AboutusWrapper = styled(Box)`
   }
 
   .statNumber {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
     line-height: 39px;
-
     text-align: center;
-
     color: #00cd64;
-
     margin: 0 !important;
   }
 
   .statLabel {
     margin-top: 5px !important;
-
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 29px;
-
     text-align: center;
-
     color: #64757a;
-
     white-space: nowrap;
   }
 
-  /* ==================================================
-     LEFT DECORATION
-     ================================================== */
+  /* ================= DECORATIONS ================= */
 
   .leftDecoration {
     position: absolute;
-
     left: -10px;
-
     bottom: 80px;
-
     width: 70px;
-
     height: 140px;
-
     pointer-events: none;
-
     z-index: 1;
 
     svg {
@@ -296,24 +267,14 @@ const AboutusWrapper = styled(Box)`
       height: 100%;
     }
   }
-
-  /* ==================================================
-     RIGHT DECORATION
-     ================================================== */
 
   .rightDecoration {
     position: absolute;
-
     right: -8px;
-
     bottom: 55px;
-
     width: 75px;
-
     height: 75px;
-
     pointer-events: none;
-
     z-index: 1;
 
     svg {
@@ -322,9 +283,7 @@ const AboutusWrapper = styled(Box)`
     }
   }
 
-  /* ==================================================
-     TABLET
-     ================================================== */
+  /* ================= RESPONSIVE ================= */
 
   @media (max-width: 1200px) {
     .aboutContainer {
@@ -333,28 +292,20 @@ const AboutusWrapper = styled(Box)`
 
     .missionCard {
       max-width: 100%;
-      padding: 65px 60px !important;
-
+      padding: 50px 40px !important;
       border-radius: 15px !important;
-      border: 1px solid #000 !important;
     }
 
     .statsGrid {
       flex-wrap: wrap;
-
       justify-content: center;
     }
 
     .statCard {
       width: 360px;
-
       min-width: 360px;
     }
   }
-
-  /* ==================================================
-     SMALL TABLET
-     ================================================== */
 
   @media (max-width: 900px) {
     .aboutContainer {
@@ -362,10 +313,8 @@ const AboutusWrapper = styled(Box)`
     }
 
     .missionCard {
-      padding: 50px 50px !important;
-
+      padding: 40px 30px !important;
       border-radius: 15px !important;
-      border: 1px solid #000 !important;
     }
 
     .statsGrid {
@@ -374,19 +323,13 @@ const AboutusWrapper = styled(Box)`
 
     .statCard {
       width: 340px;
-
       min-width: 340px;
     }
   }
 
-  /* ==================================================
-     MOBILE
-     ================================================== */
-
   @media (max-width: 768px) {
     .aboutSection {
       padding-top: 100px;
-
       padding-bottom: 60px;
     }
 
@@ -399,54 +342,47 @@ const AboutusWrapper = styled(Box)`
     }
 
     .sectionSubtitle {
-      font-size: 12px !important;
-
+      font-size: 14px !important;
+      line-height: 22px !important;
       padding: 0 10px;
     }
 
     .missionCard {
       width: 100%;
-
       min-height: auto;
-
       padding: 30px 25px !important;
-
       border-radius: 18px !important;
     }
 
     .missionText {
       margin-top: 18px !important;
+      font-size: 15px !important;
+      line-height: 24px !important;
     }
 
     .valuesSection {
       margin-top: 40px !important;
-
       padding: 10px;
     }
 
     .valuesText {
       margin-top: 15px !important;
+      font-size: 15px !important;
+      line-height: 24px !important;
     }
 
     .statsGrid {
       width: 100%;
-
       flex-direction: column;
-
       align-items: center;
-
       gap: 18px;
-
       margin-top: 30px;
     }
 
     .statCard {
       width: 100%;
-
       min-width: 0;
-
       max-width: 370px;
-
       height: 100px;
     }
 
@@ -455,10 +391,6 @@ const AboutusWrapper = styled(Box)`
       display: none;
     }
   }
-
-  /* ==================================================
-     SMALL MOBILE
-     ================================================== */
 
   @media (max-width: 480px) {
     .aboutSection {
@@ -470,46 +402,46 @@ const AboutusWrapper = styled(Box)`
     }
 
     .missionCard {
-      padding: 45px 38px !important;
-
+      padding: 30px 20px !important;
       border-radius: 15px !important;
-      border: 1px solid #000 !important;
     }
 
     .missionText {
-      font-size: 12.5px !important;
+      font-size: 13.5px !important;
+      line-height: 22px !important;
     }
 
     .valuesText {
-      font-size: 12.5px !important;
+      font-size: 13.5px !important;
+      line-height: 22px !important;
     }
 
     .statCard {
       width: 100%;
-
       max-width: 100%;
-
       height: 95px;
     }
 
     .statNumber {
-      font-size: 22px !important;
+      font-size: 24px !important;
     }
 
     .statLabel {
-      font-size: 11px !important;
+      font-size: 13px !important;
     }
   }
 `;
 
-// ================= COMPONENT =================
+/* ================= COMPONENT ================= */
 
 const AboutUs = () => {
+  // Count-up animations for dynamic statistics
+  const servicesCount = useCountUp(12, 2000);
+  const successCount = useCountUp(99, 2000);
+
   return (
     <AboutusWrapper>
       <Box className="aboutSection">
-        {/* ================= CONTENT ================= */}
-
         <Container maxWidth={false} className="aboutContainer">
           {/* ================= ABOUT ================= */}
 
@@ -580,26 +512,23 @@ const AboutUs = () => {
 
           <Box className="statsGrid">
             <Paper className="statCard">
-              <Typography className="statNumber">12+</Typography>
-
+              <Typography className="statNumber">{servicesCount}+</Typography>
               <Typography className="statLabel">Services</Typography>
             </Paper>
 
             <Paper className="statCard">
-              <Typography className="statNumber">99%</Typography>
-
+              <Typography className="statNumber">{successCount}%</Typography>
               <Typography className="statLabel">Platform Success</Typography>
             </Paper>
 
             <Paper className="statCard">
               <Typography className="statNumber">2024</Typography>
-
               <Typography className="statLabel">Founded</Typography>
             </Paper>
           </Box>
         </Container>
 
-        {/* ================= LEFT DECORATION ================= */}
+        {/* ================= DECORATIONS ================= */}
 
         <Box className="leftDecoration">
           <svg viewBox="0 0 50 100" fill="none">
@@ -608,13 +537,11 @@ const AboutUs = () => {
               stroke="#20C65A"
               strokeWidth="2.5"
             />
-
             <path
               d="M 0 25 C 25 25 25 75 0 75"
               stroke="#20C65A"
               strokeWidth="2.5"
             />
-
             <path
               d="M 0 40 C 15 40 15 60 0 60"
               stroke="#20C65A"
@@ -622,8 +549,6 @@ const AboutUs = () => {
             />
           </svg>
         </Box>
-
-        {/* ================= RIGHT DECORATION ================= */}
 
         <Box className="rightDecoration">
           <svg viewBox="0 0 100 100" fill="none">

@@ -83,13 +83,9 @@ const HeaderWrapper = styled(Box)`
 
     .toolbar {
       min-height: 70px !important;
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       padding: 0 !important;
     }
 
@@ -104,25 +100,15 @@ const HeaderWrapper = styled(Box)`
 
     .navMenu {
       display: flex;
-
       flex-direction: row;
-
       align-items: center;
-
       padding: 0;
-
       gap: 8px;
-
       font-family: "Inter";
-
       font-style: normal;
-
       font-weight: 500;
-
       font-size: 16px;
-
       line-height: 19px;
-
       color: #061418;
     }
 
@@ -130,26 +116,17 @@ const HeaderWrapper = styled(Box)`
 
     .navBtn {
       color: #061418 !important;
-
       font-size: 15px !important;
-
       font-weight: 500 !important;
-
       text-transform: none !important;
-
       white-space: nowrap;
-
       min-width: auto !important;
-
       padding: 6px 8px !important;
-
       border-radius: 8px !important;
-
       text-decoration: none !important;
 
       &:hover {
         color: #20c65a !important;
-
         background: transparent !important;
       }
     }
@@ -158,9 +135,7 @@ const HeaderWrapper = styled(Box)`
 
     .rightSide {
       display: flex;
-
       align-items: center;
-
       gap: 14px;
     }
 
@@ -169,30 +144,20 @@ const HeaderWrapper = styled(Box)`
     .language,
     .login {
       height: 44px;
-
       padding: 0 18px !important;
-
       border: 1px solid #d9d9d9 !important;
-
       border-radius: 30px !important;
-
       color: #111 !important;
-
       font-size: 14px !important;
-
       font-weight: 500 !important;
-
       text-transform: none !important;
-
       white-space: nowrap;
     }
 
     .language:hover,
     .login:hover {
       background: #20c65a !important;
-
       border-color: #20c65a !important;
-
       color: #fff !important;
     }
 
@@ -200,7 +165,6 @@ const HeaderWrapper = styled(Box)`
 
     .menuButton {
       display: none !important;
-
       color: #061418 !important;
     }
   }
@@ -235,30 +199,23 @@ const HeaderWrapper = styled(Box)`
 
   .mobileDrawer {
     width: 280px;
-
     padding: 20px;
 
     .drawerHeader {
       display: flex;
-
       justify-content: flex-end;
-
       margin-bottom: 20px;
     }
 
     .MuiListItemText-primary {
       font-family: "Inter";
-
       font-weight: 500;
-
       color: #061418;
-
       font-size: 16px;
     }
 
     .MuiListItemButton-root {
       border-radius: 8px;
-
       margin-bottom: 4px;
 
       &:hover {
@@ -328,9 +285,7 @@ const Header = () => {
                     xs: 120,
                     sm: 150,
                   },
-
                   height: "auto",
-
                   cursor: "pointer",
                 }}
               />
@@ -413,6 +368,7 @@ const Header = () => {
                 anchorEl={anchorEl}
                 open={openLoginMenu}
                 onClose={handleLoginClose}
+                disableScrollLock
                 AnchorProps={{
                   style: { marginTop: "8px" },
                 }}
@@ -456,6 +412,7 @@ const Header = () => {
           anchor="right"
           open={mobileOpen}
           onClose={handleDrawerToggle}
+          disableScrollLock
           ModalProps={{
             keepMounted: true,
           }}
