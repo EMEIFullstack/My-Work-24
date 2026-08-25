@@ -51,7 +51,7 @@ const Step7Wrapper = styled(Box)`
     text-transform: capitalize;
 
     color: #061418;
-     margin-top: 40px !important;
+    margin-top: 40px !important;
   }
 
   .projectSubtitle {
@@ -140,90 +140,88 @@ const Step7Wrapper = styled(Box)`
       line-height: 23px;
       color: #061418 !important;
       opacity: 1 !important;
-      
     }
   }
 
-/* =========================
+  /* =========================
    DESCRIPTION SECTION
 ========================= */
 
-.descriptionSection {
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+  .descriptionSection {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-.descriptionQuestion {
-  font-family: "Montserrat", sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 24px !important;
-  line-height: 29px !important;
+  .descriptionQuestion {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    text-transform: capitalize;
+    color: #061418;
+    text-align:center;
+    margin-bottom: 18px !important;
+  }
 
-  text-align: center;
+  .descriptionLabel {
+    font-family: "Inter", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 23px !important;
 
-  color: #061418 !important;
+    color: #64757a !important;
 
-  margin-bottom: 8px !important;
-}
+    margin-bottom: 0px !important;
+  }
 
-.descriptionLabel {
-  font-family: "Inter", sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 16px !important;
-  line-height: 23px !important;
-
-  color: #64757a !important;
-
-  margin-bottom: 5px !important;
-}
-
-.descriptionInput {
-  width: 100% !important;
-
-  .MuiInputBase-root {
+  .descriptionInput {
     width: 100% !important;
 
-    padding: 0 !important;
+    .MuiInputBase-root {
+      width: 100% !important;
 
-    font-family: "Inter", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
+      padding: 0 !important;
 
-    color: #000000 !important;
+      font-family: "Inter", sans-serif !important;
+      font-size: 16px !important;
+      font-weight: 400 !important;
+
+      color: #000000 !important;
+    }
+
+    .MuiInputBase-input {
+      padding: 8px 0 10px 0 !important;
+
+      font-family: "Inter", sans-serif !important;
+      font-size: 16px !important;
+      font-weight: 400 !important;
+
+      color: #000000 !important;
+    }
+
+    .MuiInputBase-input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+
+      font-family: "Inter", sans-serif !important;
+      font-size: 16px !important;
+      font-weight: 400 !important;
+    }
+
+    .MuiInput-underline:before {
+      border-bottom: 1px solid #dfe5e1 !important;
+    }
+
+    .MuiInput-underline:hover:not(.Mui-disabled):before {
+      border-bottom: 1px solid #c8d1cb !important;
+    }
+
+    .MuiInput-underline:after {
+      border-bottom: 1px solid #00c967 !important;
+    }
   }
-
-  .MuiInputBase-input {
-    padding: 8px 0 12px 0 !important;
-
-    font-family: "Inter", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
-
-    color: #000000 !important;
-  }
-
-  .MuiInputBase-input::placeholder {
-    color: #000000 !important;
-    opacity: 1 !important;
-
-    font-family: "Inter", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
-  }
-
-  .MuiInput-underline:before {
-    border-bottom: 1px solid #dfe5e1 !important;
-  }
-
-  .MuiInput-underline:hover:not(.Mui-disabled):before {
-    border-bottom: 1px solid #c8d1cb !important;
-  }
-
-  .MuiInput-underline:after {
-    border-bottom: 1px solid #00c967 !important;
-  }
-}
   /* =========================
      SECOND DIVIDER
   ========================= */
@@ -297,28 +295,23 @@ const Step7Wrapper = styled(Box)`
   }
 
   .uploadTitle {
-    
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 23px;
-
-color: #00CD64;
-
+    color: #00cd64;
   }
 
   .uploadDescription {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 29px;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 29px;
-
-color: #64757A;
-
+    color: #64757a;
   }
 
   .fileCount {
@@ -339,98 +332,95 @@ const Step7 = ({ title, description, files, onChange }) => {
   };
 
   return (
-   <Container>
-     <Step7Wrapper>
-      <Paper elevation={0} className="projectDetailsCard">
-        {/* HEADER */}
-        <Box className="projectHeader">
-          <Typography className="projectTitle">Project Title</Typography>
+    <Container>
+      <Step7Wrapper>
+        <Paper elevation={0} className="projectDetailsCard">
+          {/* HEADER */}
+          <Box className="projectHeader">
+            <Typography className="projectTitle">Project Title</Typography>
 
-          <Typography className="projectSubtitle">
-            Give the project a meaningful title
-          </Typography>
-        </Box>
-
-        <Box className="sectionDivider" />
-
-        {/* PROJECT TITLE */}
-        <Box className="formField">
-          <Typography className="fieldLabel">Project Title</Typography>
-
-          <TextField
-            fullWidth
-            size="small"
-            variant="outlined"
-            className="fieldInput"
-            placeholder="Enter project title here"
-            value={title}
-            onChange={(event) =>
-              onChange({
-                title: event.target.value,
-              })
-            }
-          />
-        </Box>
-
-        {/* DESCRIPTION */}
-       {/* DESCRIPTION */}
-<Box className="descriptionSection">
-
-  <Typography className="descriptionQuestion">
-    Are There Any Other Details You Would Like To Share With The Craftsmen?
-  </Typography>
-
-  <Typography className="descriptionLabel">
-    Description
-  </Typography>
-
-  <TextField
-    fullWidth
-    multiline
-    minRows={2}
-    variant="standard"
-    className="descriptionInput"
-    placeholder="Enter description here"
-    value={description}
-    onChange={(event) =>
-      onChange({
-        description: event.target.value,
-      })
-    }
-  />
-
-</Box>
-        <Box className="uploadDivider" />
-
-        {/* UPLOAD */}
-        <Button component="label" variant="outlined" className="uploadBox">
-          <Box className="uploadIcon">
-            <CloudUploadOutlinedIcon />
+            <Typography className="projectSubtitle">
+              Give the project a meaningful title
+            </Typography>
           </Box>
 
-          <Typography className="uploadTitle">Choose file or drag</Typography>
+          <Box className="sectionDivider" />
 
-          <Typography className="uploadDescription">
-            The acceptable file formats are PNG and JPG files
-          </Typography>
+          {/* PROJECT TITLE */}
+          <Box className="formField">
+            <Typography className="fieldLabel">Project Title</Typography>
 
-          {files.length > 0 && (
-            <Typography className="fileCount">
-              {files.length} file(s) selected
+            <TextField
+              fullWidth
+              size="small"
+              variant="outlined"
+              className="fieldInput"
+              placeholder="Enter project title here"
+              value={title}
+              onChange={(event) =>
+                onChange({
+                  title: event.target.value,
+                })
+              }
+            />
+          </Box>
+
+          {/* DESCRIPTION */}
+          {/* DESCRIPTION */}
+          <Box className="descriptionSection">
+            <Typography className="descriptionQuestion">
+              Are There Any Other Details You Would Like To Share With The
+              Craftsmen?
             </Typography>
-          )}
 
-          <input
-            hidden
-            type="file"
-            multiple
-            accept=".png,.jpg,.jpeg"
-            onChange={handleFiles}
-          />
-        </Button>
-      </Paper>
-    </Step7Wrapper>
-   </Container>
+            <Typography className="descriptionLabel">Description</Typography>
+
+            <TextField
+              fullWidth
+              multiline
+              minRows={2}
+              variant="standard"
+              className="descriptionInput"
+              placeholder="Enter description here"
+              value={description}
+              onChange={(event) =>
+                onChange({
+                  description: event.target.value,
+                })
+              }
+            />
+          </Box>
+          <Box className="uploadDivider" />
+
+          {/* UPLOAD */}
+          <Button component="label" variant="outlined" className="uploadBox">
+            <Box className="uploadIcon">
+              <CloudUploadOutlinedIcon />
+            </Box>
+
+            <Typography className="uploadTitle">Choose file or drag</Typography>
+
+            <Typography className="uploadDescription">
+              The acceptable file formats are PNG and JPG files
+            </Typography>
+
+            {files.length > 0 && (
+              <Typography className="fileCount">
+                {files.length} file(s) selected
+              </Typography>
+            )}
+
+            <input
+              hidden
+              type="file"
+              multiple
+              accept=".png,.jpg,.jpeg"
+              onChange={handleFiles}
+            />
+          </Button>
+        </Paper>
+      </Step7Wrapper>
+    </Container>
   );
 };
 

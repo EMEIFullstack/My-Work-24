@@ -1,179 +1,135 @@
 import { Box, Paper, Typography, styled } from "@mui/material";
 
-import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import ContactPhoneOutlinedIcon from "@mui/icons-material/ContactPhoneOutlined";
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+// Adjust relative path according to your folder structure
+import reqStartIcon from "../../../assets/icons/request-start.png";
+import reqDateIcon from "../../../assets/icons/request-date.png";
+import reqContactIcon from "../../../assets/icons/reqquest-contact.png";
+import reqSummaryIcon from "../../../assets/icons/request-summery.png";
 
 const StepperWrapper = styled(Box)`
   width: 100%;
-
   display: flex;
   justify-content: center;
 
   .requestStepper {
     max-width: 100%;
     width: 840px;
-
-    padding: 10px 0px !important;
-
+    padding: 16px 0px !important;
     box-sizing: border-box;
-
     position: relative;
-
     border: 1px solid #aeb7b2 !important;
-
     border-radius: 14px !important;
-
     background: rgba(255, 255, 255, 0.95) !important;
-
     box-shadow: none !important;
   }
 
-  /* COMPLETE GREY LINE */
-
+  /* GREY LINE */
   .stepperLine {
     position: absolute;
-
     left: 12.5%;
     right: 12.5%;
-
-    top: 33px;
-
-    height: 5px;
-
-    background: #dce7e0;
-
-    border-radius: 10px;
-
+    top: 38px;
+    height: 2px;
+    background: #e0eee6;
+    border-radius: 2px;
     z-index: 1;
   }
 
-  /*GREEN PROGRESS */
-
+  /* GREEN PROGRESS LINE */
   .stepperProgress {
     position: absolute;
-
     left: 0;
     top: 0;
-
     height: 100%;
-
     background: #00c967;
-
-    border-radius: 10px;
-
+    border-radius: 2px;
     transition: width 0.4s ease;
-
     z-index: 2;
   }
 
   /* STEP ITEMS */
-
   .stepperItems {
     position: relative;
-
     z-index: 3;
-
     width: 100%;
     height: 100%;
-
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     align-items: flex-start;
   }
 
   .stepItem {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: flex-start;
+    gap: 8px;
   }
 
-     /* ICON */
- 
+  /* ICON CONTAINER */
   .stepIcon {
-    width: 48px;
-    height: 48px;
-
+    width: 46px;
+    height: 46px;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-
     background: #eaf5ee;
-
-    color: #89958e;
-
     transition: all 0.3s ease;
 
-    svg {
+    img {
       width: 22px;
       height: 22px;
+      object-fit: contain;
+      /* Forces icon to remain black in default state */
+      filter: brightness(0);
+      transition: filter 0.3s ease;
+    }
+
+    &:hover img {
+      filter: brightness(0);
     }
   }
 
+  /* Active & Completed Container Backgrounds */
   .stepIcon.active,
   .stepIcon.completed {
     background: #00c967;
 
-    color: #ffffff;
+    /* Forces icon to remain black when active, completed, or hovered */
+    img,
+    &:hover img {
+      filter: brightness(0);
+    }
   }
 
-     /* LABEL */
-
+  /* LABEL */
   .stepLabel {
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
     text-align: center;
     color: #64757a;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
   }
 
   .stepLabel.active {
-    color: #111;
-
+    color: #111111;
     font-weight: 700 !important;
   }
 
   .stepLabel.completed {
-    color: #222;
-
+    color: #222222;
     font-weight: 600 !important;
   }
 `;
 
 const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
-  
-  /* STEP PROGRESS  */
-
   let progress = 0;
 
   if (currentStage === "start") {
-    const stepProgress = [
-      0, // Step 1
-      9, // Step 2
-      14, // Step 3
-      20, // Step 4
-      24, // Step 5
-      28, // Step 6
-      33.3333, // Step 7
-    ];
-
+    const stepProgress = [0, 9, 14, 20, 24, 28, 33.3333];
     progress = stepProgress[currentStep - 1] || 0;
   } else if (currentStage === "date") {
     progress = 33.3333;
@@ -183,10 +139,7 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
     progress = 100;
   }
 
-  /* ACTIVE STAGE*/
-
   let activeStage = 0;
-
   if (currentStage === "start") {
     activeStage = 0;
   } else if (currentStage === "date") {
@@ -197,39 +150,17 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
     activeStage = 3;
   }
 
-  /*STAGES */
-
   const stages = [
-    {
-      label: "Start Request",
-      icon: <AssignmentOutlinedIcon />,
-    },
-
-    {
-      label: "Date/Location",
-      icon: <LocationOnOutlinedIcon />,
-    },
-
-    {
-      label: "Contact",
-      icon: <ContactPhoneOutlinedIcon />,
-    },
-
-    {
-      label: "Summary",
-      icon: <DescriptionOutlinedIcon />,
-    },
+    { label: "Start Request", icon: reqStartIcon },
+    { label: "Date/Location", icon: reqDateIcon },
+    { label: "Contact", icon: reqContactIcon },
+    { label: "Summary", icon: reqSummaryIcon },
   ];
 
   return (
     <StepperWrapper>
       <Paper elevation={0} className="requestStepper">
-  
-        {/* GREY LINE */}
-
         <Box className="stepperLine">
-          {/* GREEN LINE */}
-
           <Box
             className="stepperProgress"
             sx={{
@@ -238,12 +169,9 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
           />
         </Box>
 
-            {/* FOUR STAGES */}
-      
         <Box className="stepperItems">
           {stages.map((stage, index) => {
             const isActive = index === activeStage;
-
             const isCompleted = index < activeStage;
 
             return (
@@ -255,7 +183,7 @@ const RequestStepper = ({ currentStage = "start", currentStep = 1 }) => {
                     ${isCompleted ? "completed" : ""}
                   `}
                 >
-                  {stage.icon}
+                  <img src={stage.icon} alt={stage.label} />
                 </Box>
 
                 <Typography
