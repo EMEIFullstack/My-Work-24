@@ -1,8 +1,8 @@
 import React from "react";
 
 import companyIcon from "../../assets/icons/companyInfo.png";
-import emailIcon from "../../assets/icons/emailIcon.png";
-import contactIcon from "../../assets/icons/contactIcon.png";
+import emailIcon from "../../assets/icons/mail-icon.png";
+import contactIcon from "../../assets/icons/contact-icon.png";
 import employeesIcon from "../../assets/icons/employeeIcon.png";
 
 import {

@@ -9,6 +9,10 @@ import HowItWork from "./pages/HowItWork/HowItWork"
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact"
 import Subscription from "./pages/Subscription/Subscription";
+import SignUp from "./Pages/Auth/SignUp";
+import Login from "./Pages/Auth/Login";
+import ForgotPassword from "./Pages/Auth/ForgotPassword";
+import NewPassword from "./Pages/Auth/NewPassword";
 
 function App() {
   return (
@@ -34,6 +38,26 @@ function App() {
                 <Route path='/aboutus' element={<About />} />
 
                  <Route path='/contactus' element={<Contact />} />
+          <Route
+          path="/usersignup"
+          element={<SignUp />}
+        />
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+
+        <Route
+          path="/new-password"
+          element={<NewPassword />}
+        />
+      
         </Routes>
         <Footer />
       </Router>
