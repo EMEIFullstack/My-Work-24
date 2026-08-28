@@ -20,6 +20,7 @@ import userIcon from "../../../assets/icons/user-icon.png";
 import mailIcon from "../../../assets/icons/mail-icon.png";
 import callIcon from "../../../assets/icons/contact-icon.png";
 import locationIcon from "../../../assets/icons/location-icon.png";
+import WaveTitle from "../../common/WaveTitle";
 
 const SignUpWrapper = styled(Box)`
   width: 100%;
@@ -47,8 +48,8 @@ const SignUpWrapper = styled(Box)`
 
     font-family: "Montserrat";
     font-style: normal;
-    font-weight: 800;
-    font-size: 49px;
+    font-weight: 800 !important;
+    font-size: 49px !important;
     line-height: 60px;
     letter-spacing: -0.02em;
 
@@ -60,7 +61,8 @@ const SignUpWrapper = styled(Box)`
   }
 
   .signUpSubtitle {
-    margin-bottom: 18px;
+    margin-top: 28px;
+    margin-bottom: 40px;
     text-align: center;
     font-family: "Inter";
     font-style: normal;
@@ -83,30 +85,34 @@ const SignUpWrapper = styled(Box)`
   }
 
   .fieldLabel {
-    margin-bottom: 4px;
-   
+    margin-bottom: 16px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 24px;
-/* identical to box height, or 150% */
-display: flex;
-align-items: center;
-
-color: #001919;
-
-
+    color: #001919;
   }
 
   .styledTextField {
     & .MuiOutlinedInput-root {
-      min-height: 30px;
+      
       border-radius: 5px;
-      font-family: "Inter", sans-serif;
-      font-size: 9px;
-
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      box-sizing: border-box;
+      border: 1px solid #dfe5ee;
+      border-radius: 9px;
+      padding: 10px 10px;
+      color: #919b9b;
+      color: #001919; /* Typed user input color */
+      margin-bottom:20px;
       &:hover .MuiOutlinedInput-notchedOutline {
         border-color: #00cd64;
       }
@@ -114,6 +120,12 @@ color: #001919;
       &.Mui-focused .MuiOutlinedInput-notchedOutline {
         border-color: #00cd64;
       }
+    }
+
+    /* Sets explicit placeholder styles for standard text inputs */
+    & .MuiOutlinedInput-input::placeholder {
+      color: #7c8785;
+      opacity: 1;
     }
 
     & .MuiOutlinedInput-input {
@@ -134,8 +146,8 @@ color: #001919;
       img {
         width: 16px !important;
         height: 16px !important;
-        min-width: 16px;
-        min-height: 16px;
+        min-width: 24px;
+        min-height: 24px;
         object-fit: contain;
         display: block;
       }
@@ -159,26 +171,56 @@ color: #001919;
     }
 
     & .MuiTypography-root {
-      font-family: "Inter", sans-serif;
-      font-size: 8px;
-      color: #687572;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+      box-sizing: border-box;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+
+      color: #001919;
     }
 
     .termsLink {
-      color: #00cd64;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      text-decoration-line: underline;
+
+      color: #001919;
     }
   }
 
   .submitBtn {
     height: 30px;
     margin-top: 5px;
-    border-radius: 20px;
-    background-color: #00cd64;
-    box-shadow: none;
-    font-family: "Inter", sans-serif;
-    font-size: 9px;
+    font-family: "Inter";
+    font-style: normal;
     font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #ffffff;
     text-transform: none;
+    /* Frame 36 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 32px;
+    gap: 10px;
+    background: #00cd64;
+    border-radius: 63px;
 
     &:hover {
       background-color: #00b957;
@@ -188,10 +230,13 @@ color: #001919;
 
   .loginRedirect {
     margin-top: 13px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
     text-align: center;
-    font-family: "Inter", sans-serif;
-    font-size: 8px;
-    color: #8a9390;
+    color: #64757a;
 
     & a {
       color: #00cd64;
@@ -249,10 +294,13 @@ const SignUpForm = ({ onOpenOtp }) => {
     <SignUpWrapper>
       <Box className="signUpCard">
         <Typography className="signUpTitle">
-          Sign{" "}
-          <Box component="span" className="highlight">
-            Up
-          </Box>
+          <WaveTitle
+              mainTitle="Sign"
+              highlightTitle="Up"
+           
+              headingLevel="h1"
+              marginBottom={0}
+            />
         </Typography>
 
         <Typography className="signUpSubtitle">

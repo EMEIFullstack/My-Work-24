@@ -19,6 +19,10 @@ const ModalContentWrapper = styled(Box)`
   width: 100%;
   box-sizing: border-box;
 
+  .modalForm {
+    width: 100%;
+  }
+
   /* ABSOLUTE CLOSE BUTTON (Floating Outside Corner) */
   .closeBtn {
     position: absolute;
@@ -41,38 +45,48 @@ const ModalContentWrapper = styled(Box)`
 
   /* TITLE */
   .modalTitle {
-    font-family: "Montserrat", sans-serif;
-    font-size: 18px;
+    font-family: "Montserrat";
+    font-style: normal;
     font-weight: 700;
-    color: #18201d;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: capitalize;
+
+    color: #061418;
+    align-self: stretch;
     margin-bottom: 6px;
     margin-top: 4px;
   }
 
   /* SUBTITLE */
   .modalSubtitle {
-    font-family: "Inter", sans-serif;
-    font-size: 11px;
-    color: #7c8785;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    text-align: center;
+    color: #64757a;
+    align-self: stretch;
     margin-bottom: 22px;
-    line-height: 1.3;
   }
 
   /* OTP INPUT GROUP */
   .otpGroup {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 18px;
     width: 100%;
     margin-bottom: 24px;
 
     & .MuiOutlinedInput-root {
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
+      width: 76px;
+      height: 76px;
+      border-radius: 10px;
       background-color: #ffffff;
       font-family: "Inter", sans-serif;
-      font-size: 16px;
+      font-size: 22px;
       font-weight: 600;
       color: #18201d;
 
@@ -98,15 +112,26 @@ const ModalContentWrapper = styled(Box)`
 
   /* SUBMIT BUTTON */
   .submitBtn {
-    height: 40px;
-    border-radius: 20px;
-    background-color: #00cd64;
-    box-shadow: none;
-    font-family: "Inter", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: none;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 32px;
+    gap: 10px;
+    background: #00cd64;
+    border-radius: 63px;
+    align-self: stretch;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
     color: #ffffff;
+
     width: 100%;
 
     &:hover {
@@ -162,56 +187,59 @@ const OtpVerificationModal = ({ open, onClose }) => {
         },
         paper: {
           sx: {
-            borderRadius: "20px",
-            padding: "28px 24px 24px",
-            maxWidth: "340px",
-            width: "100%",
+            borderRadius: "18px",
+            padding: "68px 60px",
+            maxWidth: "555px", // Matches signUpCard max-width
+            width: "100%", // Expands paper to fill max width
             position: "relative",
-            overflow: "visible !important", // স্ক্রলবার পুরোপুরি বন্ধ করার জন্য
+            overflow: "visible !important",
             boxShadow: "0px 10px 40px rgba(0, 0, 0, 0.12)",
             margin: "16px",
+            boxSizing: "border-box",
           },
         },
       }}
     >
       <ModalContentWrapper>
-        {/* CLOSE BUTTON */}
-        <IconButton onClick={onClose} className="closeBtn">
-          <CloseIcon />
-        </IconButton>
+        <Box className="modalForm">
+          {/* CLOSE BUTTON */}
+          <IconButton onClick={onClose} className="closeBtn">
+            <CloseIcon />
+          </IconButton>
 
-        {/* TITLE */}
-        <Typography className="modalTitle">Verify Email OTP</Typography>
+          {/* TITLE */}
+          <Typography className="modalTitle">Verify Email OTP</Typography>
 
-        {/* SUBTITLE */}
-        <Typography className="modalSubtitle">
-          It is a long established fact that a reader will be
-        </Typography>
+          {/* SUBTITLE */}
+          <Typography className="modalSubtitle">
+            It is a long established fact that a reader will be
+          </Typography>
 
-        {/* OTP INPUTS */}
-        <Box className="otpGroup">
-          {otp.map((value, index) => (
-            <TextField
-              key={index}
-              id={`otp-${index}`}
-              value={value}
-              onChange={(event) => handleChange(index, event.target.value)}
-              onKeyDown={(event) => handleKeyDown(index, event)}
-              inputProps={{
-                maxLength: 1,
-              }}
-            />
-          ))}
+          {/* OTP INPUTS */}
+          <Box className="otpGroup">
+            {otp.map((value, index) => (
+              <TextField
+                key={index}
+                id={`otp-${index}`}
+                value={value}
+                onChange={(event) => handleChange(index, event.target.value)}
+                onKeyDown={(event) => handleKeyDown(index, event)}
+                inputProps={{
+                  maxLength: 1,
+                }}
+              />
+            ))}
+          </Box>
+
+          {/* SUBMIT BUTTON */}
+          <Button
+            onClick={handleSubmit}
+            variant="contained"
+            className="submitBtn"
+          >
+            Submit
+          </Button>
         </Box>
-
-        {/* SUBMIT BUTTON */}
-        <Button
-          onClick={handleSubmit}
-          variant="contained"
-          className="submitBtn"
-        >
-          Submit
-        </Button>
       </ModalContentWrapper>
     </Dialog>
   );

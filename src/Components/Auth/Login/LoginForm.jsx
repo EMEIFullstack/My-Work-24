@@ -9,40 +9,59 @@ import { Link, useNavigate } from "react-router-dom";
 import mailIcon from "../../../assets/icons/mail-icon.png";
 
 const LoginWrapper = styled(Box)`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: transparent;
-  padding: 20px;
+  padding: 40px 20px;
+  box-sizing: border-box;
 
   .loginCard {
-    background-color: #ffffff;
-    border-radius: 16px;
-    padding: 40px 32px;
-    max-width: 400px;
     width: 100%;
+    max-width: 550px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 40px 32px;
     border: 1px solid #c9d1cc;
-    box-shadow: none;
+    box-shadow:
+      0 5px 15px rgba(0, 0, 0, 0.025),
+      0 15px 40px rgba(28, 67, 45, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     box-sizing: border-box;
+    margin: 0 auto;
   }
 
   .authTitle {
-    font-family: "Montserrat", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #18201d;
-    margin-bottom: 8px;
+margin-bottom: 6px;
+    text-align: center;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 800 !important;
+    font-size: 49px;
+    line-height: 60px;
+    letter-spacing: -0.02em;
+
+    color: #061418;
   }
 
   .authSubtitle {
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    color: #7c8785;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 29px;
+/* identical to box height, or 160% */
+text-align: center;
+
+color: #64757A;
+
+
     margin-bottom: 24px;
   }
 
@@ -61,10 +80,21 @@ const LoginWrapper = styled(Box)`
   }
 
   .fieldLabel {
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #333333;
+ /* Email Address */
+
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+
+color: #001919;
+
+
     margin-bottom: 6px;
   }
 
@@ -72,8 +102,17 @@ const LoginWrapper = styled(Box)`
     & .MuiOutlinedInput-root {
       border-radius: 8px;
       background-color: #ffffff;
-      font-family: "Inter", sans-serif;
-      font-size: 14px;
+      
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+display: flex;
+align-items: center;
+
+color: #919B9B;
+
 
       & fieldset {
         border-color: #e0e6e3;
@@ -95,8 +134,8 @@ const LoginWrapper = styled(Box)`
       justify-content: center;
 
       img {
-        width: 16px !important;
-        height: 16px !important;
+        width: 24px !important;
+        height: 24px !important;
         object-fit: contain;
       }
     }
@@ -118,11 +157,20 @@ const LoginWrapper = styled(Box)`
     margin-top: -8px;
 
     & a {
-      font-family: "Inter", sans-serif;
-      font-size: 12px;
-      color: #00cd64;
-      text-decoration: none;
-      font-weight: 500;
+
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #00CD64;
+
+
 
       &:hover {
         text-decoration: underline;
@@ -132,15 +180,25 @@ const LoginWrapper = styled(Box)`
 
   .authButton {
     height: 42px;
-    border-radius: 20px;
-    background-color: #00cd64;
-    box-shadow: none;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: none;
-    color: #ffffff;
-    width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 17px 32px;
+gap: 10px;
+
+background: #00CD64;
+border-radius: 63px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+color: #FFFFFF;
+
     margin-top: 6px;
 
     &:hover {
@@ -150,9 +208,18 @@ const LoginWrapper = styled(Box)`
   }
 
   .bottomText {
-    font-family: "Inter", sans-serif;
-    font-size: 13px;
-    color: #7c8785;
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 29px;
+/* identical to box height, or 160% */
+text-align: center;
+
+color: #64757A;
+
+
     margin-top: 20px;
 
     & a {
@@ -240,7 +307,7 @@ const LoginForm = () => {
           </Box>
 
           <Button type="submit" variant="contained" className="authButton">
-            Login
+              Submit
           </Button>
         </Box>
 
