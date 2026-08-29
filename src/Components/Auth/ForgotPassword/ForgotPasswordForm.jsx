@@ -1,45 +1,80 @@
-import { Box, Typography, TextField, Button, InputAdornment } from "@mui/material";
+import {
+  Dialog,
+  Box,
+  Typography,
+  TextField,
+  Button,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
 // Local PNG Asset Imports
 import mailIcon from "../../../assets/icons/mail-icon.png";
 
-const ForgotPasswordWrapper = styled(Box)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: transparent;
-  padding: 20px;
+const StyledDialog = styled(Dialog)`
+  & .MuiBackdrop-root {
+    background-color: rgba(6, 20, 24, 0.4);
+    backdrop-filter: blur(4px);
+  }
 
-  .forgotCard {
+  & .MuiPaper-root {
     background-color: #ffffff;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 40px 32px;
-    max-width: 400px;
+    max-width: 555px;
     width: 100%;
     border: 1px solid #c9d1cc;
-    box-shadow: none;
+    box-shadow: 0 15px 40px rgba(28, 67, 45, 0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+    margin: 16px;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: #ffffff;
+    color: #64757a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 6px;
+
+    &:hover {
+      background-color: #f5f5f5;
+      color: #061418;
+    }
   }
 
   .authTitle {
-    font-family: "Montserrat", sans-serif;
-    font-size: 24px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-family: "Montserrat";
+    font-style: normal;
     font-weight: 700;
-    color: #18201d;
-    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #061418;
   }
 
   .authSubtitle {
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    color: #7c8785;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    /* identical to box height, or 160% */
+    text-align: center;
+
+    color: #64757a;
     margin-bottom: 24px;
   }
 
@@ -58,19 +93,33 @@ const ForgotPasswordWrapper = styled(Box)`
   }
 
   .fieldLabel {
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #333333;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    display: flex;
+    align-items: center;
+
+    color: #001919;
+
     margin-bottom: 6px;
   }
 
-  .styledTextField {
+  && .styledTextField {
+    width: 100%;
+
     & .MuiOutlinedInput-root {
-      border-radius: 8px;
-      background-color: #ffffff;
-      font-family: "Inter", sans-serif;
-      font-size: 14px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+
+      color: #919b9b;
 
       & fieldset {
         border-color: #e0e6e3;
@@ -86,31 +135,47 @@ const ForgotPasswordWrapper = styled(Box)`
       }
     }
 
+    & .MuiOutlinedInput-input::placeholder {
+      color: #919b9b;
+      opacity: 1;
+    }
+
     & .MuiInputAdornment-root {
       display: flex !important;
       align-items: center;
       justify-content: center;
 
       img {
-        width: 16px !important;
-        height: 16px !important;
+        width: 24px !important;
+        height: 24px !important;
         object-fit: contain;
       }
     }
   }
 
-  .authButton {
-    height: 42px;
-    border-radius: 20px;
-    background-color: #00cd64;
-    box-shadow: none;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: none;
+  && .authButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 32px;
+    gap: 10px;
+    background: #00cd64;
+    border-radius: 63px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
     color: #ffffff;
-    width: 100%;
+    flex-grow: 0;
+    text-transform: none;
+    box-shadow: none;
     margin-top: 6px;
+    width: 100%;
 
     &:hover {
       background-color: #00b957;
@@ -119,51 +184,54 @@ const ForgotPasswordWrapper = styled(Box)`
   }
 `;
 
-const ForgotPasswordForm = () => {
+const ForgotPasswordForm = ({ open, onClose }) => {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate("/new-password");
+    onClose();
+    navigate("/new-password"); // Navigate directly to NewPassword route
   };
 
   return (
-    <ForgotPasswordWrapper>
-      <Box className="forgotCard">
-        <Typography className="authTitle">Reset Password</Typography>
+    <StyledDialog open={open} onClose={onClose} fullWidth maxWidth="xs">
+      <IconButton aria-label="close" onClick={onClose} className="closeBtn">
+        <CloseIcon size="small" />
+      </IconButton>
 
-        <Typography className="authSubtitle">
-          It is a long established fact that a reader will be
-        </Typography>
+      <Typography className="authTitle">Reset Password</Typography>
 
-        <Box component="form" onSubmit={handleSubmit} className="authForm">
-          <Box className="fieldGroup">
-            <Typography className="fieldLabel">Email Address</Typography>
-            <TextField
-              type="email"
-              placeholder="Enter email address"
-              fullWidth
-              size="small"
-              required
-              className="styledTextField"
-              slotProps={{
-                input: {
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <img src={mailIcon} alt="mail" />
-                    </InputAdornment>
-                  ),
-                },
-              }}
-            />
-          </Box>
+      <Typography className="authSubtitle">
+        It is a long established fact that a reader will be
+      </Typography>
 
-          <Button type="submit" variant="contained" className="authButton">
-            Submit
-          </Button>
+      <Box component="form" onSubmit={handleSubmit} className="authForm">
+        <Box className="fieldGroup">
+          <Typography className="fieldLabel">Email Address</Typography>
+          <TextField
+            type="email"
+            placeholder="Enter email address"
+            fullWidth
+            size="small"
+            required
+            className="styledTextField"
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <img src={mailIcon} alt="mail" />
+                  </InputAdornment>
+                ),
+              },
+            }}
+          />
         </Box>
+
+        <Button type="submit" variant="contained" className="authButton">
+          Submit
+        </Button>
       </Box>
-    </ForgotPasswordWrapper>
+    </StyledDialog>
   );
 };
 

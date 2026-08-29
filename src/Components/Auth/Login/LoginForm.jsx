@@ -1,12 +1,13 @@
-import { useState } from "react";
+
 import { Box, Typography, TextField, Button, InputAdornment, IconButton } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import styled from "@emotion/styled";
 import { Link, useNavigate } from "react-router-dom";
 
-// Local PNG Asset Imports
 import mailIcon from "../../../assets/icons/mail-icon.png";
+import ForgotPasswordForm from "../ForgotPassword/ForgotPasswordForm";
+import { useState } from "react";
 
 const LoginWrapper = styled(Box)`
   width: 100%;
@@ -36,32 +37,25 @@ const LoginWrapper = styled(Box)`
   }
 
   .authTitle {
-margin-bottom: 6px;
+    margin-bottom: 6px;
     text-align: center;
-
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 800 !important;
     font-size: 49px;
     line-height: 60px;
     letter-spacing: -0.02em;
-
     color: #061418;
   }
 
   .authSubtitle {
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 29px;
-/* identical to box height, or 160% */
-text-align: center;
-
-color: #64757A;
-
-
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    text-align: center;
+    color: #64757a;
     margin-bottom: 24px;
   }
 
@@ -80,39 +74,29 @@ color: #64757A;
   }
 
   .fieldLabel {
- /* Email Address */
-
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 24px;
-/* identical to box height, or 150% */
-display: flex;
-align-items: center;
-
-color: #001919;
-
-
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #001919;
     margin-bottom: 6px;
   }
 
-  .styledTextField {
+  && .styledTextField {
+    width: 100%;
+
     & .MuiOutlinedInput-root {
       border-radius: 8px;
       background-color: #ffffff;
-      
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-display: flex;
-align-items: center;
-
-color: #919B9B;
-
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #001919;
 
       & fieldset {
         border-color: #e0e6e3;
@@ -126,6 +110,11 @@ color: #919B9B;
         border-color: #00cd64;
         border-width: 1px;
       }
+    }
+
+    & .MuiOutlinedInput-input::placeholder {
+      color: #919b9b;
+      opacity: 1;
     }
 
     & .MuiInputAdornment-root {
@@ -156,21 +145,17 @@ color: #919B9B;
     width: 100%;
     margin-top: -8px;
 
-    & a {
-
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-display: flex;
-align-items: center;
-text-align: right;
-
-color: #00CD64;
-
-
+    .forgotLink {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #00cd64;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
 
       &:hover {
         text-decoration: underline;
@@ -178,28 +163,23 @@ color: #00CD64;
     }
   }
 
-  .authButton {
-    height: 42px;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 17px 32px;
-gap: 10px;
-
-background: #00CD64;
-border-radius: 63px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 19px;
-text-align: center;
-
-color: #FFFFFF;
-
+  && .authButton {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 32px;
+    background: #00cd64;
+    border-radius: 63px;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    text-transform: none;
+    box-shadow: none;
     margin-top: 6px;
+    width: 100%;
 
     &:hover {
       background-color: #00b957;
@@ -208,18 +188,13 @@ color: #FFFFFF;
   }
 
   .bottomText {
-    
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 29px;
-/* identical to box height, or 160% */
-text-align: center;
-
-color: #64757A;
-
-
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    text-align: center;
+    color: #64757a;
     margin-top: 20px;
 
     & a {
@@ -237,6 +212,7 @@ color: #64757A;
 const LoginForm = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [isForgotOpen, setIsForgotOpen] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -303,11 +279,17 @@ const LoginForm = () => {
           </Box>
 
           <Box className="forgotRow">
-            <Link to="/forgot-password">Forgot Password?</Link>
+            <button
+              type="button"
+              className="forgotLink"
+              onClick={() => setIsForgotOpen(true)}
+            >
+              Forgot Password?
+            </button>
           </Box>
 
           <Button type="submit" variant="contained" className="authButton">
-              Submit
+            Submit
           </Button>
         </Box>
 
@@ -315,6 +297,16 @@ const LoginForm = () => {
           Don't Have An Account? <Link to="/signup">Sign Up</Link>
         </Typography>
       </Box>
+
+      {/* Reset Password Modal Component */}
+      <ForgotPasswordForm
+        open={isForgotOpen}
+        onClose={() => setIsForgotOpen(false)}
+        onSubmitSuccess={() => {
+          setIsForgotOpen(false);
+          // Optional action after submit: e.g., open OTP modal or show toast message
+        }}
+      />
     </LoginWrapper>
   );
 };

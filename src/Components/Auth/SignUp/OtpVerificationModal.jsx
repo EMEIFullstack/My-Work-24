@@ -18,7 +18,10 @@ const ModalContentWrapper = styled(Box)`
   text-align: center;
   width: 100%;
   box-sizing: border-box;
-
+   & .MuiBackdrop-root {
+    background-color: rgba(6, 20, 24, 0.4);
+    backdrop-filter: blur(4px);
+  }
   .modalForm {
     width: 100%;
   }
