@@ -59,6 +59,53 @@ const menu = [
 ===================================================== */
 
 const HeaderWrapper = styled(Box)`
+  position: relative;
+  width: 100%;
+  z-index: 100;
+
+  /* =====================================================
+     SOFT GREEN BLUR - TOP LEFT
+  ===================================================== */
+
+  .greenBlurEffect {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 180px;
+    height: 180px;
+
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .greenBlurEffect::before {
+    content: "";
+    position: absolute;
+
+    top: -90px;
+    left: -90px;
+
+    width: 230px;
+    height: 230px;
+
+    background: radial-gradient(
+      circle,
+      rgba(32, 198, 90, 0.25) 0%,
+      rgba(32, 198, 90, 0.12) 35%,
+      rgba(32, 198, 90, 0.05) 55%,
+      transparent 75%
+    );
+
+    filter: blur(18px);
+    border-radius: 50%;
+  }
+
+  /* =====================================================
+     HEADER
+  ===================================================== */
+
   .header {
     background: transparent !important;
     box-shadow: none !important;
@@ -66,147 +113,147 @@ const HeaderWrapper = styled(Box)`
     padding-bottom: 20px !important;
     padding-top: 20px !important;
 
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+
     @media (min-width: 768px) {
       padding-bottom: 40px !important;
       padding-top: 30px !important;
     }
+  }
 
-    /* ================= CONTAINER ================= */
+  /* =====================================================
+     CONTAINER
+  ===================================================== */
 
-    .headerContainer {
-      max-width: 1180px !important;
-      margin: 0 auto;
-      padding: 0 20px !important;
-    }
+  .headerContainer {
+    max-width: 1180px !important;
+    margin: 0 auto;
+    padding: 0 20px !important;
+  }
 
-    /* ================= TOOLBAR ================= */
+  /* =====================================================
+     TOOLBAR
+  ===================================================== */
 
-    .toolbar {
-      min-height: 70px !important;
+  .toolbar {
+    min-height: 70px !important;
 
-      display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-      justify-content: space-between;
+    padding: 0 !important;
+  }
 
-      align-items: center;
+  /* =====================================================
+     LOGO
+  ===================================================== */
 
-      padding: 0 !important;
-    }
+  .logoImg {
+    display: block;
+    object-fit: contain;
+  }
 
-    /* ================= LOGO ================= */
+  /* =====================================================
+     NAVIGATION
+  ===================================================== */
 
-    .logoImg {
-      display: block;
-      object-fit: contain;
-    }
+  .navMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-    /* ================= NAVIGATION ================= */
+    padding: 0;
+    gap: 8px;
 
-    .navMenu {
-      display: flex;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
 
-      flex-direction: row;
+    color: #061418;
+  }
 
-      align-items: center;
+  /* =====================================================
+     NAV BUTTON
+  ===================================================== */
 
-      padding: 0;
+  .navBtn {
+    color: #061418 !important;
 
-      gap: 8px;
+    font-size: 15px !important;
+    font-weight: 500 !important;
 
-      font-family: "Inter";
+    text-transform: none !important;
+    white-space: nowrap;
 
-      font-style: normal;
+    min-width: auto !important;
 
-      font-weight: 500;
+    padding: 6px 8px !important;
+    border-radius: 8px !important;
 
-      font-size: 16px;
+    text-decoration: none !important;
 
-      line-height: 19px;
-
-      color: #061418;
-    }
-
-    /* ================= NAV BUTTON ================= */
-
-    .navBtn {
-      color: #061418 !important;
-
-      font-size: 15px !important;
-
-      font-weight: 500 !important;
-
-      text-transform: none !important;
-
-      white-space: nowrap;
-
-      min-width: auto !important;
-
-      padding: 6px 8px !important;
-
-      border-radius: 8px !important;
-
-      text-decoration: none !important;
-
-      &:hover {
-        color: #20c65a !important;
-
-        background: transparent !important;
-      }
-    }
-
-    /* ================= RIGHT SIDE ================= */
-
-    .rightSide {
-      display: flex;
-
-      align-items: center;
-
-      gap: 14px;
-    }
-
-    /* ================= LANGUAGE + LOGIN ================= */
-
-    .language,
-    .login {
-      height: 44px;
-
-      padding: 0 18px !important;
-
-      border: 1px solid #d9d9d9 !important;
-
-      border-radius: 30px !important;
-
-      color: #111 !important;
-
-      font-size: 14px !important;
-
-      font-weight: 500 !important;
-
-      text-transform: none !important;
-
-      white-space: nowrap;
-    }
-
-    .language:hover,
-    .login:hover {
-      background: #20c65a !important;
-
-      border-color: #20c65a !important;
-
-      color: #fff !important;
-    }
-
-    /* ================= MOBILE MENU BUTTON ================= */
-
-    .menuButton {
-      display: none !important;
-
-      color: #061418 !important;
+    &:hover {
+      color: #20c65a !important;
+      background: transparent !important;
     }
   }
 
   /* =====================================================
-      TABLET + MOBILE
+     RIGHT SIDE
+  ===================================================== */
+
+  .rightSide {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* =====================================================
+     LANGUAGE + LOGIN
+  ===================================================== */
+
+  .language,
+  .login {
+    height: 44px;
+
+    padding: 0 18px !important;
+
+    border: 1px solid #d9d9d9 !important;
+    border-radius: 30px !important;
+
+    color: #111 !important;
+
+    font-size: 14px !important;
+    font-weight: 500 !important;
+
+    text-transform: none !important;
+    white-space: nowrap;
+  }
+
+  .language:hover,
+  .login:hover {
+    background: #20c65a !important;
+    border-color: #20c65a !important;
+    color: #fff !important;
+  }
+
+  /* =====================================================
+     MOBILE MENU BUTTON
+  ===================================================== */
+
+  .menuButton {
+    display: none !important;
+    color: #061418 !important;
+  }
+
+  /* =====================================================
+     TABLET + MOBILE
   ===================================================== */
 
   @media (max-width: 1100px) {
@@ -230,35 +277,28 @@ const HeaderWrapper = styled(Box)`
   }
 
   /* =====================================================
-      MOBILE DRAWER
+     MOBILE DRAWER
   ===================================================== */
 
   .mobileDrawer {
     width: 280px;
-
     padding: 20px;
 
     .drawerHeader {
       display: flex;
-
       justify-content: flex-end;
-
       margin-bottom: 20px;
     }
 
     .MuiListItemText-primary {
       font-family: "Inter";
-
       font-weight: 500;
-
       color: #061418;
-
       font-size: 16px;
     }
 
     .MuiListItemButton-root {
       border-radius: 8px;
-
       margin-bottom: 4px;
 
       &:hover {
@@ -275,8 +315,12 @@ const HeaderWrapper = styled(Box)`
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  /* LOGIN DROPDOWN STATE */
+  /* =====================================================
+     LOGIN DROPDOWN STATE
+  ===================================================== */
+
   const [anchorEl, setAnchorEl] = useState(null);
+
   const openLoginMenu = Boolean(anchorEl);
 
   const handleLoginClick = (event) => {
@@ -287,7 +331,9 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  /* ================= DRAWER TOGGLE ================= */
+  /* =====================================================
+     DRAWER TOGGLE
+  ===================================================== */
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
@@ -295,6 +341,17 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
+
+      {/* =================================================
+          SOFT GREEN BLUR - TOP LEFT
+      ================================================= */}
+
+      <Box className="greenBlurEffect" />
+
+      {/* =================================================
+          HEADER
+      ================================================= */}
+
       <AppBar
         position="absolute"
         elevation={0}
@@ -328,9 +385,7 @@ const Header = () => {
                     xs: 120,
                     sm: 150,
                   },
-
                   height: "auto",
-
                   cursor: "pointer",
                 }}
               />
@@ -393,13 +448,14 @@ const Header = () => {
                 />
               </Button>
 
-              {/* ================= LOGIN WITH DROPDOWN ================= */}
+              {/* ================= LOGIN ================= */}
 
               <Button
                 onClick={handleLoginClick}
                 className="login"
               >
                 Login / Sign Up
+
                 <KeyboardArrowDownIcon
                   sx={{
                     fontSize: 20,
@@ -408,13 +464,19 @@ const Header = () => {
                 />
               </Button>
 
-              {/* DROPDOWN MENU */}
+              {/* ================= LOGIN DROPDOWN ================= */}
+
               <Menu
                 anchorEl={anchorEl}
                 open={openLoginMenu}
                 onClose={handleLoginClose}
-                AnchorProps={{
-                  style: { marginTop: "8px" },
+                disableScrollLock
+                slotProps={{
+                  paper: {
+                    sx: {
+                      marginTop: "8px",
+                    },
+                  },
                 }}
               >
                 <MenuItem
@@ -424,6 +486,7 @@ const Header = () => {
                 >
                   Login
                 </MenuItem>
+
                 <MenuItem
                   component={Link}
                   to="/signup"
@@ -456,6 +519,7 @@ const Header = () => {
           anchor="right"
           open={mobileOpen}
           onClose={handleDrawerToggle}
+          disableScrollLock
           ModalProps={{
             keepMounted: true,
           }}
@@ -488,9 +552,7 @@ const Header = () => {
                   to={item.path}
                   onClick={handleDrawerToggle}
                 >
-                  <ListItemText
-                    primary={item.name}
-                  />
+                  <ListItemText primary={item.name} />
 
                   {item.name === "Our Services" && (
                     <KeyboardArrowDownIcon
@@ -502,8 +564,9 @@ const Header = () => {
                 </ListItemButton>
               </ListItem>
             ))}
-            
-            {/* MOBILE DRAWER LOGIN/SIGNUP OPTIONS */}
+
+            {/* ================= LOGIN ================= */}
+
             <ListItem disablePadding>
               <ListItemButton
                 component={Link}
@@ -513,6 +576,9 @@ const Header = () => {
                 <ListItemText primary="Login" />
               </ListItemButton>
             </ListItem>
+
+            {/* ================= SIGN UP ================= */}
+
             <ListItem disablePadding>
               <ListItemButton
                 component={Link}

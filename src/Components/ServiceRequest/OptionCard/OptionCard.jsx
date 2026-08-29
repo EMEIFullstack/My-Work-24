@@ -85,8 +85,8 @@ const CardWrapper = styled(Box)`
   }
 
   .optionIcon {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 
     flex-shrink: 0;
 
@@ -101,8 +101,8 @@ const CardWrapper = styled(Box)`
     color: #3d5145;
 
     svg {
-      width: 40px;
-      height: 40px;
+      width: 90px;
+      height: 90px;
     }
   }
 

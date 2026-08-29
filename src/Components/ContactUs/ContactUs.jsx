@@ -23,19 +23,12 @@ import locationIcon from "../../assets/icons/contact-location.png";
 // ================= STYLED COMPONENTS =================
 
 const ContactSectionWrapper = styled(Box)`
- 
-
-   .contactSection {
+  .contactSection {
     position: relative;
-
     width: 100%;
-
     min-height: 100vh;
-
     padding-top: 130px;
-
     padding-bottom: 90px;
-
     background-color: #fcfefb;
 
     background-image:
@@ -61,6 +54,7 @@ const ContactSectionWrapper = styled(Box)`
 
     overflow: hidden;
   }
+
   /* ================= HEADING ================= */
 
   .contactHeading {
@@ -105,7 +99,7 @@ const ContactSectionWrapper = styled(Box)`
   .cardContentFlex {
     display: flex;
     flex-direction: row;
-    align-items: stretch; /* Aligns both children strictly at the top */
+    align-items: stretch;
     justify-content: space-between;
     gap: 50px;
     width: 100%;
@@ -142,19 +136,24 @@ const ContactSectionWrapper = styled(Box)`
     margin-bottom: 20px;
 
     & .MuiInputLabel-root {
-      font-size: 13px;
-      color: #8c9ba0;
-      font-weight: 500;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 29px;
+
+      color: #64757a;
       transform: none;
       position: relative;
       margin-bottom: 6px;
     }
 
     & .MuiInputBase-root {
-      font-family: "Inter", sans-serif;
+      font-family: "Inter";
       font-size: 14px;
       font-weight: 600;
       color: #111;
+      padding-bottom:12px;
 
       &:before {
         border-bottom: 1px solid #e2e8e5;
@@ -213,7 +212,7 @@ const ContactSectionWrapper = styled(Box)`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding-top: 40px; /* Matches the 40px inner padding of .formPanel */
+    padding-top: 40px;
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
@@ -240,7 +239,6 @@ const ContactSectionWrapper = styled(Box)`
     align-items: center;
     gap: 18px;
     margin-bottom: 24px;
-    
 
     &:last-child {
       margin-bottom: 0;
@@ -250,8 +248,8 @@ const ContactSectionWrapper = styled(Box)`
   /* ================= ICON ================= */
 
   .iconCircle {
-    width: 42px;
-    height: 42px;
+    width: 65px;
+    height: 65px;
     min-width: 42px;
     border-radius: 50%;
     background-color: #00cd64;
@@ -261,8 +259,8 @@ const ContactSectionWrapper = styled(Box)`
     flex-shrink: 0;
 
     img {
-      width: 30px;
-      height: 30px;
+      width: 34px;
+      height: 34px;
       object-fit: contain;
     }
   }
@@ -270,28 +268,24 @@ const ContactSectionWrapper = styled(Box)`
   /* ================= LABEL ================= */
 
   .infoLabel {
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 29px;
-color: #64757A;
-
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    color: #64757a;
+    margin-bottom: 10px;
   }
 
   /* ================= VALUE ================= */
 
   .infoValue {
-    /* demomail@gmail.com */
-
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 23px;
-color: #061418; 0;
-
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: #061418;
   }
 
   /* ================= RESPONSIVE ================= */
@@ -429,6 +423,7 @@ const ContactQuerySection = () => {
                           id: "role-select",
                         }}
                         disableUnderline={false}
+                        MenuProps={{ disableScrollLock: true }}
                       >
                         <MenuItem value="Company">Company</MenuItem>
 
