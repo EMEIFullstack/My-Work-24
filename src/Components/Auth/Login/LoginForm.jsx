@@ -1,4 +1,3 @@
-
 import { Box, Typography, TextField, Button, InputAdornment, IconButton } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -216,7 +215,10 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate("/");
+    // Store mock login flag in localStorage for static state handling
+    localStorage.setItem("isLoggedIn", "true");
+    // Redirect user straight to user profile route
+    navigate("/profile");
   };
 
   return (
@@ -294,7 +296,7 @@ const LoginForm = () => {
         </Box>
 
         <Typography className="bottomText">
-          Don't Have An Account? <Link to="/signup">Sign Up</Link>
+          Don't Have An Account? <Link to="/usersignup">Sign Up</Link>
         </Typography>
       </Box>
 
@@ -304,7 +306,6 @@ const LoginForm = () => {
         onClose={() => setIsForgotOpen(false)}
         onSubmitSuccess={() => {
           setIsForgotOpen(false);
-          // Optional action after submit: e.g., open OTP modal or show toast message
         }}
       />
     </LoginWrapper>

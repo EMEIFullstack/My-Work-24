@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 import {
@@ -16,6 +16,7 @@ import {
   ListItemText,
   Menu,
   MenuItem,
+  Avatar,
   styled,
 } from "@mui/material";
 
@@ -28,30 +29,12 @@ import CloseIcon from "@mui/icons-material/Close";
 ===================================================== */
 
 const menu = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "Our Services",
-    path: "/",
-  },
-  {
-    name: "About Us",
-    path: "/aboutus",
-  },
-  {
-    name: "News",
-    path: "",
-  },
-  {
-    name: "Contact Us",
-    path: "/contactus",
-  },
-  {
-    name: "FAQ",
-    path: "/",
-  },
+  { name: "Home", path: "/" },
+  { name: "Our Services", path: "/" },
+  { name: "About Us", path: "/aboutus" },
+  { name: "News", path: "" },
+  { name: "Contact Us", path: "/contactus" },
+  { name: "FAQ", path: "/" },
 ];
 
 /* =====================================================
@@ -63,18 +46,12 @@ const HeaderWrapper = styled(Box)`
   width: 100%;
   z-index: 100;
 
-  /* =====================================================
-     SOFT GREEN BLUR - TOP LEFT
-  ===================================================== */
-
   .greenBlurEffect {
     position: absolute;
     top: 0;
     left: 0;
-
-    width: 180px;
-    height: 180px;
-
+    width: 200px;
+    height: 200px;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
@@ -83,36 +60,26 @@ const HeaderWrapper = styled(Box)`
   .greenBlurEffect::before {
     content: "";
     position: absolute;
-
     top: -90px;
     left: -90px;
-
-    width: 230px;
-    height: 230px;
-
+    width: 270px;
+    height: 270px;
     background: radial-gradient(
       circle,
-      rgba(32, 198, 90, 0.25) 0%,
-      rgba(32, 198, 90, 0.12) 35%,
-      rgba(32, 198, 90, 0.05) 55%,
+      rgba(77, 238, 134, 0.26) 0%,
+      rgba(43, 153, 81, 0.39) 35%,
+      rgba(32, 198, 90, 0.116) 55%,
       transparent 75%
     );
-
     filter: blur(18px);
     border-radius: 50%;
   }
 
-  /* =====================================================
-     HEADER
-  ===================================================== */
-
   .header {
     background: transparent !important;
     box-shadow: none !important;
-
     padding-bottom: 20px !important;
     padding-top: 20px !important;
-
     position: absolute !important;
     top: 0;
     left: 0;
@@ -124,78 +91,47 @@ const HeaderWrapper = styled(Box)`
     }
   }
 
-  /* =====================================================
-     CONTAINER
-  ===================================================== */
-
   .headerContainer {
     max-width: 1180px !important;
     margin: 0 auto;
     padding: 0 20px !important;
   }
 
-  /* =====================================================
-     TOOLBAR
-  ===================================================== */
-
   .toolbar {
     min-height: 70px !important;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 0 !important;
   }
-
-  /* =====================================================
-     LOGO
-  ===================================================== */
 
   .logoImg {
     display: block;
     object-fit: contain;
   }
 
-  /* =====================================================
-     NAVIGATION
-  ===================================================== */
-
   .navMenu {
     display: flex;
     flex-direction: row;
     align-items: center;
-
     padding: 0;
     gap: 8px;
-
     font-family: "Inter";
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-
     color: #061418;
   }
 
-  /* =====================================================
-     NAV BUTTON
-  ===================================================== */
-
   .navBtn {
     color: #061418 !important;
-
     font-size: 15px !important;
     font-weight: 500 !important;
-
     text-transform: none !important;
     white-space: nowrap;
-
     min-width: auto !important;
-
     padding: 6px 8px !important;
     border-radius: 8px !important;
-
     text-decoration: none !important;
 
     &:hover {
@@ -204,34 +140,21 @@ const HeaderWrapper = styled(Box)`
     }
   }
 
-  /* =====================================================
-     RIGHT SIDE
-  ===================================================== */
-
   .rightSide {
     display: flex;
     align-items: center;
     gap: 14px;
   }
 
-  /* =====================================================
-     LANGUAGE + LOGIN
-  ===================================================== */
-
   .language,
   .login {
     height: 44px;
-
     padding: 0 18px !important;
-
     border: 1px solid #d9d9d9 !important;
     border-radius: 30px !important;
-
     color: #111 !important;
-
     font-size: 14px !important;
     font-weight: 500 !important;
-
     text-transform: none !important;
     white-space: nowrap;
   }
@@ -243,42 +166,39 @@ const HeaderWrapper = styled(Box)`
     color: #fff !important;
   }
 
-  /* =====================================================
-     MOBILE MENU BUTTON
-  ===================================================== */
+  .profileAvatar {
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    border: 2px solid #20c65a;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 
   .menuButton {
     display: none !important;
     color: #061418 !important;
   }
 
-  /* =====================================================
-     TABLET + MOBILE
-  ===================================================== */
-
   @media (max-width: 1100px) {
     .header {
       .navMenu {
         display: none;
       }
-
       .toolbar {
         justify-content: space-between;
       }
-
       .menuButton {
         display: inline-flex !important;
       }
-
       .login {
         display: none !important;
       }
     }
   }
-
-  /* =====================================================
-     MOBILE DRAWER
-  ===================================================== */
 
   .mobileDrawer {
     width: 280px;
@@ -314,12 +234,12 @@ const HeaderWrapper = styled(Box)`
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  /* =====================================================
-     LOGIN DROPDOWN STATE
-  ===================================================== */
-
   const [anchorEl, setAnchorEl] = useState(null);
+  
+  const location = useLocation();
+
+  // Route check: consider logged in if on /profile or if localStorage flag is set
+  const isLoggedIn = location.pathname === "/profile" || localStorage.getItem("isLoggedIn") === "true";
 
   const openLoginMenu = Boolean(anchorEl);
 
@@ -331,42 +251,19 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  /* =====================================================
-     DRAWER TOGGLE
-  ===================================================== */
-
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
   };
 
   return (
     <HeaderWrapper>
-
-      {/* =================================================
-          SOFT GREEN BLUR - TOP LEFT
-      ================================================= */}
-
       <Box className="greenBlurEffect" />
 
-      {/* =================================================
-          HEADER
-      ================================================= */}
-
-      <AppBar
-        position="absolute"
-        elevation={0}
-        className="header"
-      >
-        <Container
-          maxWidth={false}
-          className="headerContainer"
-        >
+      <AppBar position="absolute" elevation={0} className="header">
+        <Container maxWidth={false} className="headerContainer">
           <Toolbar className="toolbar">
 
-            {/* =================================================
-                LOGO
-            ================================================= */}
-
+            {/* LOGO */}
             <Link
               to="/"
               style={{
@@ -381,20 +278,14 @@ const Header = () => {
                 alt="Company Logo"
                 className="logoImg"
                 sx={{
-                  width: {
-                    xs: 120,
-                    sm: 150,
-                  },
+                  width: { xs: 120, sm: 150 },
                   height: "auto",
                   cursor: "pointer",
                 }}
               />
             </Link>
 
-            {/* =================================================
-                DESKTOP NAVIGATION
-            ================================================= */}
-
+            {/* DESKTOP NAVIGATION */}
             <Box className="navMenu">
               {menu.map((item, index) => (
                 <Button
@@ -404,30 +295,21 @@ const Header = () => {
                   className="navBtn"
                 >
                   {item.name}
-
                   {item.name === "Our Services" && (
                     <KeyboardArrowDownIcon
-                      sx={{
-                        fontSize: 18,
-                        marginLeft: "2px",
-                      }}
+                      sx={{ fontSize: 18, marginLeft: "2px" }}
                     />
                   )}
                 </Button>
               ))}
             </Box>
 
-            {/* =================================================
-                RIGHT SIDE
-            ================================================= */}
-
+            {/* RIGHT SIDE */}
             <Box className="rightSide">
 
-              {/* ================= LANGUAGE ================= */}
-
+              {/* LANGUAGE */}
               <Button className="language">
                 English
-
                 <img
                   src="https://flagcdn.com/w40/gb.png"
                   alt="UK Flag"
@@ -439,65 +321,60 @@ const Header = () => {
                     objectFit: "cover",
                   }}
                 />
-
                 <KeyboardArrowDownIcon
-                  sx={{
-                    fontSize: 20,
-                    marginLeft: "2px",
-                  }}
+                  sx={{ fontSize: 20, marginLeft: "2px" }}
                 />
               </Button>
 
-              {/* ================= LOGIN ================= */}
+              {/* AUTH CHECK: LOGIN BUTTON OR PROFILE AVATAR */}
+              {isLoggedIn ? (
+                <Link to="/profile">
+                  <Avatar
+                    alt="Charlie Dorwart"
+                    src="https://i.pravatar.cc/100?img=12"
+                    className="profileAvatar"
+                  />
+                </Link>
+              ) : (
+                <>
+                  <Button onClick={handleLoginClick} className="login">
+                    Login / Sign Up
+                    <KeyboardArrowDownIcon
+                      sx={{ fontSize: 20, marginLeft: "4px" }}
+                    />
+                  </Button>
 
-              <Button
-                onClick={handleLoginClick}
-                className="login"
-              >
-                Login / Sign Up
+                  {/* LOGIN DROPDOWN MENU */}
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={openLoginMenu}
+                    onClose={handleLoginClose}
+                    disableScrollLock
+                    slotProps={{
+                      paper: {
+                        sx: { marginTop: "8px" },
+                      },
+                    }}
+                  >
+                    <MenuItem
+                      component={Link}
+                      to="/login"
+                      onClick={handleLoginClose}
+                    >
+                      Login
+                    </MenuItem>
+                    <MenuItem
+                      component={Link}
+                      to="/signup"
+                      onClick={handleLoginClose}
+                    >
+                      Sign Up
+                    </MenuItem>
+                  </Menu>
+                </>
+              )}
 
-                <KeyboardArrowDownIcon
-                  sx={{
-                    fontSize: 20,
-                    marginLeft: "4px",
-                  }}
-                />
-              </Button>
-
-              {/* ================= LOGIN DROPDOWN ================= */}
-
-              <Menu
-                anchorEl={anchorEl}
-                open={openLoginMenu}
-                onClose={handleLoginClose}
-                disableScrollLock
-                slotProps={{
-                  paper: {
-                    sx: {
-                      marginTop: "8px",
-                    },
-                  },
-                }}
-              >
-                <MenuItem
-                  component={Link}
-                  to="/login"
-                  onClick={handleLoginClose}
-                >
-                  Login
-                </MenuItem>
-
-                <MenuItem
-                  component={Link}
-                  to="/signup"
-                  onClick={handleLoginClose}
-                >
-                  Sign Up
-                </MenuItem>
-              </Menu>
-
-              {/* ================= MOBILE MENU ================= */}
-
+              {/* MOBILE MENU BUTTON */}
               <IconButton
                 aria-label="open drawer"
                 edge="start"
@@ -506,90 +383,75 @@ const Header = () => {
               >
                 <MenuIcon />
               </IconButton>
-
             </Box>
           </Toolbar>
         </Container>
 
-        {/* =================================================
-            MOBILE DRAWER
-        ================================================= */}
-
+        {/* MOBILE DRAWER */}
         <Drawer
           anchor="right"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           disableScrollLock
-          ModalProps={{
-            keepMounted: true,
-          }}
-          PaperProps={{
-            className: "mobileDrawer",
-          }}
+          ModalProps={{ keepMounted: true }}
+          PaperProps={{ className: "mobileDrawer" }}
         >
-
-          {/* ================= CLOSE BUTTON ================= */}
-
           <Box className="drawerHeader">
-            <IconButton
-              onClick={handleDrawerToggle}
-              aria-label="close drawer"
-            >
+            <IconButton onClick={handleDrawerToggle} aria-label="close drawer">
               <CloseIcon />
             </IconButton>
           </Box>
 
-          {/* ================= MOBILE MENU ================= */}
-
           <List>
             {menu.map((item, index) => (
-              <ListItem
-                key={index}
-                disablePadding
-              >
+              <ListItem key={index} disablePadding>
                 <ListItemButton
                   component={Link}
                   to={item.path}
                   onClick={handleDrawerToggle}
                 >
                   <ListItemText primary={item.name} />
-
                   {item.name === "Our Services" && (
-                    <KeyboardArrowDownIcon
-                      sx={{
-                        fontSize: 20,
-                      }}
-                    />
+                    <KeyboardArrowDownIcon sx={{ fontSize: 20 }} />
                   )}
                 </ListItemButton>
               </ListItem>
             ))}
 
-            {/* ================= LOGIN ================= */}
-
-            <ListItem disablePadding>
-              <ListItemButton
-                component={Link}
-                to="/login"
-                onClick={handleDrawerToggle}
-              >
-                <ListItemText primary="Login" />
-              </ListItemButton>
-            </ListItem>
-
-            {/* ================= SIGN UP ================= */}
-
-            <ListItem disablePadding>
-              <ListItemButton
-                component={Link}
-                to="/signup"
-                onClick={handleDrawerToggle}
-              >
-                <ListItemText primary="Sign Up" />
-              </ListItemButton>
-            </ListItem>
+            {/* MOBILE AUTH LINKS */}
+            {isLoggedIn ? (
+              <ListItem disablePadding>
+                <ListItemButton
+                  component={Link}
+                  to="/profile"
+                  onClick={handleDrawerToggle}
+                >
+                  <ListItemText primary="My Profile" />
+                </ListItemButton>
+              </ListItem>
+            ) : (
+              <>
+                <ListItem disablePadding>
+                  <ListItemButton
+                    component={Link}
+                    to="/login"
+                    onClick={handleDrawerToggle}
+                  >
+                    <ListItemText primary="Login" />
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton
+                    component={Link}
+                    to="/signup"
+                    onClick={handleDrawerToggle}
+                  >
+                    <ListItemText primary="Sign Up" />
+                  </ListItemButton>
+                </ListItem>
+              </>
+            )}
           </List>
-
         </Drawer>
       </AppBar>
     </HeaderWrapper>
