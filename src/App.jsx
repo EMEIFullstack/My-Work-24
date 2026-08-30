@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route  } from "react-router-dom";
 import Home from "./pages/Home/Home";
-
+// import './Global.scss';
 import { Box } from "@mui/material";
 import News from "./pages/News/News";
 import NewsDetails from "./pages/NewsDetails/NewsDetails";
