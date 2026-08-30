@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   Box,
   Typography,
@@ -272,7 +272,7 @@ const UserProfile = () => {
     // Optional: emit standard browser event so global header/context updates immediately
     window.dispatchEvent(new Event("storage"));
     // Redirect user to the signup route
-    navigate("/signup");
+    navigate("/usersignup");
   };
 
   return (

@@ -32,13 +32,7 @@ const HeroWrapper = styled(Box)`
       left: -200px;
       width: 850px;
       height: 850px;
-      background: radial-gradient(
-        circle at 35% 35%,
-        rgba(175, 245, 200, 0.65) 0%,
-        rgba(220, 252, 232, 0.35) 45%,
-        rgba(255, 255, 255, 0) 70%
-      );
-      filter: blur(60px);
+     
       z-index: 0;
       pointer-events: none;
     }
@@ -413,6 +407,7 @@ const Hero = () => {
               <SearchBar />
             </Box>
           </Box>
+          <div className="right-middle-blur" />
         </Container>
       </Box>
     </HeroWrapper>

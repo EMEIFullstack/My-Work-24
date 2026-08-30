@@ -1,11 +1,11 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Container, Typography, Paper, styled } from "@mui/material";
 
 import WaveTitle from "../../Components/common/WaveTitle";
+import greenWaveBg from "../../assets/green-wave.png";
 
 /* ==================================================
-   CUSTOM COUNT-UP HOOK
-   Animates numeric values smoothly from 0 to target
+  CUSTOM COUNT-UP HOOK
 ================================================== */
 const useCountUp = (end, duration = 2000) => {
   const [count, setCount] = useState(0);
@@ -16,8 +16,6 @@ const useCountUp = (end, duration = 2000) => {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-
-      // Easing function for smooth deceleration at the end
       const easeOutQuad = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(easeOutQuad * end));
 
@@ -33,7 +31,7 @@ const useCountUp = (end, duration = 2000) => {
 };
 
 /* ==================================================
-   STYLED COMPONENT
+  STYLED COMPONENT
 ================================================== */
 
 const AboutusWrapper = styled(Box)`
@@ -46,26 +44,17 @@ const AboutusWrapper = styled(Box)`
     padding-top: 130px;
     padding-bottom: 90px;
     background-color: #fcfefb;
+
+    /* Updated background properties for precise wave alignment */
     background-image:
-      radial-gradient(
-        circle at 0% 0%,
-        rgba(32, 198, 90, 0.35) 0%,
-        rgba(32, 198, 90, 0.1) 18%,
-        transparent 35%
-      ),
-      radial-gradient(
-        circle at 100% 100%,
-        rgba(245, 166, 106, 0.12) 0%,
-        transparent 30%
-      ),
+      url(${greenWaveBg}),
+      radial-gradient(circle at 0% 0%, rgba(215, 224, 218, 0.25) 0%, transparent 40%),
       linear-gradient(to right, rgba(220, 226, 222, 0.35) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(220, 226, 222, 0.35) 1px, transparent 1px);
 
-    background-size:
-      100% 100%,
-      100% 100%,
-      60px 60px,
-      60px 60px;
+    background-repeat: no-repeat, no-repeat, repeat, repeat;
+    background-position: left top 20px, left top, top left, top left;
+    background-size: 55% auto, 100% 100%, 60px 60px, 60px 60px;
 
     overflow: hidden;
   }
@@ -108,9 +97,7 @@ const AboutusWrapper = styled(Box)`
     color: #64757a;
   }
 
-  /* ==================================================
-     MISSION CARD
-     ================================================== */
+  /* ================= MISSION CARD ================= */
 
   .missionCard {
     width: 100%;
@@ -159,9 +146,7 @@ const AboutusWrapper = styled(Box)`
     text-align: left !important;
   }
 
-  /* ==================================================
-     VALUES
-     ================================================== */
+  /* ================= VALUES ================= */
 
   .valuesSection {
     max-width: 750px;
@@ -182,9 +167,7 @@ const AboutusWrapper = styled(Box)`
     color: #64757a;
   }
 
-  /* ==================================================
-     STATISTICS
-     ================================================== */
+  /* ================= STATISTICS ================= */
 
   .statsGrid {
     width: 100%;
@@ -331,6 +314,8 @@ const AboutusWrapper = styled(Box)`
     .aboutSection {
       padding-top: 100px;
       padding-bottom: 60px;
+      background-position: left top 10px, left top, top left, top left;
+      background-size: 90% auto, 100% 100%, 60px 60px, 60px 60px;
     }
 
     .aboutContainer {
@@ -435,7 +420,6 @@ const AboutusWrapper = styled(Box)`
 /* ================= COMPONENT ================= */
 
 const AboutUs = () => {
-  // Count-up animations for dynamic statistics
   const servicesCount = useCountUp(12, 2000);
   const successCount = useCountUp(99, 2000);
 
@@ -570,6 +554,7 @@ const AboutUs = () => {
           </svg>
         </Box>
       </Box>
+      <div className="right-middle-blur" />
     </AboutusWrapper>
   );
 };

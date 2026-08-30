@@ -308,6 +308,7 @@ const LoginForm = () => {
           setIsForgotOpen(false);
         }}
       />
+      <div className="right-middle-blur" />
     </LoginWrapper>
   );
 };

@@ -558,6 +558,7 @@ const ContactQuerySection = () => {
               </Box>
             </Box>
           </Box>
+          <div className="right-middle-blur" />
         </Container>
       </Box>
     </ContactSectionWrapper>
