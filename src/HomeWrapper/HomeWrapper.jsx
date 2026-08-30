@@ -74,6 +74,41 @@ img{
     transform: translate(-6%, -14%);
 }
 
+img.gr {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(0, 69%);
+}
+
+img.yellow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(0, 100%);
+}
+
+img.graphic {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(0, 200%);
+}
+
+img.green {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(0, 35%);
+}
+
+img.shape {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translate(0, 200%);
+}
+
 .card{
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid #D6E8E8;
@@ -114,7 +149,7 @@ img{
 .news-card{
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid #D6E8E8;
-    box-shadow: 0px 60px 78.7px rgba(17, 129, 71, 0.06);
+    box-shadow: none;
     backdrop-filter: blur(8px);
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 30px;
@@ -127,7 +162,46 @@ img.elipse {
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(50%, 50%);
+    transform: translate(16%, -12%);
+}
+
+.search{
+    position: relative;
+    text-align: center;
+    padding: 44px 0;
+}
+
+.input {
+    background: #FFFFFF;
+    border: 1px solid #D6E8E8;
+    box-shadow: 0px 60px 78.7px rgba(17, 129, 71, 0.06);
+    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 47px;
+    width: 678px;
+    height: 83px;
+    font-size: 16px;
+    padding-left: 29px;
+    outline: none;
+}
+
+.input::placeholder{
+    color: #C7C7C7;
+}
+
+.search_btn {
+    border: 1px solid black;
+    padding: 17px 32px;
+    border-radius: 63px;
+    color: black;
+    position: absolute;
+    left: 68%;
+    top: 34%;
+    text-transform: capitalize;
+    font-size: 16px;
+    width: 109px;
+    height: 54px;
 }
 
 .parent-box {

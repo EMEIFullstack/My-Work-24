@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Button, Container, Typography } from '@mui/material'
 import { HomeWrapper } from '../../HomeWrapper/HomeWrapper';
 import React from 'react'
 import NewsPage from '../../Components/NewsPage/NewsPage';
@@ -76,14 +76,16 @@ function News() {
     const image1= "src/assets/yellow graphic.png"
     const image2= "src/assets/greem graphic.png"
     const image3= "src/assets/Group 1707489997.png"
+    const green = "src/assets/right elipse.png"
 
   return (
     <HomeWrapper>
     <Box>
-        {/* <img src={image} alt="elipse" className='elipse'/>
-        <img src={image1} alt="" className='yellow'/>
+        <img src={image} alt="elipse" className='elipse'/>
+        <img src={image1} alt="" className='graphic'/>
         <img src={image2} alt="" className='green'/>
-        <img src={image3} alt="" className='green'/> */}
+        <img src={image3} alt="" className='green'/>
+        <img src={green} alt="" className='gr'/>
         <Container fixed>
             <Typography variant='h3' align='center' className='news'>
                 News
@@ -91,6 +93,9 @@ function News() {
             <Typography variant='body1' align='center'>
                 It is a long established fact that a reader will be distracted by the readable content of a page when looking.
             </Typography>
+            <Box className="search">
+                <span><input type="text" placeholder='Search news`' className='input'/><Button className='search_btn'>Search</Button></span>
+            </Box>
             <Box className="news-flex">
                     {data.map((item) => (
                         <NewsPage key={item.id} image={item.image} title={item.title} para={item.para} date={item.date} />

@@ -13,16 +13,17 @@ function NewsDetails() {
     const image1= "src/assets/yellow graphic.png"
     const image2= "src/assets/greem graphic.png"
     const image3= "src/assets/Group 1707489997.png"
+    const graphic= "src/assets/Shape 40.png"
 
     
-    // const yellow= "src/assets/left elipse.png"
-    // const green = "src/assets/right elipse.png"
+    const yellow= "src/assets/left elipse.png"
+    const green = "src/assets/right elipse.png"
 
   return (
     <HomeWrapper>
         <Box>
-            {/* <img src={image} alt="Yellow Ellipse" className='elipse' />
-                <img src={image1} alt="" className='yellow'/>
+            <img src={image} alt="Yellow Ellipse" className='elipse' />
+                {/* <img src={image1} alt="" className='yellow'/>
         <img src={image2} alt="" className='green'/>
         <img src={image3} alt="" className='green'/> */}
             <Container fixed>
@@ -48,9 +49,10 @@ Nulla dictum sed vitae venenatis turpis. Vitae magna blandit orci sollicitudin s
 </Typography>
             <Typography variant='body2' className='details-description'>
 Est integer augue in elementum velit. Semper id vestibulum a tincidunt augue nulla. Sit dui feugiat facilisis quam ac curabitur in. Nisi non sapien in congue nunc amet pretium ante. Nibh etiam sit vitae eu neque at enim magna laoreet. Amet id aliquet aliquet sem. Suspendisse tincidunt sit aliquam gravida urna. Quam urna et morbi dignissim. Amet turpis morbi vestibulum mattis. Malesuada sed vel semper ultrices aliquam tortor dolor sit sit. Sed ornare sodales nec at augue massa in quam. Lacus tortor euismod turpis enim. Sit aliquam volutpat non gravida. Sit tellus convallis et arcu habitant.</Typography>
-{/* <img src={yellow} alt="" className='green'/>
-            <img src={green} alt="" className='yellow'/> */}
-
+<img src={yellow} alt="" className='green'/>
+            <img src={green} alt="" className='yellow'/>
+            <img src={graphic} alt="" className='shape'/>
+            <img src={image1} alt="" className='graphic'/>
     <section className='related-section'>
         <Typography variant='h3' align='center'>
             Related {" "} <span className='span'>News
