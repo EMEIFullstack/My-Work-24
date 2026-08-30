@@ -30,10 +30,6 @@ function Home() {
   return (
     <HomeWrapper>
         <Box fontFamily="Montserrat">
-        
-        {/* Your Post Job Banner Section */}
-        <Container fixed>
-               </Container>
             <Container fixed>
             <Typography variant="h3" align='center'>
                 Frequently Asked{" "} <span className='span'>Questions
