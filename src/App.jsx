@@ -7,6 +7,12 @@ import WindowCleaning from "./pages/WindowCleaning/WindowCleaning";
 import Signup from "./pages/Signup/Signup";
 import Subscription from "./pages/Subscription/Subscription";
 
+import HowItWork from "./pages/HowItWork/HowItWork"
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact"
+import AdminLogin from "./pages/AdminLogin/AdminLogin";
+import NewPassword from "./Components/NewPassword/NewPassword";
+
 function App() {
   return (
     <div>
@@ -22,6 +28,8 @@ function App() {
           } />
           <Route path='/windowcleaning' element={<WindowCleaning />} />
           <Route path="/subscription" element={<Subscription />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/new-password" element={<NewPassword />} />
           <Route
             path="/signup"
             element={<Signup />}
@@ -34,3 +42,4 @@ function App() {
   )
 }
   export default App;
+

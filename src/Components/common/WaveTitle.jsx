@@ -5,7 +5,7 @@ const WaveTitle = ({
   mainTitle = "",
   highlightTitle = "",
 }) => {
-  const textRef = useRef(null);
+  const textRef = useRef(null); 
   const canvasRef = useRef(null);
 
   useEffect(() => {

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Container } from "@mui/material";
 import WaveTitle from "../../Components/common/WaveTitle";
 import PricingCard from "../../Components/common/PricingCard";
+import Payment from "./Payment";
 
 const plansData = [
   {
@@ -31,6 +32,13 @@ const plansData = [
 ];
 
 const Subscription = () => {
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+  // Card সিলেক্ট হলে Payment Component রেন্ডার হবে
+  if (selectedPlan) {
+    return <Payment selectedPlan={selectedPlan} onBack={() => setSelectedPlan(null)} />;
+  }
+  
   return (
     <Box
       sx={{
@@ -113,8 +121,8 @@ const Subscription = () => {
             width: "364px",
             height: "250px",
             background:
-              "radial-gradient(ellipse at center, rgba(255, 222, 89, 0.5) 0%, rgba(255, 222, 89, 0.15) 40%, transparent 100%)",
-            filter: "blur(110px)",
+              "radial-gradient(ellipse at center, rgba(255, 222, 89, 0.5) 0%, rgba(255, 222, 89, 0.15) 70%, transparent 100%)",
+            filter: "blur(50px)",
           }}
         />
       </Box>
@@ -138,7 +146,7 @@ const Subscription = () => {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(circle at center, rgba(0, 205, 100, 0.12) 0%, rgba(0, 205, 100, 0.02) 50%, transparent 70%)",
+              "radial-gradient(circle at center, rgba(0, 205, 100, 0.12) 0%, rgba(0, 205, 100, 0.02) 80%, transparent 100%)",
             filter: "blur(25px)",
           }}
         />
@@ -213,9 +221,7 @@ const Subscription = () => {
               price={plan.price}
               billingCycle={plan.billingCycle}
               features={plan.features}
-              onSelect={() =>
-                alert(`Selected ${plan.title} - ${plan.price}`)
-              }
+              onSelect={() => setSelectedPlan(plan)}
             />
           ))}
         </Box>
