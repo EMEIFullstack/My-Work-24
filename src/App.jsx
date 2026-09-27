@@ -14,6 +14,7 @@ import Login from "./Pages/Auth/Login";
 import ForgotPassword from "./Pages/Auth/ForgotPassword";
 import NewPassword from "./Pages/Auth/NewPassword";
 import UserProfile from "./Components/Auth/UserProfile/UserProfile";
+import MyJobProjects from "./Dashboard/MyJobProjects";
 
 function App() {
   return (
@@ -47,7 +48,7 @@ function App() {
           <Route path="/new-password" element={<NewPassword />} />
          
           <Route path="/profile" element={<UserProfile />} />
-
+          <Route path="/jobproject" element={<MyJobProjects/>} /> 
         </Routes>
         <Footer />
       </Router>
