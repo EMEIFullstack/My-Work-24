@@ -4,9 +4,7 @@ import Home from "./pages/Home/Home";
 import { Box } from "@mui/material";
 import News from "./pages/News/News";
 import NewsDetails from "./pages/NewsDetails/NewsDetails";
-// import SearchResults from "./Components/SearchResults/SearchResults";
-// import SearchPage from "./pages/SearchPage/SearchPage";
-
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 export default function App() {
   return (
@@ -16,7 +14,7 @@ export default function App() {
           <Route path='/' element={<Home/>}/>
           <Route path="/news" element={<News/>}/>
           <Route path="/details" element={<NewsDetails/>}/>
-          {/* <Route path="/search" element={<SearchResults/>}/> */}
+          <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </Router>
     </Box>

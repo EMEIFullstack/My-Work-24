@@ -51,9 +51,9 @@ section.related-section {
 }
 
 h4{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
 }
 
 p.para{

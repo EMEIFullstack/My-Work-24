@@ -5,6 +5,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { HomeWrapper } from '../../HomeWrapper/HomeWrapper';
 // import Button from '@mui/material/Button';
 
 export default function QuestionsSec({ title, para }) {
@@ -12,6 +13,7 @@ export default function QuestionsSec({ title, para }) {
   const id = React.useId();
 
   return (
+    <HomeWrapper>
     <div>
       <Accordion className="accordion">
         <AccordionSummary
@@ -28,5 +30,6 @@ export default function QuestionsSec({ title, para }) {
         </AccordionDetails>
       </Accordion>
     </div>
+    </HomeWrapper>
   );
 }
