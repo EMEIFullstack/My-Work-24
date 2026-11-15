@@ -1,0 +1,274 @@
+
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+
+
+export const HomeWrapper = styled(Box)`
+
+p{
+    font-size: 16px;
+    color: #64757A;
+    max-width: 40%;
+    padding: 14px 0;
+    text-align: center !important;
+    margin: 0 auto;
+}
+
+h3{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 42px;
+}
+
+.span{
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #00CD64;
+    color: #00CD64;
+}
+
+.details-description {
+    text-align: left !important;
+    max-width: 68%;
+}
+
+section.related-section {
+    padding: 89px 0;
+}
+
+.accordion{
+    margin-bottom: 15px !important;
+    padding: 24px 32px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 60px 78.7px rgba(17, 129, 71, 0.06);
+    backdrop-filter: blur(8px);
+    border-radius: 30px !important;
+    border: 1px solid #1A1C1E;
+}
+
+.accordion-summary, .accordion-details{
+    padding: 0;
+}
+
+h4{
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+}
+
+p.para{
+    margin: 0;
+    text-align: left !important;
+    max-width: 100%;
+}
+
+
+img{
+    position: relative;
+}
+
+.image{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-6%, -14%);
+}
+
+img.gr {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(0, 69%);
+}
+
+img.yellow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(0, 100%);
+}
+
+img.graphic {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(0, 200%);
+}
+
+img.green {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(0, 35%);
+}
+
+img.shape {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translate(0, 200%);
+}
+
+.card{
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #D6E8E8;
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+    margin-right: 30px;
+    max-width: 100%;
+    /* height: 481px; */
+}
+
+.card-content{
+    padding: 27px 34px;
+}
+
+.flex{
+    display: flex;
+}
+
+.description {
+    max-width: 93%;
+    margin: 0;
+    text-align: left !important;
+    padding: 0;
+}
+
+.news{
+    text-decoration: underline;
+    text-decoration-color: #00CD64;
+    text-decoration-style: wavy;
+}
+
+.news-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.news-card{
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #D6E8E8;
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 30px;
+    width: calc(91% / 3);
+    margin-right: 33px;
+    margin-bottom: 33px;
+}
+
+img.elipse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(16%, -12%);
+}
+
+.search{
+    position: relative;
+    text-align: center;
+    padding: 44px 0;
+}
+
+.input {
+    background: #FFFFFF;
+    border: 1px solid #D6E8E8;
+    box-shadow: 0px 60px 78.7px rgba(17, 129, 71, 0.06);
+    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 47px;
+    width: 678px;
+    height: 83px;
+    font-size: 16px;
+    padding-left: 29px;
+    outline: none;
+}
+
+.input::placeholder{
+    color: #C7C7C7;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    /* border-right:  solid orange; */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+.search_btn {
+    border: 1px solid black;
+    padding: 17px 32px;
+    border-radius: 63px;
+    color: black;
+    position: absolute;
+    left: 68%;
+    top: 34%;
+    text-transform: capitalize;
+    font-size: 16px;
+    width: 109px;
+    height: 54px;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+.parent-box {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 40px;
+    padding: 23px 0;
+}
+
+h5{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 19px 0;
+}
+
+.date{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #00CD64;
+}
+
+.news-section{
+    padding: 72px 0;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    width: 199px;
+    height: 59px;
+    background: #00CD64;
+    border-radius: 63px;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+    text-transform: capitalize;
+}
+
+.btn:hover{
+    background-color: #1A1C1E;
+    color: #FFF;
+    transition: all 0.5s;
+}
+`
