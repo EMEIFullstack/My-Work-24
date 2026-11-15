@@ -5,25 +5,6 @@ import QuestionsSec from '../../Components/FAQs/QuestionsSec';
 import NewsSlider from '../../Components/News/NewsSlider';
 
 
-<<<<<<< HEAD
-import Hero from '../../Components/Hero/Hero';
-
-
-
-export default function Home() {
-    return (
-        <div>
-            <>
-
-            
-            <Hero/>
-          
-            </>
-
-        </div>
-    )
-}
-=======
 function Home() {
 
     const data = [
@@ -80,4 +61,3 @@ function Home() {
 export default Home
 
 
->>>>>>> trinanjan
