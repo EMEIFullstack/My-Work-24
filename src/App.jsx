@@ -13,6 +13,9 @@ import SignUp from "./Pages/Auth/SignUp";
 import Login from "./Pages/Auth/Login";
 import NewPassword from "./Pages/Auth/NewPassword";
 import UserProfile from "./Components/Auth/UserProfile/UserProfile";
+import News from "./pages/News/News";
+import NewsDetails from "./pages/NewsDetails/NewsDetails";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
               </>
             }
           />
+          <Route path="/news" element={<News/>}/>
+          <Route path="/details" element={<NewsDetails/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/windowcleaning" element={<WindowCleaning />} />
           <Route path="/subscription" element={<Subscription />} />
           <Route path="/signup" element={<Signup />} />
@@ -54,3 +60,24 @@ function App() {
   export default App;
 
   
+// import { BrowserRouter as Router, Routes, Route  } from "react-router-dom";
+// import Home from "./pages/Home/Home";
+// // import './Global.scss';
+
+
+// export default function App() {
+//   return (
+//     <Box>
+//       <Router>
+//         <Routes>
+//           <Route path='/' element={<Home/>}/>
+          
+//         </Routes>
+//       </Router>
+//     </Box>
+//   )
+// }
+
+//     </BrowserRouter>
+//   );
+// }
