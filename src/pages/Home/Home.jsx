@@ -56,7 +56,6 @@ function Home() {
     </Box>
     </HomeWrapper>
   )
-  
 }
 
 export default Home
